@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CFS Microsoft Copilot Prompt Library</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f6f8;color:#1a1a1a;min-height:100vh;padding:2rem 1rem}
+  .container{max-width:960px;margin:0 auto}
+  .header{background:#fff;border:1px solid #e0e2e8;border-radius:12px;padding:1.75rem 2rem;margin-bottom:1.25rem}
+  .header-top{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+  .header-icon{width:40px;height:40px;background:#0078d4;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .header-icon svg{width:22px;height:22px;fill:#fff}
+  .header h1{font-size:20px;font-weight:600;color:#1a1a1a;letter-spacing:-0.3px}
+  .header p{font-size:13px;color:#666;margin-top:2px}
+  .meta-row{display:flex;gap:16px;margin-top:12px;flex-wrap:wrap}
+  .meta-pill{font-size:11px;padding:3px 10px;border-radius:20px;background:#f0f4f8;color:#555;border:1px solid #e0e2e8}
+  .controls{background:#fff;border:1px solid #e0e2e8;border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+  .search-wrap{position:relative;margin-bottom:12px}
+  .search-wrap input{width:100%;padding:10px 14px 10px 40px;font-size:14px;border:1px solid #d0d3da;border-radius:8px;background:#fafafa;color:#1a1a1a;outline:none;transition:border-color 0.15s}
+  .search-wrap input:focus{border-color:#0078d4;background:#fff}
+  .search-wrap svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:#999}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{padding:6px 14px;font-size:12px;font-weight:500;border:1px solid #d0d3da;border-radius:20px;cursor:pointer;background:#fff;color:#555;transition:all 0.15s;user-select:none}
+  .chip:hover{border-color:#0078d4;color:#0078d4}
+  .chip.active{background:#0078d4;color:#fff;border-color:#0078d4}
+  .results-count{font-size:12px;color:#888;margin-bottom:10px}
+  .cards{display:grid;gap:12px;grid-template-columns:1fr}
+  @media(min-width:600px){.cards{grid-template-columns:1fr 1fr}}
+  @media(min-width:860px){.cards{grid-template-columns:1fr 1fr 1fr}}
+  .card{background:#fff;border:1px solid #e0e2e8;border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:10px;transition:box-shadow 0.15s,border-color 0.15s}
+  .card:hover{box-shadow:0 2px 12px rgba(0,0,0,0.07);border-color:#c0c4cc}
+  .card-meta{display:flex;justify-content:space-between;align-items:center}
+  .badge-role{font-size:11px;font-weight:600;padding:3px 9px;border-radius:6px;letter-spacing:0.2px}
+  .badge-cat{font-size:10px;color:#999;text-transform:uppercase;letter-spacing:0.5px}
+  .role-exec{background:#e8f0fe;color:#1a56a8}
+  .role-finance{background:#e6f4ea;color:#1a7335}
+  .role-hr{background:#fce8e6;color:#a81a1a}
+  .role-programs{background:#fef3e2;color:#a05c00}
+  .role-ops{background:#f3e8fd;color:#6a1ab8}
+  .role-it{background:#e3f2fd;color:#0277bd}
+  .role-comms{background:#fce4ec;color:#ad1457}
+  .role-custom{background:#f1f3f4;color:#3c4043}
+  .card-prompt{font-size:13px;color:#2a2a2a;line-height:1.65;flex:1}
+  .card-footer{display:flex;justify-content:flex-end}
+  .copy-btn{font-size:12px;padding:6px 14px;border:1px solid #d0d3da;border-radius:7px;cursor:pointer;background:#fff;color:#555;transition:all 0.15s;display:flex;align-items:center;gap:5px}
+  .copy-btn:hover{border-color:#0078d4;color:#0078d4}
+  .copy-btn.copied{border-color:#1a7335;color:#1a7335;background:#e6f4ea}
+  .no-results{grid-column:1/-1;text-align:center;padding:3rem;color:#888;font-size:14px}
+  .gen-section{background:#fff;border:1px solid #e0e2e8;border-radius:12px;padding:1.5rem;margin-top:1.25rem}
+  .gen-section h2{font-size:15px;font-weight:600;color:#1a1a1a;margin-bottom:4px}
+  .gen-section p{font-size:13px;color:#666;margin-bottom:12px}
+  .gen-note{font-size:11px;color:#999;margin-top:6px}
+  .gen-row{display:flex;gap:8px}
+  .gen-row input{flex:1;padding:10px 14px;font-size:13px;border:1px solid #d0d3da;border-radius:8px;color:#1a1a1a;outline:none;transition:border-color 0.15s}
+  .gen-row input:focus{border-color:#0078d4}
+  .gen-btn{padding:10px 18px;font-size:13px;font-weight:500;border:1px solid #0078d4;border-radius:8px;cursor:pointer;background:#0078d4;color:#fff;white-space:nowrap;transition:all 0.15s}
+  .gen-btn:hover{background:#006cbe}
+  .gen-btn:disabled{opacity:0.55;cursor:not-allowed}
+  .gen-output{margin-top:10px;background:#f5f6f8;border:1px solid #e0e2e8;border-radius:8px;padding:14px 16px;font-size:13px;color:#1a1a1a;line-height:1.7;display:none}
+  .gen-actions{display:none;gap:8px;margin-top:8px}
+  .gen-copy-btn,.gen-add-btn{font-size:12px;padding:6px 14px;border:1px solid #d0d3da;border-radius:7px;cursor:pointer;background:#fff;color:#555;transition:all 0.15s}
+  .gen-copy-btn:hover,.gen-add-btn:hover{border-color:#0078d4;color:#0078d4}
+  .footer{text-align:center;margin-top:2rem;font-size:11px;color:#aaa}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="header-top">
+      <div class="header-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      </div>
+      <div>
+        <h1>CFS Microsoft Copilot Prompt Library</h1>
+        <p>Role-based prompts for CFS leadership &middot; Microsoft 365 Copilot Committee</p>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="meta-pill">Copilot Committee Edition</span>
+    </div>
+  </div>
+  <div class="controls">
+    <div class="search-wrap">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="6.5" cy="6.5" r="4.5"/><path d="M10 10l3 3" stroke-linecap="round"/></svg>
+      <input type="text" id="search" placeholder="Search prompts by keyword, role, or category&hellip;" oninput="render()">
+    </div>
+    <div class="chips" id="chips"></div>
+  </div>
+  <div class="results-count" id="count"></div>
+  <div class="cards" id="cards"></div>
+  <div class="gen-section">
+    <h2>Generate a custom prompt</h2>
+    <p>Describe your situation and the AI will write a ready-to-use Microsoft Copilot prompt tailored for CFS.</p>
+    <div class="gen-row">
+      <input type="text" id="gen-input" placeholder="e.g. I need to prepare for a grant renewal meeting with funders&hellip;">
+      <button class="gen-btn" id="gen-btn" onclick="generate()">Generate</button>
+    </div>
+    <p class="gen-note">Requires internet access. Contact IT for setup assistance if the generator is unavailable.</p>
+    <div class="gen-output" id="gen-output"></div>
+    <div class="gen-actions" id="gen-actions">
+      <button class="gen-copy-btn" id="gen-copy-btn" onclick="copyGenerated()">Copy prompt</button>
+      <button class="gen-add-btn" onclick="addGenerated()">+ Add to library</button>
+    </div>
+  </div>
+  <div class="footer">Center for Family Support &middot; IT Department &middot; Microsoft 365 Copilot Committee &middot; 2026</div>
+</div>
+<script>
+var PROMPTS=[
+  {role:"Executive",cat:"Communication",text:"Draft a board update summarizing our Q1 program outcomes, staffing highlights, and technology initiatives in language appropriate for a nonprofit board audience."},
+  {role:"Executive",cat:"Analysis",text:"Review these meeting notes and identify the top three strategic priorities that require executive attention this week, with a brief rationale for each."},
+  {role:"Executive",cat:"Meeting support",text:"Prepare talking points for a funder conversation about CFS's Home Enabling Supports program and our smart home assistive technology pilot in group homes."},
+  {role:"Finance",cat:"Analysis",text:"Summarize this budget variance report and highlight any line items exceeding 10% over or under budget, with plausible explanations for each variance."},
+  {role:"Finance",cat:"Communication",text:"Draft a financial narrative for our annual report that conveys fiscal stewardship while emphasizing our investment in direct support and technology infrastructure."},
+  {role:"Finance",cat:"Meeting support",text:"Generate a list of targeted questions to prepare for an upcoming vendor contract negotiation, focused on cost, SLA commitments, and exit provisions."},
+  {role:"HR",cat:"Communication",text:"Draft a clear and compassionate all-staff message announcing the upcoming transition from UKG to Paycom, emphasizing employee benefits and key dates."},
+  {role:"HR",cat:"Analysis",text:"Analyze these employee survey responses and identify the top three themes related to staff satisfaction, retention risk, and areas for leadership action."},
+  {role:"HR",cat:"Drafting",text:"Create an outline for a performance improvement plan for a staff member with recurring documentation delays, including measurable goals and a 30/60/90-day check-in structure."},
+  {role:"Programs",cat:"Drafting",text:"Review this incident report narrative and suggest edits to ensure it is objective, factually complete, and suitable for submission to a regulatory reviewer."},
+  {role:"Programs",cat:"Communication",text:"Draft talking points for a family information session introducing our new smart home assistive technology in group homes, focusing on safety, dignity, and independence."},
+  {role:"Programs",cat:"Reporting",text:"Write a program outcome summary for a grant report that highlights measurable impact of our residential services on the independence of individuals with IDD."},
+  {role:"Operations",cat:"Reporting",text:"Create a reusable weekly project status update template for tracking multiple concurrent initiatives, with fields for status, blockers, next steps, and owner."},
+  {role:"Operations",cat:"Analysis",text:"Analyze these workflow descriptions and suggest three process improvements that could reduce administrative burden on direct support staff without compromising documentation quality."},
+  {role:"Operations",cat:"Meeting support",text:"Summarize this vendor performance data into a concise review memo I can share with leadership, flagging any SLA breaches or recurring issues."},
+  {role:"IT/Technology",cat:"Communication",text:"Summarize this cybersecurity incident report in plain language suitable for a 5-minute briefing to non-technical executive leadership, including impact, response taken, and current status."},
+  {role:"IT/Technology",cat:"Reporting",text:"Draft a Microsoft 365 Copilot adoption update for our quarterly committee meeting covering rollout progress by phase, observed usage patterns, and recommendations for next steps."},
+  {role:"IT/Technology",cat:"Analysis",text:"Review this list of IT helpdesk tickets from the past 30 days and identify the top recurring issue categories, affected user groups, and suggested root cause for each."},
+  {role:"Communications",cat:"Drafting",text:"Write a LinkedIn post announcing CFS's selection for the OPWDD Home Enabling Supports program, highlighting innovation, person-centered care, and our community partnerships."},
+  {role:"Communications",cat:"Drafting",text:"Draft a grant narrative paragraph describing how Microsoft 365 Copilot and smart home technology support CFS's mission to enhance independence and quality of life for individuals with IDD."},
+  {role:"Communications",cat:"Communication",text:"Summarize these donor relationship notes and suggest personalized follow-up messaging for our top three prospects ahead of the spring cultivation event."}
+];
+
+var ROLE_CLASSES={"Executive":"role-exec","Finance":"role-finance","HR":"role-hr","Programs":"role-programs","Operations":"role-ops","IT/Technology":"role-it","Communications":"role-comms","Custom":"role-custom"};
+var ROLES=["All"];
+PROMPTS.forEach(function(p){if(ROLES.indexOf(p.role)===-1)ROLES.push(p.role);});
+var activeRole="All";
+var generatedPrompt=null;
+var chipsEl=document.getElementById("chips");
+
+
+ROLES.forEach(function(r){
+  var c=document.createElement("button");
+  c.className="chip"+(r==="All"?" active":"");
+  c.textContent=r;
+  c.addEventListener("click",function(){
+    activeRole=r;
+    document.querySelectorAll(".chip").forEach(function(x){x.classList.remove("active");});
+    c.classList.add("active");
+    render();
+  });
+  chipsEl.appendChild(c);
+});
+
+function render(){
+  var q=document.getElementById("search").value.toLowerCase();
+  var filtered=PROMPTS.filter(function(p){
+    var mRole=activeRole==="All"||p.role===activeRole;
+    var mQ=!q||p.text.toLowerCase().indexOf(q)!==-1||p.role.toLowerCase().indexOf(q)!==-1||p.cat.toLowerCase().indexOf(q)!==-1;
+    return mRole&&mQ;
+  });
+  document.getElementById("count").textContent=filtered.length+" prompt"+(filtered.length!==1?"s":"")+(activeRole!=="All"?" \u00b7 "+activeRole:"");
+  var cardsEl=document.getElementById("cards");
+  if(!filtered.length){cardsEl.innerHTML='<div class="no-results">No prompts match your search. Try a different keyword or role.</div>';return;}
+  cardsEl.innerHTML="";
+  filtered.forEach(function(p){
+    var idx=PROMPTS.indexOf(p);
+    var rc=ROLE_CLASSES[p.role]||"role-custom";
+    var card=document.createElement("div");
+    card.className="card";
+    var meta=document.createElement("div");meta.className="card-meta";
+    var badge=document.createElement("span");badge.className="badge-role "+rc;badge.textContent=p.role;
+    var cat=document.createElement("span");cat.className="badge-cat";cat.textContent=p.cat;
+    meta.appendChild(badge);meta.appendChild(cat);
+    var prompt=document.createElement("div");prompt.className="card-prompt";prompt.textContent=p.text;
+    var footer=document.createElement("div");footer.className="card-footer";
+    var btn=document.createElement("button");btn.className="copy-btn";
+    btn.innerHTML='<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M11 5V3a1 1 0 00-1-1H3a1 1 0 00-1 1v7a1 1 0 001 1h2"/></svg> Copy';
+    btn.addEventListener("click",function(){
+      navigator.clipboard.writeText(PROMPTS[idx].text).then(function(){
+        btn.innerHTML='<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8l4 4 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg> Copied!';
+        btn.classList.add("copied");
+        setTimeout(function(){
+          btn.innerHTML='<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M11 5V3a1 1 0 00-1-1H3a1 1 0 001 1h2"/></svg> Copy';
+          btn.classList.remove("copied");
+        },2000);
+      }).catch(function(){btn.textContent="Error — try again";});
+    });
+    footer.appendChild(btn);
+    card.appendChild(meta);card.appendChild(prompt);card.appendChild(footer);
+    cardsEl.appendChild(card);
+  });
+}
+
+document.getElementById("gen-input").addEventListener("keydown",function(e){if(e.key==="Enter")generate();});
+
+function generate(){
+  var input=document.getElementById("gen-input").value.trim();
+  if(!input)return;
+  var btn=document.getElementById("gen-btn");
+  var out=document.getElementById("gen-output");
+  var actions=document.getElementById("gen-actions");
+  btn.disabled=true;btn.textContent="Generating\u2026";
+  out.style.display="block";out.textContent="Writing your prompt\u2026";
+  actions.style.display="none";generatedPrompt=null;
+  fetch("https://api.anthropic.com/v1/messages",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({
+      model:"claude-sonnet-4-20250514",max_tokens:1000,
+      system:"You are an expert Microsoft Copilot prompt engineer for CFS, a nonprofit serving individuals with intellectual and developmental disabilities in NY and NJ. Write a single ready-to-use Copilot prompt from the user's situation. Use imperative form. Return only the prompt, no preamble or quotes.",
+      messages:[{role:"user",content:"Situation: "+input+"\n\nWrite the Copilot prompt."}]
+    })
+  }).then(function(r){return r.json();}).then(function(d){
+    var text=d.content.filter(function(b){return b.type==="text";}).map(function(b){return b.text;}).join("");
+    out.textContent=text;generatedPrompt=text;actions.style.display="flex";
+  }).catch(function(){
+    out.textContent="Unable to generate. Please check your internet connection or contact IT.";
+  }).finally(function(){btn.disabled=false;btn.textContent="Generate";});
+}
+
+function copyGenerated(){
+  if(!generatedPrompt)return;
+  navigator.clipboard.writeText(generatedPrompt).then(function(){
+    var b=document.getElementById("gen-copy-btn");b.textContent="Copied!";
+    setTimeout(function(){b.textContent="Copy prompt";},2000);
+  });
+}
+
+function addGenerated(){
+  if(!generatedPrompt)return;
+  PROMPTS.unshift({role:"Custom",cat:"Generated",text:generatedPrompt});
+  if(ROLES.indexOf("Custom")===-1){
+    ROLES.splice(1,0,"Custom");
+    var c=document.createElement("button");c.className="chip";c.textContent="Custom";
+    c.addEventListener("click",function(){
+      activeRole="Custom";
+      document.querySelectorAll(".chip").forEach(function(x){x.classList.remove("active");});
+      c.classList.add("active");render();
+    });
+    chipsEl.insertBefore(c,chipsEl.children[1]);
+  }
+  document.getElementById("gen-output").style.display="none";
+  document.getElementById("gen-actions").style.display="none";
+  document.getElementById("gen-input").value="";
+  generatedPrompt=null;
+  render();
+}
+
+render();
+</script>
+</body>
+</html>
