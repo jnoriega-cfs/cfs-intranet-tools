@@ -203,7 +203,7 @@ function generate(){
   btn.disabled=true;btn.textContent="Generating\u2026";
   out.style.display="block";out.textContent="Writing your prompt\u2026";
   actions.style.display="none";generatedPrompt=null;
-  fetch("https://api.anthropic.com/v1/messages",{
+  fetch("https://cfs-ai-proxy.jnoriega.workers.dev",{
     method:"POST",
     headers:{"Content-Type":"application/json"},
     body:JSON.stringify({
