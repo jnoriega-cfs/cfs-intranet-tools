@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SharePoint and OneDrive FAQ — The Center for Family Support</title>
+<style>
+  :root {
+    --cfs-blue: #1F4E79;
+    --cfs-accent: #2E75B6;
+    --cfs-soft: #EAF2F8;
+    --text: #262626;
+    --text-soft: #595959;
+    --border: #DCE3EA;
+    --bg: #FFFFFF;
+    --bg-soft: #F7FAFC;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 24px 0 32px;
+    border-bottom: 3px solid var(--cfs-accent);
+    margin-bottom: 32px;
+  }
+  .hero .org {
+    color: var(--text-soft);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+  .hero h1 {
+    color: var(--cfs-blue);
+    font-size: 38px;
+    font-weight: 700;
+    margin: 0 0 6px;
+    line-height: 1.15;
+  }
+  .hero .subtitle {
+    color: var(--cfs-accent);
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 14px;
+  }
+  .hero .tagline {
+    color: var(--text-soft);
+    font-style: italic;
+    font-size: 15px;
+    margin: 0;
+  }
+
+  /* Intro */
+  .intro p {
+    font-size: 16px;
+    margin: 0 0 14px;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--cfs-accent);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin: 32px 0 40px;
+  }
+  .toc h2 {
+    color: var(--cfs-blue);
+    font-size: 20px;
+    margin: 0 0 16px;
+    padding: 0;
+    border: none;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px 32px;
+  }
+  .toc-section h3 {
+    color: var(--cfs-blue);
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .toc-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .toc-section li {
+    margin: 0 0 6px;
+  }
+  .toc-section a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14.5px;
+    border-bottom: 1px dotted transparent;
+  }
+  .toc-section a:hover {
+    color: var(--cfs-accent);
+    border-bottom-color: var(--cfs-accent);
+  }
+
+  /* Section headings */
+  .section {
+    margin: 48px 0 0;
+    padding-top: 8px;
+  }
+  .section > h2 {
+    color: var(--cfs-blue);
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--cfs-accent);
+  }
+
+  /* Q&A */
+  .qa {
+    padding: 20px 0 4px;
+    border-bottom: 1px solid var(--border);
+  }
+  .qa:last-of-type { border-bottom: none; }
+  .qa h3 {
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    line-height: 1.35;
+  }
+  .qa p {
+    margin: 0 0 12px;
+    font-size: 15.5px;
+  }
+  .qa ul {
+    margin: 4px 0 12px;
+    padding-left: 22px;
+  }
+  .qa li {
+    margin: 0 0 6px;
+    font-size: 15.5px;
+  }
+  .qa strong { color: var(--text); }
+
+  /* Callout */
+  .callout {
+    background: var(--cfs-soft);
+    border-left: 5px solid var(--cfs-accent);
+    border-radius: 3px;
+    padding: 14px 18px;
+    margin: 14px 0 18px;
+  }
+  .callout-label {
+    color: var(--cfs-blue);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 4px;
+  }
+  .callout-text { margin: 0; font-size: 15px; }
+
+  /* Back to top */
+  .back-to-top {
+    text-align: right;
+    margin: 18px 0 0;
+    padding: 8px 0;
+  }
+  .back-to-top a {
+    color: var(--cfs-accent);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px dotted var(--cfs-accent);
+  }
+  .back-to-top a:hover { color: var(--cfs-blue); border-bottom-color: var(--cfs-blue); }
+
+  /* Footer */
+  .farewell {
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 3px solid var(--cfs-accent);
+    text-align: center;
+  }
+  .farewell p { margin: 0 0 8px; color: var(--text-soft); font-style: italic; font-size: 15px; }
+  .farewell .signoff {
+    color: var(--cfs-blue);
+    font-weight: 700;
+    font-style: normal;
+    font-size: 16px;
+    margin-top: 14px;
+  }
+  .farewell .attribution {
+    color: var(--text-soft);
+    font-style: normal;
+    font-size: 14px;
+    margin-top: 4px;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .container { padding: 24px 16px 60px; }
+    .hero h1 { font-size: 30px; }
+    .hero .subtitle { font-size: 20px; }
+    .toc { padding: 18px 18px; }
+    .section > h2 { font-size: 22px; }
+    .qa h3 { font-size: 17px; }
+  }
+
+  /* Print */
+  @media print {
+    .toc, .back-to-top { display: none; }
+    .qa { page-break-inside: avoid; }
+    .section { page-break-after: auto; }
+    .container { max-width: 100%; padding: 0; }
+    body { font-size: 11pt; }
+  }
+</style>
+</head>
+<body>
+<div class="container" id="top">
+
+<header class="hero">
+  <p class="org">The Center for Family Support</p>
+  <h1>SharePoint and OneDrive</h1>
+  <p class="subtitle">Frequently Asked Questions</p>
+  <p class="tagline">A staff resource compiled from the four-part training series</p>
+</header>
+
+<section class="intro">
+  <p>This FAQ was built from the questions you asked during our four SharePoint and OneDrive training sessions held in March and April 2026. If you attended any of the sessions, you may recognize your question here. If you missed a session, this is a great place to start. We have also added some additional questions that come up often at the Help Desk so you have everything in one place.</p>
+  <p>If you do not see your question answered here, please reach out to the IT Help Desk. We are continuing to update this page as new questions come in.</p>
+</section>
+
+<nav class="toc" aria-label="Table of contents">
+  <h2>Quick Navigation</h2>
+  <div class="toc-grid">
+    <div class="toc-section">
+      <h3>Getting Started</h3>
+      <ul>
+        <li><a href="#q-onedrive-vs-sharepoint">Difference between OneDrive and SharePoint</a></li>
+        <li><a href="#q-where-teams-fits">Where Teams fits in</a></li>
+        <li><a href="#q-how-access">How to access OneDrive and SharePoint</a></li>
+        <li><a href="#q-old-storage">Do I still need Box, the Z drive, or My Documents?</a></li>
+      </ul>
+    </div>
+    <div class="toc-section">
+      <h3>File Management</h3>
+      <ul>
+        <li><a href="#q-desktop">Saving to my desktop</a></li>
+        <li><a href="#q-name-vs-cfs">Two cloud options when saving</a></li>
+        <li><a href="#q-naming">Naming files and folders</a></li>
+        <li><a href="#q-search">Searching for a file by name</a></li>
+        <li><a href="#q-move">Moving a file from OneDrive to SharePoint</a></li>
+      </ul>
+    </div>
+    <div class="toc-section">
+      <h3>Sharing &amp; Permissions</h3>
+      <ul>
+        <li><a href="#q-link-vs-attachment">Link vs. email attachment</a></li>
+        <li><a href="#q-how-share">How to share from OneDrive</a></li>
+        <li><a href="#q-permissions">Edit, View, Can&rsquo;t Download</a></li>
+        <li><a href="#q-external">Sharing externally</a></li>
+        <li><a href="#q-email-link">Going back to the email each time</a></li>
+        <li><a href="#q-shared-section">Where shared files appear</a></li>
+        <li><a href="#q-edit-shared">Editing a shared file directly</a></li>
+      </ul>
+    </div>
+    <div class="toc-section">
+      <h3>Versions &amp; Document Control</h3>
+      <ul>
+        <li><a href="#q-older-versions">Keeping older versions</a></li>
+        <li><a href="#q-deleted">Recovering a deleted file</a></li>
+        <li><a href="#q-autosave">How autosave works</a></li>
+      </ul>
+    </div>
+    <div class="toc-section">
+      <h3>OneDrive, File Explorer &amp; Sync</h3>
+      <ul>
+        <li><a href="#q-file-explorer">OneDrive and File Explorer</a></li>
+        <li><a href="#q-sync-delay">Files taking long to appear</a></li>
+        <li><a href="#q-sync-status">Is OneDrive actually syncing?</a></li>
+      </ul>
+    </div>
+    <div class="toc-section">
+      <h3>Microsoft Teams Integration</h3>
+      <ul>
+        <li><a href="#q-teams-files">Where Teams files live</a></li>
+        <li><a href="#q-both-places">Uploading to Teams and SharePoint</a></li>
+        <li><a href="#q-add-channel">Can&rsquo;t add someone to a channel</a></li>
+        <li><a href="#q-agenda">Where to store a meeting agenda</a></li>
+        <li><a href="#q-notify">Notifying the team about updates</a></li>
+      </ul>
+    </div>
+    <div class="toc-section">
+      <h3>Working from Anywhere</h3>
+      <ul>
+        <li><a href="#q-mobile">Access from home or on my phone</a></li>
+      </ul>
+    </div>
+    <div class="toc-section">
+      <h3>Backup &amp; Security</h3>
+      <ul>
+        <li><a href="#q-backed-up">Are my files backed up?</a></li>
+        <li><a href="#q-sensitive">Sharing sensitive documents</a></li>
+      </ul>
+    </div>
+    <div class="toc-section">
+      <h3>Resources &amp; Help</h3>
+      <ul>
+        <li><a href="#q-resources">Training recording, slide deck, and reference card</a></li>
+        <li><a href="#q-help">Who to contact for help</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<section class="section" id="getting-started">
+<h2>Getting Started: The Core Concepts</h2>
+
+<article class="qa" id="q-onedrive-vs-sharepoint">
+<h3>What is the difference between OneDrive and SharePoint?</h3>
+<p>Think of OneDrive as your personal filing cabinet and SharePoint as the shared filing cabinet for your team, your department, or the agency. The simplest way to remember it: OneDrive is for <em>me</em>, SharePoint is for <em>we</em>.</p>
+<p><strong>OneDrive</strong> is the right place for files that only you need: drafts, working files, personal notes, anything that is not ready to share. Files in OneDrive are private by default, which means no one else can see them unless you specifically share them.</p>
+<p><strong>SharePoint</strong> is the right place for files the agency relies on: department documents, project files, policies, procedures, HR forms, and anything that needs to be available to a group. Files in SharePoint are owned by the team or department, not by an individual, so the file does not disappear if someone leaves the agency.</p>
+<div class="callout">
+  <p class="callout-label">Quick rule of thumb</p>
+  <p class="callout-text">If only you need it, save it in OneDrive. If your team or the agency depends on it, save it in SharePoint.</p>
+</div>
+</article>
+
+<article class="qa" id="q-where-teams-fits">
+<h3>Where does Microsoft Teams fit in?</h3>
+<p>Teams is the place you collaborate in real time, and it is connected to SharePoint behind the scenes. When someone creates a Microsoft Team, a SharePoint site is automatically created for it. Every channel you create in that Team becomes a corresponding folder in SharePoint.</p>
+<p>When you upload a file to the Files tab of a Teams channel, you are actually uploading it to SharePoint. The Teams Files tab and the SharePoint document library are two windows into the same location. You do not need to upload your file in both places. Whichever one you prefer to work in, the other one stays in sync.</p>
+</article>
+
+<article class="qa" id="q-how-access">
+<h3>How do I access OneDrive and SharePoint?</h3>
+<p>The recommended way is through the CFS website. Go to the agency website, click the Email link in the For Staff section, and sign in with your CFS credentials. Once you are signed in, click Apps in the lower left corner.</p>
+<ul>
+  <li>OneDrive will appear in the Apps menu.</li>
+  <li>Teams will appear in the Apps menu.</li>
+  <li>SharePoint is sometimes hidden in the short list. If you do not see it, click <strong>More apps</strong> and you will find it there.</li>
+</ul>
+<p>SharePoint is web-based only. You cannot install a SharePoint app on your computer the way you can with Teams or OneDrive. You will always reach SharePoint through your browser, or indirectly through the Files tab of a Teams channel.</p>
+</article>
+
+<article class="qa" id="q-old-storage">
+<h3>Do I still need my old Box account, Z drive, or My Documents folder?</h3>
+<p>No. OneDrive and SharePoint have replaced those. Your personal files that used to live in My Documents now belong in OneDrive. Department and shared content that used to live on the Z drive or in Box now belongs in SharePoint. The folder structures may look a little different at first, but the content is the same and is fully accessible. If you cannot find something you used to access in the old system, contact the Help Desk and we will walk you through where it now lives.</p>
+</article>
+
+<p class="back-to-top"><a href="#top">↑ Back to top</a></p>
+</section>
+
+<!-- ============================================================ -->
+<section class="section" id="file-management">
+<h2>File Management and Organization</h2>
+
+<article class="qa" id="q-desktop">
+<h3>Should I be saving files to my desktop?</h3>
+<p>No. Files saved to your desktop or to the C drive are not backed up. If you accidentally delete a file or your computer has an issue, that file cannot be recovered.</p>
+<p>Save your work in OneDrive (for personal files) or in SharePoint (for shared files). If you absolutely need to use your desktop, use it only as a temporary spot. Once you are done, move the file into OneDrive, SharePoint, or the recycle bin.</p>
+</article>
+
+<article class="qa" id="q-name-vs-cfs">
+<h3>When I save a file, why do I sometimes see two cloud options, like &ldquo;Center for Family Support&rdquo; and one with my name?</h3>
+<p>This is a common point of confusion. The option that begins with your personal name (for example, &ldquo;John Smith&rsquo;s OneDrive&rdquo;) is a personal Microsoft account that is local to that device. It is not connected to CFS and will not be backed up by the agency.</p>
+<p>Always choose the option labeled <strong>Center for Family Support</strong>. That is your CFS work account, and that is the one that is backed up, secured, and accessible from any device when you sign in with your CFS credentials.</p>
+<div class="callout">
+  <p class="callout-label">Tip</p>
+  <p class="callout-text">If you are not sure which one to pick, the safest path is to skip File Explorer and go straight to OneDrive on the web through cfsny.org. The web version always saves to your CFS account.</p>
+</div>
+</article>
+
+<article class="qa" id="q-naming">
+<h3>What is a good way to name files and folders?</h3>
+<p>Clear names make a real difference when you (or someone else) tries to find a document a year from now. The exact format does not matter as much as the consistency. A few habits that help:</p>
+<ul>
+  <li>Use descriptive names instead of &ldquo;Document1&rdquo; or &ldquo;Final_v2_REAL_FINAL.&rdquo;</li>
+  <li>Add a date or year to anything that gets updated regularly, for example: Employee Handbook_June 2026.</li>
+  <li>Avoid very long names with special characters.</li>
+  <li>If you split your work between regions or programs, create top-level folders such as New York and New Jersey, then sub-folders for programs or projects.</li>
+</ul>
+<p>Pick a convention that makes sense to you and stick with it. If you would like help organizing your folders, the Help Desk can sit with you and set up a structure together.</p>
+</article>
+
+<article class="qa" id="q-search">
+<h3>How do I search for a specific file by name?</h3>
+<p>There is a search bar at the top of every SharePoint and OneDrive page. The behavior depends on where you are when you search:</p>
+<ul>
+  <li>If you search from the SharePoint home page, it searches across <strong>every site you have access to</strong>. This is helpful when you do not remember which site a document lives in.</li>
+  <li>If you search from inside a specific document library or channel, it searches <strong>only that location</strong>. This is helpful when you know exactly where a document should be.</li>
+</ul>
+<p>This is also why naming conventions matter so much. A search for &ldquo;handbook 2026&rdquo; will get you straight to the right file if you have named things consistently.</p>
+</article>
+
+<article class="qa" id="q-move">
+<h3>How do I move a file from my OneDrive to SharePoint?</h3>
+<p>The simplest method is drag and drop. Open both windows side by side: your OneDrive on one side, and the SharePoint location (or Teams channel) on the other side. Click the file, drag it into the destination folder, and let go.</p>
+<p>A few tips that make this smoother:</p>
+<ul>
+  <li>Move one file at a time at first, especially if you are new to it. If you accidentally drop the file in the wrong place, it is easier to recover.</li>
+  <li>If you are moving a folder with many files inside, consider creating the destination folder first and moving a few files at a time, rather than the whole parent folder at once.</li>
+  <li>Large folders take longer than single files. If you do not see a file appear right away, give it some time to sync before troubleshooting.</li>
+</ul>
+<p>You can also right-click a file and choose &ldquo;Move to,&rdquo; which lets you browse for the destination instead of dragging.</p>
+</article>
+
+<p class="back-to-top"><a href="#top">↑ Back to top</a></p>
+</section>
+
+<!-- ============================================================ -->
+<section class="section" id="sharing">
+<h2>Sharing and Permissions</h2>
+
+<article class="qa" id="q-link-vs-attachment">
+<h3>Why should I share a link instead of an email attachment?</h3>
+<p>This is one of the most important habits to build. When you share a link, everyone is working on the same file. Edits, comments, and updates are visible to the whole group in real time, and there is only ever one version to worry about.</p>
+<p>When you send an email attachment, you are sending a copy. If three people all make edits to that copy, you now have three different versions floating around and no clear way to know which one is current. Sharing a link eliminates that confusion.</p>
+</article>
+
+<article class="qa" id="q-how-share">
+<h3>How do I share a file or folder from OneDrive?</h3>
+<p>There are several ways, but the most reliable is:</p>
+<ul>
+  <li>Right-click the file or folder, or click the share icon next to its name.</li>
+  <li>Type the name or email of the person (or people) you want to share with.</li>
+  <li>Set the permission level using the small icon to the right of the name field. (See the next question for what those mean.)</li>
+  <li>Optionally add a short message, then click Send.</li>
+</ul>
+<p>The recipient will get an email automatically with a link to the file. You do not need to attach anything to a separate email.</p>
+</article>
+
+<article class="qa" id="q-permissions">
+<h3>What do the permission options (Edit, View, Can&rsquo;t Download) actually mean?</h3>
+<p>When you click the permissions icon while sharing, you have three choices. Each one is more restrictive than the last:</p>
+<ul>
+  <li><strong>Can edit (pencil icon):</strong> The recipient can open the file, make changes, and download it. Use this for collaboration.</li>
+  <li><strong>Can view (eye icon):</strong> The recipient can open the file and download a copy, but cannot make changes. Use this for finished documents you are sharing for reference.</li>
+  <li><strong>Can view, can&rsquo;t download (eye icon with a slash):</strong> The recipient can open the file in their browser only. They cannot edit it and cannot download it. Use this for sensitive content such as financial documents, personal information, or anything where you want to keep tighter control.</li>
+</ul>
+<div class="callout">
+  <p class="callout-label">A common mistake to avoid</p>
+  <p class="callout-text">If you intend for someone to edit the file, double-check that you set the permission to Can edit before you click Send. The default is sometimes set to View only, which is why people occasionally have to ask you for edit access after the fact.</p>
+</div>
+</article>
+
+<article class="qa" id="q-external">
+<h3>Should I share files the same way with people outside of CFS?</h3>
+<p>Not always. For external recipients (board members, vendors, family members of the people we serve, consultants), there are two things to consider:</p>
+<ul>
+  <li>External recipients sometimes have trouble opening shared links, especially if they are not used to working in Microsoft 365. In those cases, sending a copy as an attachment is fine.</li>
+  <li>If the document is something you do not want them to edit, share a PDF rather than a Word document. PDFs preserve formatting and prevent casual editing.</li>
+</ul>
+<p>If the document is sensitive, the safest path is still a link with the Can view, can&rsquo;t download permission. That way nothing leaves the agency unintentionally.</p>
+</article>
+
+<article class="qa" id="q-email-link">
+<h3>When someone shares a file with me, do I have to use the email link every time?</h3>
+<p>No. The email is a notification, not the only way to access the file. Once a file has been shared with you, you can find it any time in OneDrive under the Shared section, without going back to the email.</p>
+<p>A good habit: when the email comes in, open it once just to confirm the file and make sure the access works. Then close the email. Going forward, go straight to OneDrive and click Shared on the left.</p>
+</article>
+
+<article class="qa" id="q-shared-section">
+<h3>Where do I find files that have been shared with me?</h3>
+<p>Open OneDrive and look at the menu on the left. You will see two important sections:</p>
+<ul>
+  <li><strong>My files:</strong> Files you created or saved into your own OneDrive.</li>
+  <li><strong>Shared:</strong> Files that other people have shared with you. This is where shared OneDrive links from colleagues will appear.</li>
+</ul>
+<p>If you cannot find a shared file in My files, check the Shared section. It is a very common point of confusion. You can also &ldquo;Favorite&rdquo; frequently used shared files so they appear at the top.</p>
+</article>
+
+<article class="qa" id="q-edit-shared">
+<h3>If a file was shared with me, can I edit it directly and have my changes save automatically?</h3>
+<p>Yes, as long as the person who shared it gave you Can edit permission. When you open the file from your Shared section, your edits save automatically and the original owner sees them in real time. There is no separate copy to keep track of.</p>
+<p>One thing to know: the file still lives in the original owner&rsquo;s OneDrive. You are working on their document, not your own copy of it. If they delete it or revoke your access, you will no longer be able to reach it.</p>
+</article>
+
+<p class="back-to-top"><a href="#top">↑ Back to top</a></p>
+</section>
+
+<!-- ============================================================ -->
+<section class="section" id="versions">
+<h2>Version History and Document Control</h2>
+
+<article class="qa" id="q-older-versions">
+<h3>I need to keep an older version of a document, like the employee handbook. How does that work?</h3>
+<p>Both OneDrive and SharePoint automatically keep a version history of every saved change. You can right-click a file, choose Version history, and see a list of every version with the date and the person who made the change. You can preview any older version, restore it, or download it.</p>
+<p>However, version history is best for tracking changes within a single document. If you need to make an older version of a policy clearly visible to staff (for example, the May 2025 employee handbook compared to the March 2026 version), the easier approach is to save them as separate files with clear date-based names:</p>
+<ul>
+  <li>Employee Handbook_May 2025.docx</li>
+  <li>Employee Handbook_March 2026.docx</li>
+</ul>
+<p>That way both versions are obviously available, and staff can see at a glance which is which without needing to dig into version history.</p>
+</article>
+
+<article class="qa" id="q-deleted">
+<h3>What if I accidentally delete a file?</h3>
+<p>Both OneDrive and SharePoint have a Recycle Bin. Deleted files stay there for a period of time, and you can restore them yourself with one click. Open OneDrive or the SharePoint site, click Recycle bin in the left menu, find the file, and click Restore.</p>
+<p>If the file is not in the Recycle Bin (for example, it was deleted a long time ago, or it was on your desktop and not in the cloud at all), contact the Help Desk. We have additional backup tools we can try, but recovery is much faster and more reliable when files are kept in OneDrive or SharePoint to begin with.</p>
+</article>
+
+<article class="qa" id="q-autosave">
+<h3>How does autosave work?</h3>
+<p>When you open a file from OneDrive or SharePoint, you should see Autosave turned on in the top left of the Office application. With Autosave on, every change you make is saved to the cloud immediately. There is no need to press Ctrl+S, and there is no &ldquo;Save As&rdquo; step at the end.</p>
+<div class="callout">
+  <p class="callout-label">How to tell if you&rsquo;re in Autosave mode</p>
+  <p class="callout-text">If you see Autosave in the top of Word, Excel, or PowerPoint, you are working in the cloud. If you do not see it, or if you have to press Save manually, the file is offline or local. Anything you change in offline mode will not be visible to others until you sync or upload it.</p>
+</div>
+</article>
+
+<p class="back-to-top"><a href="#top">↑ Back to top</a></p>
+</section>
+
+<!-- ============================================================ -->
+<section class="section" id="sync">
+<h2>OneDrive, File Explorer, and Sync</h2>
+
+<article class="qa" id="q-file-explorer">
+<h3>What is the relationship between OneDrive and File Explorer on my desktop?</h3>
+<p>File Explorer is the application you use to look at folders and files on your computer. OneDrive is a cloud storage location that File Explorer can show you. Think of File Explorer as the window, and OneDrive as one of the rooms you can see through that window.</p>
+<p>When you open File Explorer, you may see a OneDrive entry in the left-hand list. That is a synced view of your cloud OneDrive. Files you save into that location go up to the cloud, and files saved to the cloud appear there. Both views show the same files.</p>
+<p>If you ever run into trouble (files not appearing, sync taking a long time), the most reliable workaround is to skip File Explorer entirely and go straight to OneDrive on the web through the CFS website. That always shows you the most current version of your files.</p>
+</article>
+
+<article class="qa" id="q-sync-delay">
+<h3>Why do my files sometimes take a long time to appear after I save them?</h3>
+<p>This is the synchronization process at work. When you save a file, your computer needs to upload it to the cloud, and the cloud needs to send the latest version back down. A few things affect how long that takes:</p>
+<ul>
+  <li>File size. A small Word document syncs in seconds. A large folder with many files can take longer.</li>
+  <li>Internet connection speed at the time.</li>
+  <li>How much you have stored in OneDrive overall. A very full OneDrive can slow sync down.</li>
+</ul>
+<p>Most files should appear within a few minutes. If you have moved or saved something and still cannot see it the next morning, contact the Help Desk so we can take a look.</p>
+</article>
+
+<article class="qa" id="q-sync-status">
+<h3>How do I know if OneDrive is actually connected and syncing?</h3>
+<p>There are two visual indicators that tell you OneDrive is open and working:</p>
+<ul>
+  <li>In the system tray (lower right corner of your taskbar), you should see a small blue or white cloud icon. If you do not see it, OneDrive may not be running.</li>
+  <li>In File Explorer, when you look at the OneDrive folder, there should be a <strong>Status</strong> column next to each file with small icons (a green checkmark, a blue cloud, or two arrows in a circle). If that column is missing entirely, OneDrive is probably not signed in or is having trouble.</li>
+</ul>
+<p>If files are not syncing and you cannot see those indicators, restart your computer or sign in to OneDrive again. If that does not resolve it, contact the Help Desk.</p>
+</article>
+
+<p class="back-to-top"><a href="#top">↑ Back to top</a></p>
+</section>
+
+<!-- ============================================================ -->
+<section class="section" id="teams">
+<h2>Microsoft Teams Integration</h2>
+
+<article class="qa" id="q-teams-files">
+<h3>Where do files I upload in a Teams channel actually live?</h3>
+<p>Every file you upload to the Files tab of a Teams channel is stored in SharePoint. Each Team has its own SharePoint site, and each channel has its own folder inside that site. So when you drag a file into a Teams channel, you are really putting it into a SharePoint folder behind the scenes.</p>
+<p>If you ever click &ldquo;Open in SharePoint&rdquo; from within a Teams channel, you will be taken to that exact same folder, just shown in a browser instead. Same files, same permissions, two different views.</p>
+</article>
+
+<article class="qa" id="q-both-places">
+<h3>Do I need to upload my file to both Teams AND SharePoint?</h3>
+<p>No. Doing it in one automatically does it in the other. Pick whichever interface you find easier and stick with it. Most people find Teams more comfortable for day-to-day work, but the SharePoint view is helpful when you want to see all your sites at a glance or use SharePoint-only features.</p>
+</article>
+
+<article class="qa" id="q-add-channel">
+<h3>Why can&rsquo;t I add someone to a Teams channel?</h3>
+<p>If you try to add someone to a channel and they do not appear in the dropdown, the most common reason is that they are not yet a member of the parent Team. You cannot add a person to a channel within a Team they do not belong to.</p>
+<p>The fix: first add them to the Team itself.</p>
+<ul>
+  <li>Go to the Team name (above the list of channels).</li>
+  <li>Click the three dots next to the Team name and choose Add member.</li>
+  <li>Once they are a member of the Team, you can then add them to specific channels as needed.</li>
+</ul>
+</article>
+
+<article class="qa" id="q-agenda">
+<h3>Where should I store the agenda for a recurring Teams meeting?</h3>
+<p>If the meeting is associated with a Teams channel, the cleanest place is the Files tab of that channel. The agenda lives there, everyone in the channel has access automatically, and you can refer to it during the meeting without sending an email.</p>
+<p>If the meeting is a standalone Teams meeting (not tied to a channel), share the agenda from your OneDrive instead, with Edit or View permission depending on whether you want input.</p>
+</article>
+
+<article class="qa" id="q-notify">
+<h3>When I update a document in SharePoint, will my team be notified automatically?</h3>
+<p>Not by default, but you can turn on notifications. Inside any SharePoint document library, you can set up an alert that emails a person (or a group) whenever a file changes. You can also &ldquo;Follow&rdquo; a SharePoint site to receive a notification any time something is added or updated.</p>
+<p>If you want help configuring this for your department, contact the Help Desk and we will walk through it with you.</p>
+</article>
+
+<p class="back-to-top"><a href="#top">↑ Back to top</a></p>
+</section>
+
+<!-- ============================================================ -->
+<section class="section" id="anywhere">
+<h2>Working from Anywhere</h2>
+
+<article class="qa" id="q-mobile">
+<h3>Can I access my files from home or from my phone?</h3>
+<p>Yes. Your OneDrive and SharePoint files are in the cloud, so they are available from any device where you can sign in with your CFS credentials. Options include:</p>
+<ul>
+  <li>Any web browser, by going to the CFS website and signing in.</li>
+  <li>Your CFS-issued laptop or virtual desktop, where OneDrive and Teams are already installed.</li>
+  <li>The OneDrive and Teams mobile apps, which you can install on your phone and sign in with your CFS account.</li>
+</ul>
+<div class="callout">
+  <p class="callout-label">Reminder</p>
+  <p class="callout-text">Always sign in with your Center for Family Support account, not a personal Microsoft account. Personal accounts will not give you access to agency files.</p>
+</div>
+</article>
+
+<p class="back-to-top"><a href="#top">↑ Back to top</a></p>
+</section>
+
+<!-- ============================================================ -->
+<section class="section" id="security">
+<h2>Backup, Security, and Sensitive Documents</h2>
+
+<article class="qa" id="q-backed-up">
+<h3>Are my files in OneDrive and SharePoint backed up?</h3>
+<p>Yes. Files saved in OneDrive and SharePoint are protected and recoverable. If something is accidentally deleted, modified, or overwritten, IT can typically help you restore it. This is one of the biggest reasons we ask everyone to move away from saving files to their local desktop or C drive &mdash; those locations are not backed up.</p>
+</article>
+
+<article class="qa" id="q-sensitive">
+<h3>What if I have a sensitive document I need to share?</h3>
+<p>A few habits keep sensitive content (financial records, personal information, anything regulated) safer:</p>
+<ul>
+  <li>Share it as a link, not an attachment, so you can revoke access later if needed.</li>
+  <li>Use the Can view, can&rsquo;t download permission so the recipient cannot save a copy outside of our environment.</li>
+  <li>If the recipient does not need to edit it, share it as a PDF rather than a Word document.</li>
+  <li>If you are sharing externally, double-check that the recipient is the right person and that the link is going to a CFS-trusted address.</li>
+</ul>
+<p>When in doubt, contact the Help Desk before sharing. We are always happy to take a quick look.</p>
+</article>
+
+<p class="back-to-top"><a href="#top">↑ Back to top</a></p>
+</section>
+
+<!-- ============================================================ -->
+<section class="section" id="resources">
+<h2>Training Resources and Getting Help</h2>
+
+<article class="qa" id="q-resources">
+<h3>Where can I find the training recording, slide deck, and Quick Reference Card?</h3>
+<!-- IMPORTANT: Once the Quick Reference Card is uploaded to the intranet, replace REPLACE_WITH_QRC_LINK below with the direct URL to the file. -->
+<p>A recording of the training, featuring our CEO Engers Germosen, has been uploaded to the CFS intranet, along with the slide deck and the <a href="REPLACE_WITH_QRC_LINK">Quick Reference Card</a>. From the intranet home page, look under the IT Training section. These materials are also accessible through the agency&rsquo;s internal Microsoft Copilot agent, Charlie, which can point you to specific resources on request.</p>
+</article>
+
+<article class="qa" id="q-help">
+<h3>Who do I contact if I need help?</h3>
+<p>The IT Help Desk is the place to start for any question, big or small. We are happy to:</p>
+<ul>
+  <li>Walk you through your folder structure if your files look different after the migration.</li>
+  <li>Help you organize your OneDrive if it is getting cluttered or syncing slowly.</li>
+  <li>Show you how to set up sharing and permissions for your team.</li>
+  <li>Recover a file you think you may have lost.</li>
+  <li>Configure SharePoint notifications or alerts.</li>
+</ul>
+<p>You can reach the Help Desk by email or through the IT request form on the intranet. We would much rather hear from you with a small question than have you spend time stuck on something.</p>
+</article>
+
+<p class="back-to-top"><a href="#top">↑ Back to top</a></p>
+</section>
+
+<footer class="farewell">
+  <p>Thank you to everyone who attended and asked questions during the training series.</p>
+  <p>Your input is what made this resource possible.</p>
+  <p class="signoff">Stay safe and be well.</p>
+  <p class="attribution">— The CFS IT Department</p>
+</footer>
+
+</div>
+</body>
+</html>
