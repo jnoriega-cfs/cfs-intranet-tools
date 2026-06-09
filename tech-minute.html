@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<!--
+================================================================
+  CFS TECH MINUTE - ARCHIVE PAGE
+  Lists every past issue. Styled to match it-help.html (shared design system).
+  WEEKLY UPDATE: add one <a class="issue-card"> block to the .issue-list below,
+  move the "Latest" pill to the newest issue, and upload the new
+  tech-minute/issue-0N.html page + its illustration PNG.
+================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CFS Tech Minute &#8212; The Center for Family Support</title>
+<style>
+  :root {
+    --cfs-blue: #1F4E79;
+    --cfs-blue-dark: #163654;
+    --cfs-accent: #2E75B6;
+    --cfs-accent-light: #5B9BD5;
+    --cfs-soft: #EAF2F8;
+    --cfs-soft-2: #F4F9FD;
+    --text: #262626;
+    --text-soft: #595959;
+    --text-muted: #8C8C8C;
+    --border: #DCE3EA;
+    --border-light: #EDF2F6;
+    --bg: #FFFFFF;
+    --bg-soft: #F7FAFC;
+    --new-badge: #E63946;
+    --shadow-sm: 0 1px 2px rgba(31, 78, 121, 0.06);
+    --shadow-md: 0 2px 8px rgba(31, 78, 121, 0.08);
+    --shadow-lg: 0 4px 16px rgba(31, 78, 121, 0.10);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg-soft);
+    line-height: 1.55;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--cfs-accent); text-decoration: none; }
+  a:hover { color: var(--cfs-blue); text-decoration: underline; }
+
+  /* ===== Header ===== */
+  .page-header {
+    background: linear-gradient(135deg, var(--cfs-blue) 0%, var(--cfs-blue-dark) 100%);
+    color: #fff;
+    padding: 36px 0 48px;
+  }
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .breadcrumb {
+    color: rgba(255,255,255,0.75);
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    margin: 0 0 8px;
+  }
+  .breadcrumb a { color: rgba(255,255,255,0.85); text-decoration: none; }
+  .breadcrumb a:hover { color: #fff; text-decoration: underline; }
+  .page-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    letter-spacing: -0.3px;
+  }
+  .page-subtitle {
+    font-size: 17px;
+    color: rgba(255,255,255,0.85);
+    margin: 0;
+    font-weight: 400;
+    max-width: 640px;
+  }
+  .header-cta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.20);
+    padding: 12px 18px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.15s ease;
+  }
+  .header-cta:hover { background: rgba(255,255,255,0.18); color: #fff; text-decoration: none; }
+
+  /* ===== Layout ===== */
+  .container {
+    max-width: 1280px;
+    margin: -24px auto 0;
+    padding: 0 32px 60px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 40px;
+  }
+
+  /* ===== Hero / Tiles ===== */
+  .hero-card {
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 28px 32px 32px;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 32px;
+  }
+  .hero-card h2 {
+    color: var(--cfs-blue);
+    font-size: 22px;
+    margin: 0 0 4px;
+    font-weight: 700;
+  }
+  .hero-card .hero-lead {
+    color: var(--text-soft);
+    margin: 0 0 24px;
+    font-size: 15px;
+  }
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .tile {
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 18px 16px;
+    text-decoration: none;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.18s ease;
+    background: var(--bg);
+    cursor: pointer;
+  }
+  .tile:hover {
+    border-color: var(--cfs-accent);
+    background: var(--cfs-soft-2);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+    color: var(--text);
+  }
+  .tile-icon {
+    width: 38px;
+    height: 38px;
+    background: var(--cfs-soft);
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cfs-blue);
+  }
+  .tile-icon svg { width: 22px; height: 22px; }
+  .tile-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--cfs-blue);
+    margin: 0;
+  }
+  .tile-desc {
+    color: var(--text-soft);
+    font-size: 13px;
+    margin: 0;
+    line-height: 1.45;
+  }
+
+  /* ===== Section heading ===== */
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 32px 0 16px;
+  }
+  .section-heading h2 {
+    color: var(--cfs-blue);
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+  }
+  .section-heading .accent-bar {
+    width: 4px;
+    height: 22px;
+    background: var(--cfs-accent);
+    border-radius: 2px;
+  }
+  .section-sub {
+    color: var(--text-soft);
+    font-size: 14px;
+    margin: 0 0 16px;
+  }
+
+  /* ===== Featured resources ===== */
+  .featured {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+  .feature-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 22px 20px;
+    position: relative;
+    transition: all 0.18s ease;
+    text-decoration: none;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .feature-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--cfs-accent);
+    text-decoration: none;
+    color: var(--text);
+    transform: translateY(-2px);
+  }
+  .feature-card .top-band {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--cfs-accent);
+  }
+  .feature-card.featured-new .top-band { background: var(--new-badge); }
+  .badges {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+  .badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .badge-new { background: var(--new-badge); color: #fff; }
+  .badge-cfs { background: var(--cfs-soft); color: var(--cfs-blue); border: 1px solid var(--cfs-accent-light); }
+  .feature-title {
+    color: var(--cfs-blue);
+    font-size: 17px;
+    font-weight: 700;
+    margin: 4px 0 6px;
+    line-height: 1.3;
+  }
+  .feature-desc {
+    color: var(--text-soft);
+    font-size: 13.5px;
+    margin: 0 0 14px;
+    line-height: 1.5;
+    flex: 1;
+  }
+  .feature-cta {
+    color: var(--cfs-accent);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .feature-cta::after {
+    content: "  →";
+    transition: margin 0.15s ease;
+    display: inline-block;
+  }
+  .feature-card:hover .feature-cta::after { margin-left: 4px; }
+
+  /* ===== Training Series ===== */
+  .training-series {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .series-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.18s ease;
+  }
+  .series-card.is-completed {
+    background: linear-gradient(180deg, var(--cfs-blue) 0%, var(--cfs-blue-dark) 100%);
+    border-color: var(--cfs-blue-dark);
+    color: #fff;
+  }
+  .series-card.is-upcoming {
+    background: var(--bg);
+  }
+  .series-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+  .series-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: var(--cfs-accent);
+    color: #fff;
+  }
+  .series-card.is-completed .series-tag {
+    background: #F5A623;
+    color: #1A1A1A;
+  }
+  .series-status {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+  .status-completed {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .status-upcoming {
+    background: var(--cfs-soft);
+    color: var(--cfs-blue);
+    border: 1px solid var(--cfs-accent-light);
+  }
+  .series-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 2px 0 4px;
+    line-height: 1.25;
+    color: var(--cfs-blue);
+  }
+  .series-card.is-completed .series-title { color: #fff; }
+  .series-when {
+    font-size: 12.5px;
+    color: var(--text-soft);
+    margin: 0 0 8px;
+    font-weight: 600;
+  }
+  .series-card.is-completed .series-when { color: rgba(255,255,255,0.85); }
+  .series-desc {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin: 0 0 12px;
+    line-height: 1.45;
+    flex: 1;
+  }
+  .series-card.is-completed .series-desc { color: rgba(255,255,255,0.85); }
+  .series-sessions {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: auto;
+  }
+  .series-session-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    background: var(--cfs-soft-2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--cfs-blue);
+    text-decoration: none;
+    transition: all 0.12s ease;
+  }
+  .series-session-link:hover {
+    background: var(--cfs-soft);
+    border-color: var(--cfs-accent);
+    color: var(--cfs-blue);
+    text-decoration: none;
+  }
+  .series-card.is-completed .series-session-link {
+    background: rgba(255,255,255,0.10);
+    border-color: rgba(255,255,255,0.20);
+    color: #fff;
+  }
+  .series-card.is-completed .series-session-link:hover {
+    background: rgba(255,255,255,0.18);
+    border-color: rgba(255,255,255,0.35);
+    color: #fff;
+  }
+  .series-session-arrow {
+    color: var(--cfs-accent);
+    font-weight: 700;
+  }
+  .series-card.is-completed .series-session-arrow { color: rgba(255,255,255,0.7); }
+  .series-cta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .series-cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.12s ease;
+  }
+  .series-cta-btn:hover {
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+    text-decoration: none;
+  }
+  .series-cta-btn.is-primary {
+    background: #fff;
+    color: var(--cfs-blue);
+    border-color: #fff;
+  }
+  .series-cta-btn.is-primary:hover {
+    background: var(--cfs-soft);
+    color: var(--cfs-blue-dark);
+  }
+  .series-placeholder {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-style: italic;
+    padding: 14px 4px;
+    background: var(--bg-soft);
+    border: 1px dashed var(--border);
+    border-radius: 6px;
+    margin-top: auto;
+  }
+
+  /* ===== Apps grid ===== */
+  .apps-grid {
+    background: var(--bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    padding: 8px 0;
+    margin-bottom: 8px;
+  }
+  .app-row {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 18px;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-light);
+    align-items: start;
+  }
+  .app-row:last-child { border-bottom: none; }
+  .app-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--cfs-soft);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cfs-blue);
+  }
+  .app-icon svg { width: 24px; height: 24px; }
+  .app-name {
+    color: var(--cfs-blue);
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+  .app-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 6px 18px;
+  }
+  .app-link {
+    display: block;
+    padding: 5px 0;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .app-link span.desc {
+    color: var(--text-muted);
+    font-size: 12.5px;
+    display: block;
+    margin-top: 1px;
+  }
+  .app-link:hover { color: var(--cfs-accent); text-decoration: none; }
+  .app-link:hover span.desc { color: var(--text-soft); }
+
+  /* ===== Right sidebar (sticky) ===== */
+  .sidebar {
+    position: sticky;
+    top: 24px;
+    align-self: start;
+    height: fit-content;
+  }
+  .help-panel {
+    background: linear-gradient(180deg, var(--cfs-soft) 0%, var(--cfs-soft-2) 100%);
+    border: 1px solid var(--cfs-accent-light);
+    border-radius: 12px;
+    padding: 22px 22px 20px;
+    margin-bottom: 16px;
+  }
+  .help-panel h3 {
+    color: var(--cfs-blue);
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0 0 4px;
+  }
+  .help-panel .help-sub {
+    color: var(--text-soft);
+    font-size: 13px;
+    margin: 0 0 16px;
+  }
+  .help-action {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.15s ease;
+  }
+  .help-action:hover {
+    border-color: var(--cfs-accent);
+    color: var(--text);
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+  }
+  .help-action-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--cfs-soft);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cfs-blue);
+    flex-shrink: 0;
+  }
+  .help-action-icon svg { width: 17px; height: 17px; }
+  .help-action-text { flex: 1; min-width: 0; }
+  .help-action-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cfs-blue);
+    margin: 0 0 1px;
+  }
+  .help-action-desc {
+    font-size: 12px;
+    color: var(--text-soft);
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .help-primary {
+    display: block;
+    background: var(--cfs-blue);
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+    border-radius: 9px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 8px;
+    transition: background 0.15s ease;
+  }
+  .help-primary:hover { background: var(--cfs-blue-dark); color: #fff; text-decoration: none; }
+
+  .team-panel {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+  .team-panel h4 {
+    color: var(--cfs-blue);
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 0 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .team-member {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .team-member:last-child { border-bottom: none; }
+  .team-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--cfs-accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  .team-avatar.lead { background: var(--cfs-blue); }
+  .team-name { font-size: 13.5px; font-weight: 600; color: var(--text); margin: 0; line-height: 1.25; }
+  .team-role { font-size: 12px; color: var(--text-soft); margin: 0; line-height: 1.25; }
+
+  /* ===== Footer note ===== */
+  .footer-note {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 12.5px;
+    margin: 32px 0 0;
+    padding: 0 32px;
+    font-style: italic;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 1100px) {
+    .container { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    .tiles { grid-template-columns: repeat(2, 1fr); }
+    .featured { grid-template-columns: 1fr; }
+    .training-series { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .page-header { padding: 24px 0 36px; }
+    .header-inner { padding: 0 20px; }
+    .page-title { font-size: 28px; }
+    .container { padding: 0 16px 40px; gap: 24px; }
+    .hero-card { padding: 20px; }
+    .tiles { grid-template-columns: 1fr; }
+    .training-series { grid-template-columns: 1fr; }
+    .app-row { padding: 16px 18px; grid-template-columns: 1fr; }
+    .app-row .app-icon { display: none; }
+  }
+</style>
+
+<style>
+  .intro-card { background: var(--bg); border-radius:12px; padding:26px 32px 28px; box-shadow:var(--shadow-md); margin-bottom:32px; }
+  .intro-card h2 { color:var(--cfs-blue); font-size:22px; margin:0 0 6px; font-weight:700; }
+  .intro-card p { color:var(--text-soft); margin:0 0 14px; font-size:15px; max-width:760px; }
+  .intro-card p:last-child { margin-bottom:0; }
+  .rotation { display:flex; flex-wrap:wrap; gap:8px; margin-top:4px; }
+  .rotation span { font-size:12.5px; font-weight:600; color:var(--cfs-blue); background:var(--cfs-soft); border:1px solid var(--cfs-accent-light); border-radius:20px; padding:5px 13px; }
+  .issue-list { display:flex; flex-direction:column; gap:14px; }
+  .issue-card { display:grid; grid-template-columns:84px minmax(0,1fr) auto; gap:22px; align-items:center; background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:20px 24px; text-decoration:none; color:var(--text); position:relative; overflow:hidden; transition:all .18s ease; }
+  .issue-card::before { content:""; position:absolute; top:0; left:0; bottom:0; width:4px; background:var(--cfs-accent); }
+  .issue-card:hover { box-shadow:var(--shadow-lg); border-color:var(--cfs-accent); transform:translateY(-2px); text-decoration:none; color:var(--text); }
+  .issue-num { display:flex; flex-direction:column; align-items:center; justify-content:center; width:84px; height:64px; background:linear-gradient(135deg,var(--cfs-blue),var(--cfs-blue-dark)); border-radius:10px; color:#fff; }
+  .issue-num .lbl { font-size:10px; letter-spacing:1px; text-transform:uppercase; opacity:.8; }
+  .issue-num .no { font-size:24px; font-weight:700; line-height:1; }
+  .issue-body .issue-when { font-size:12.5px; font-weight:600; color:var(--text-soft); margin:0 0 3px; }
+  .issue-body .issue-title { font-size:17px; font-weight:700; color:var(--cfs-blue); margin:0 0 4px; line-height:1.3; }
+  .issue-body .issue-desc { font-size:13.5px; color:var(--text-soft); margin:0; line-height:1.5; }
+  .issue-read { font-size:13px; font-weight:600; color:var(--cfs-accent); white-space:nowrap; }
+  .issue-read::after { content:"  \2192"; display:inline-block; transition:margin .15s ease; }
+  .issue-card:hover .issue-read::after { margin-left:4px; }
+  .latest-pill { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:#fff; background:var(--cfs-accent); border-radius:4px; padding:2px 7px; margin-left:8px; vertical-align:middle; }
+  @media (max-width:600px){ .issue-card{ grid-template-columns:64px 1fr; } .issue-read{ grid-column:2; } .issue-num{ width:64px; height:52px; } }
+</style>
+
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-inner">
+    <div>
+      <p class="breadcrumb"><a href="/SitePages/Home.aspx" target="_top">Intranet Home</a> &nbsp;&#8250;&nbsp; <a href="https://jnoriega-cfs.github.io/cfs-intranet-tools/it-help.html" target="_top">IT Help &amp; Resources</a> &nbsp;&#8250;&nbsp; CFS Tech Minute</p>
+      <h1 class="page-title">CFS Tech Minute</h1>
+      <p class="page-subtitle">One quick tech tip every Tuesday &#8212; about a minute to read, something you can use that same day. Every issue lives here.</p>
+    </div>
+    <a href="mailto:helpdesk@cfsny.org" class="header-cta">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <span>Need help? helpdesk@cfsny.org</span>
+    </a>
+  </div>
+</header>
+
+<div class="container">
+
+  <main>
+
+    <section class="intro-card">
+      <h2>Welcome to CFS Tech Minute</h2>
+      <p>Each Tuesday morning, the IT team sends one short, practical tip &#8212; about a minute to read &#8212; drawn from the questions staff are actually asking in training, at the Help Desk, and in the hallway. Topics rotate so there&#8217;s something for everyone:</p>
+      <div class="rotation">
+        <span>Microsoft 365 productivity</span>
+        <span>Microsoft Copilot</span>
+        <span>Security &amp; safe habits</span>
+        <span>Seasonal &amp; how-to</span>
+      </div>
+    </section>
+
+    <div class="section-heading">
+      <span class="accent-bar"></span>
+      <h2>All Issues</h2>
+    </div>
+    <p class="section-sub">Browse every issue below &#8212; most recent first. Missed one in your inbox? It&#8217;s here.</p>
+
+    <div class="issue-list">
+      <a class="issue-card" href="https://jnoriega-cfs.github.io/cfs-intranet-tools/tech-minute/issue-02.html" target="_blank" rel="noopener noreferrer">
+        <div class="issue-num"><span class="lbl">Issue</span><span class="no">02</span></div>
+        <div class="issue-body">
+          <p class="issue-when">Tuesday, June 9, 2026<span class="latest-pill">Latest</span></p>
+          <p class="issue-title">Catch up on a long email thread in 30 seconds</p>
+          <p class="issue-desc">Let Copilot read a long email thread and hand back who said what, what was decided, and what is still open.</p>
+        </div>
+        <span class="issue-read">Read this issue</span>
+      </a>
+      <a class="issue-card" href="https://jnoriega-cfs.github.io/cfs-intranet-tools/tech-minute/issue-01.html" target="_blank" rel="noopener noreferrer">
+        <div class="issue-num"><span class="lbl">Issue</span><span class="no">01</span></div>
+        <div class="issue-body">
+          <p class="issue-when">Tuesday, June 2, 2026</p>
+          <p class="issue-title">Find any file in seconds — without leaving Teams</p>
+          <p class="issue-desc">Find any document you’ve recently worked on right inside the Teams desktop app — no browser, no folder digging.</p>
+        </div>
+        <span class="issue-read">Read this issue</span>
+      </a>
+    </div>
+
+  </main>
+
+  <aside class="sidebar">
+
+    <div class="help-panel">
+      <h3>Get Help</h3>
+      <p class="help-sub">A few ways to reach us. Pick whichever is easiest.</p>
+      <a class="help-action" href="mailto:helpdesk@cfsny.org">
+        <div class="help-action-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div class="help-action-text"><p class="help-action-title">Email the Help Desk</p><p class="help-action-desc">helpdesk@cfsny.org</p></div>
+      </a>
+      <a class="help-action" href="https://cfsny.sharepoint.com/SitePages/NewHome.aspx" target="_blank" rel="noopener noreferrer">
+        <div class="help-action-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+        <div class="help-action-text"><p class="help-action-title">Ask Charlie</p><p class="help-action-desc">Instant AI answers, 24/7</p></div>
+      </a>
+      <a class="help-primary" href="https://thecenterforfamilysupport.freshservice.com/support/home" target="_blank" rel="noopener noreferrer">Submit an IT Request &#8594;</a>
+    </div>
+
+    <div class="help-panel">
+      <h3>Got a topic idea?</h3>
+      <p class="help-sub" style="margin-bottom:0;">Tell us what you&#8217;d like a future Tech Minute to cover &#8212; email <a href="mailto:HelpDesk@cfsny.org">HelpDesk@cfsny.org</a>.</p>
+    </div>
+
+    <div class="team-panel">
+      <h4>Your IT Team</h4>
+      <div class="team-member"><div class="team-avatar lead">JN</div><div><p class="team-name">Jim Noriega</p><p class="team-role">Senior Vice President of Information Technology/CIO &amp; HIPAA Security Officer</p></div></div>
+      <div class="team-member"><div class="team-avatar">PJ</div><div><p class="team-name">Peter Juhas</p><p class="team-role">Assistant Vice President of Information Technology</p></div></div>
+      <div class="team-member"><div class="team-avatar">MC</div><div><p class="team-name">Matthew Clarke</p><p class="team-role">Helpdesk Support Specialist L3</p></div></div>
+      <div class="team-member"><div class="team-avatar">EP</div><div><p class="team-name">Estefani Paulino</p><p class="team-role">IT Systems Administrator Coordinator</p></div></div>
+      <div class="team-member"><div class="team-avatar">AG</div><div><p class="team-name">Anthony Gonzalez</p><p class="team-role">IT Help Desk</p></div></div>
+    </div>
+
+  </aside>
+
+</div>
+
+<p class="footer-note">Page maintained by the CFS IT Department. Suggestions for additions or corrections are always welcome at helpdesk@cfsny.org.</p>
+
+</body>
+</html>

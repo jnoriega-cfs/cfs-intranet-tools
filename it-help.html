@@ -413,7 +413,6 @@
     font-weight: 600;
     color: var(--cfs-blue);
     text-decoration: none;
-    white-space: nowrap;
     transition: all 0.12s ease;
   }
   .series-session-link:hover {
@@ -437,23 +436,6 @@
     font-weight: 700;
   }
   .series-card.is-completed .series-session-arrow { color: rgba(255,255,255,0.7); }
-  /* Session already delivered (mid-series) */
-  .series-session-link.is-given {
-    background: var(--cfs-soft);
-    border-color: var(--cfs-accent-light);
-    color: var(--text-soft);
-  }
-  .series-session-link.is-given:hover {
-    background: var(--cfs-soft);
-    border-color: var(--cfs-accent);
-    color: var(--cfs-blue);
-  }
-  .series-session-given {
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1;
-    color: #2E7D32;
-  }
   .series-cta-row {
     display: flex;
     flex-direction: column;
@@ -760,7 +742,7 @@
           <p class="tile-desc">Browse the OneDrive &amp; SharePoint FAQ — 32 answers from our recent training series.</p>
         </a>
 
-        <a class="tile" href="https://www.cfsny.org/wp-content/uploads/2026/05/Teams_Quick_Reference_Card_v2.pdf" target="_blank" rel="noopener noreferrer">
+        <a class="tile" href="https://www.cfsny.org/wp-content/uploads/2026/03/QuickReferenceCard_OneDrive_SharePoint.pdf" target="_blank" rel="noopener noreferrer">
           <div class="tile-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
           </div>
@@ -776,12 +758,13 @@
           <p class="tile-desc">Watch the Session 4 OneDrive &amp; SharePoint training, featuring our CEO.</p>
         </a>
 
-        <a class="tile" href="https://thecenterforfamilysupport.freshservice.com/support/home" target="_blank" rel="noopener noreferrer">
+        <!-- Tech Minute archive (replaced the duplicate "Submit an IT Request" tile; the ticket link remains as the primary CTA in the Get Help sidebar) -->
+        <a class="tile" href="https://jnoriega-cfs.github.io/cfs-intranet-tools/tech-minute.html" target="_blank" rel="noopener noreferrer">
           <div class="tile-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
           </div>
-          <h3 class="tile-title">Submit an IT Request</h3>
-          <p class="tile-desc">Open a ticket, request equipment, or schedule a one-on-one with IT.</p>
+          <h3 class="tile-title">CFS Tech Minute</h3>
+          <p class="tile-desc">Weekly one-minute tech tips. Browse every issue in the archive.</p>
         </a>
 
         <a class="tile" href="https://support.microsoft.com/en-us/microsoft-365" target="_blank" rel="noopener noreferrer">
@@ -823,14 +806,13 @@
         <span class="feature-cta">Open the Library</span>
       </a>
 
-      <!-- IMPORTANT: Confirm/replace this URL once Teams_Quick_Reference_Card_v2.pdf is uploaded to the CFS media library -->
-      <a class="feature-card" href="https://www.cfsny.org/wp-content/uploads/2026/05/Teams_Quick_Reference_Card_v2.pdf" target="_blank" rel="noopener noreferrer">
+      <a class="feature-card" href="https://www.cfsny.org/wp-content/uploads/2026/03/QuickReferenceCard_OneDrive_SharePoint.pdf" target="_blank" rel="noopener noreferrer">
         <div class="top-band"></div>
         <div class="badges">
           <span class="badge badge-cfs">CFS-Built</span>
         </div>
-        <h3 class="feature-title">Teams Quick Reference Card</h3>
-        <p class="feature-desc">Print-ready one-page guide to Microsoft Teams — chat vs. channels, which tool to use when, and where your recordings go. Pin it next to your monitor.</p>
+        <h3 class="feature-title">Quick Reference Card</h3>
+        <p class="feature-desc">Print-ready one-page guide for OneDrive and SharePoint essentials. Pin it next to your monitor.</p>
         <span class="feature-cta">Download the PDF</span>
       </a>
     </div>
@@ -867,14 +849,13 @@
       <div class="series-card is-upcoming">
         <div class="series-header">
           <span class="series-tag">S2</span>
-          <span class="series-status status-upcoming">In Progress</span>
+          <span class="series-status status-upcoming">Starts May 15, 2026</span>
         </div>
         <h3 class="series-title">Teams &amp; Collaboration</h3>
         <p class="series-when">May – June 2026 · Sessions at 11:00 AM</p>
         <p class="series-desc">Working together in channels and meetings.</p>
         <div class="series-sessions">
-          <!-- Session 1 delivered May 15, 2026. Swap href to the recording URL once it's posted, matching the Series 1 pattern. -->
-          <a class="series-session-link is-given" href="https://teams.microsoft.com/meet/249566851308998?p=Zr3qJoD6rmN6ib4Qfg" target="_blank" rel="noopener noreferrer" title="Delivered May 15, 2026">Session 1 — Fri, May 15 <span class="series-session-given">✓</span></a>
+          <a class="series-session-link" href="https://teams.microsoft.com/meet/249566851308998?p=Zr3qJoD6rmN6ib4Qfg" target="_blank" rel="noopener noreferrer">Session 1 — Fri, May 15 <span class="series-session-arrow">›</span></a>
           <a class="series-session-link" href="https://teams.microsoft.com/meet/252774751331630?p=hMrgMW8jGmXoXLTIkk" target="_blank" rel="noopener noreferrer">Session 2 — Fri, May 29 <span class="series-session-arrow">›</span></a>
           <a class="series-session-link" href="https://teams.microsoft.com/meet/249942554337723?p=MX5hP2A4P6OkZpjF9b" target="_blank" rel="noopener noreferrer">Session 3 — Tue, Jun 9 <span class="series-session-arrow">›</span></a>
           <a class="series-session-link" href="https://teams.microsoft.com/meet/232671730366755?p=vdovPyJX2DacjmiRPQ" target="_blank" rel="noopener noreferrer">Session 4 — Tue, Jun 23 <span class="series-session-arrow">›</span></a>
