@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CFS Tech Minute | Issue #3 — Approve sign-ins with a tap using Microsoft Authenticator</title>
+<style>
+  body { margin:0; background:#F4F6F8; font-family:Garamond,'EB Garamond',Georgia,'Times New Roman',serif; color:#222; }
+  .topbar { background:linear-gradient(135deg,#1F4E79,#163654); color:#fff; padding:14px 0; }
+  .topbar-inner { max-width:680px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; }
+  .topbar .wm { font-size:17px; font-weight:bold; letter-spacing:.3px; }
+  .topbar a { color:rgba(255,255,255,.9); text-decoration:none; font-size:14px; font-family:'Segoe UI',Arial,sans-serif; }
+  .topbar a:hover { color:#fff; text-decoration:underline; }
+  .wrap { max-width:680px; margin:28px auto 48px; padding:0 20px; }
+  .card { background:#fff; border:1px solid #e4e7ec; }
+  .card .pad { padding:28px 30px 30px; }
+  .nbar { background:#1F3864; height:8px; }
+  .head { display:flex; justify-content:space-between; align-items:flex-start; }
+  .head .wm { font-size:20px; font-weight:bold; color:#1F3864; }
+  .head .meta { font-size:14px; color:#1F3864; text-align:right; line-height:1.4; }
+  .tagline { font-style:italic; color:#555; font-size:15px; margin:10px 0 0; }
+  hr { border:0; border-top:1px solid #e4e7ec; margin:16px 0; }
+  .label { font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#2E75B6; font-weight:bold; margin:0 0 4px; }
+  .tip { font-size:18px; font-weight:bold; color:#1F3864; line-height:1.35; margin:0; }
+  p.body { font-size:16px; line-height:1.55; margin:0; color:#2a2a2a; }
+  ol { margin:8px 0 0; padding-left:22px; font-size:16px; line-height:1.55; }
+  ol li { margin-bottom:8px; }
+  .sec { margin-top:20px; }
+  .illus { margin:20px 0 4px; text-align:center; }
+  .illus img { max-width:100%; height:auto; border:1px solid #eee; border-radius:6px; }
+  .cap { font-size:12px; color:#888; font-style:italic; margin:6px 0 0; }
+  .protip { background:#FBF6E9; border-left:4px solid #C9A227; padding:14px 18px; font-size:15px; margin-top:18px; }
+  .aibox { background:#EAF1FA; padding:16px 18px; margin-top:18px; }
+  .aibox .label { color:#1F3864; }
+  .aibox .where { font-style:italic; color:#1F3864; font-size:14px; margin:0 0 12px; }
+  .prompt { background:#fff; border-left:3px solid #1F3864; padding:12px 16px; font-style:italic; color:#333; font-size:15px; }
+  .foot { font-size:14px; color:#555; line-height:1.6; margin-top:14px; }
+  .foot a { color:#2E75B6; }
+  .signoff { font-size:15px; color:#1F3864; margin-top:12px; }
+  .note { font-size:13px; color:#777; font-style:italic; margin-top:14px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="wm">CFS Tech Minute</span>
+    <a href="../tech-minute.html">&#8592; All issues</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <div class="nbar"></div>
+    <div class="pad">
+
+      <div class="head">
+        <span class="wm">CFS Tech Minute</span>
+        <span class="meta">Issue #3<br>Tuesday, June 16, 2026</span>
+      </div>
+      <p class="tagline">One quick tip. About a minute to read. Something you can use today.</p>
+      <hr>
+
+      <p class="label">This Week&rsquo;s Tip</p>
+      <p class="tip">Set up Microsoft Authenticator on your phone &mdash; then approve your CFS sign-ins with a single tap, no codes to type.</p>
+
+      <div class="sec">
+        <p class="label">Why it matters</p>
+        <p class="body">Your password alone isn&rsquo;t enough to keep your CFS account safe, and typing six-digit codes from a text message is slow and easy to fake. Microsoft Authenticator turns your phone into a secure second key: when you sign in, a quiet notification appears, you tap <strong>Approve</strong>, and you&rsquo;re in. It&rsquo;s faster than texted codes and far harder for an attacker to get around. And if you already use Authenticator for another job, good news &mdash; you can add CFS right alongside it, with no conflict. More on that below.</p>
+      </div>
+
+      <div class="sec">
+        <p class="label">How to set it up (about 5 minutes)</p>
+        <ol>
+          <li>On your phone, install <strong>Microsoft Authenticator</strong> (free) from the App Store or Google Play. Check that the publisher is <strong>Microsoft Corporation</strong>.</li>
+          <li>On your computer, go to <strong>aka.ms/mfasetup</strong> and sign in with your CFS email (your name@cfsny.org).</li>
+          <li>Click <strong>Add sign-in method</strong>, choose <strong>Authenticator app</strong>, then <strong>Add</strong>.</li>
+          <li>On your phone, open Authenticator, tap the <strong>+</strong> in the corner, and choose <strong>Work or school account &rarr; Scan a QR code</strong>.</li>
+          <li>Point your phone at the QR code on your computer screen, then approve the test prompt. That&rsquo;s it &mdash; you&rsquo;re set.</li>
+        </ol>
+      </div>
+
+      <div class="sec">
+        <p class="label">Using it day to day</p>
+        <p class="body">When you sign in to Outlook, Teams, or any CFS app, a notification appears on your phone &mdash; just tap <strong>Approve</strong>. Sometimes you&rsquo;ll see a two-digit number on your screen and be asked to type it into the app. That&rsquo;s <strong>number matching</strong>, and it confirms the request is really coming from you.</p>
+      </div>
+
+      <div class="sec">
+        <p class="label">Already use Authenticator for another employer?</p>
+        <p class="body">Add CFS &mdash; the two won&rsquo;t mix. Authenticator is built to hold several accounts at once, each completely separate. Adding your CFS account does not touch, see, or interfere with your other company&rsquo;s account, and you don&rsquo;t need a second app or a second phone. Just open the app you already have, tap <strong>+</strong>, choose <strong>Work or school account</strong>, and follow the same steps above. You&rsquo;ll simply see both accounts listed side by side.</p>
+      </div>
+
+      <div class="illus">
+        <img src="issue-03-illustration.png" alt="Illustration of a Microsoft Authenticator approval notification on a phone, showing the Approve button and a two-digit number-matching prompt">
+        <p class="cap">Illustration of an Authenticator approval with number matching &mdash; your screen may vary slightly by phone and version.</p>
+      </div>
+
+      <div class="protip"><strong style="color:#1F3864;">Pro tip:</strong> Only ever approve a sign-in you started yourself. If a prompt pops up when you weren&rsquo;t signing in, tap <strong>Deny</strong> (and Report if asked) &mdash; it can mean someone has your password, and the Help Desk would want to know right away.</div>
+
+      <div class="aibox">
+        <p class="label">Try an AI prompt this week</p>
+        <p class="where">Open Copilot Chat in Outlook or Teams.</p>
+        <div class="prompt">&ldquo;Explain multi-factor authentication in plain language, and give me three simple habits that keep my work accounts secure.&rdquo;</div>
+      </div>
+
+      <hr style="margin-top:22px;">
+      <p class="foot">Past issues live on the CFS intranet &mdash; <a href="https://jnoriega-cfs.github.io/cfs-intranet-tools/it-help.html">IT Help &amp; Resources</a>.</p>
+      <p class="foot">Have a topic idea or question? Email <a href="mailto:HelpDesk@cfsny.org">HelpDesk@cfsny.org</a>.</p>
+      <p class="signoff">&mdash; Jim Noriega and the CFS IT Team</p>
+
+    </div>
+    <div class="nbar"></div>
+  </div>
+</div>
+
+</body>
+</html>
