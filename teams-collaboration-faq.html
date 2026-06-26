@@ -1,504 +1,558 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teams &amp; Collaboration FAQ</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
-            padding: 40px 20px;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            padding: 60px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .header {
-            text-align: center;
-            border-bottom: 3px solid #1F4E79;
-            padding-bottom: 30px;
-            margin-bottom: 40px;
-        }
-        .header-sup {
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 1px;
-            color: #666;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        h1 {
-            font-size: 42px;
-            color: #1F4E79;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-        .subtitle {
-            font-size: 18px;
-            color: #666;
-            margin-top: 12px;
-        }
-        .intro {
-            background: #f9f9f9;
-            padding: 20px;
-            border-left: 4px solid #2E75B6;
-            margin: 30px 0;
-            font-size: 15px;
-            line-height: 1.7;
-            color: #555;
-        }
-        .nav-section {
-            background: #f0f5ff;
-            border-left: 4px solid #1F4E79;
-            padding: 30px;
-            margin: 40px 0;
-            border-radius: 4px;
-        }
-        .nav-section h2 {
-            font-size: 18px;
-            color: #1F4E79;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .nav-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-        .nav-grid.three-col {
-            grid-template-columns: repeat(3, 1fr);
-        }
-        .nav-group {
-            margin-bottom: 20px;
-        }
-        .nav-group:last-child {
-            margin-bottom: 0;
-        }
-        .nav-group h3 {
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #1F4E79;
-            margin-bottom: 10px;
-        }
-        .nav-group ul {
-            list-style: none;
-        }
-        .nav-group li {
-            margin-bottom: 8px;
-        }
-        .nav-group a {
-            color: #2E75B6;
-            text-decoration: none;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-        .nav-group a:hover {
-            color: #1F4E79;
-            text-decoration: underline;
-        }
-        .faq-section {
-            margin: 50px 0;
-        }
-        .faq-section h2 {
-            font-size: 18px;
-            color: #1F4E79;
-            font-weight: 700;
-            margin-bottom: 25px;
-            border-bottom: 2px solid #1F4E79;
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .faq-item {
-            margin-bottom: 30px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-        .faq-question {
-            font-weight: 700;
-            color: #1F4E79;
-            font-size: 15px;
-            margin-bottom: 12px;
-            line-height: 1.5;
-        }
-        .faq-answer {
-            color: #555;
-            font-size: 14px;
-            line-height: 1.7;
-            margin-bottom: 12px;
-        }
-        .faq-answer p {
-            margin-bottom: 10px;
-        }
-        .faq-answer ul, .faq-answer ol {
-            margin-left: 20px;
-            margin-bottom: 10px;
-        }
-        .faq-answer li {
-            margin-bottom: 6px;
-        }
-        .tip-box {
-            background: #fffbf0;
-            border-left: 4px solid #f5a623;
-            padding: 12px 15px;
-            margin: 15px 0;
-            font-size: 13px;
-            font-style: italic;
-            color: #666;
-        }
-        .hipaa-box {
-            background: #f0f5ff;
-            border-left: 4px solid #dc3545;
-            padding: 12px 15px;
-            margin: 15px 0;
-            font-size: 13px;
-            color: #333;
-            font-weight: 500;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 1px solid #ddd;
-            color: #999;
-            font-size: 12px;
-        }
-        @media (max-width: 768px) {
-            .container { padding: 30px 20px; }
-            h1 { font-size: 28px; }
-            .nav-grid { grid-template-columns: 1fr; }
-            .nav-grid.three-col { grid-template-columns: 1fr; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teams &amp; Collaboration FAQ — The Center for Family Support</title>
+<style>
+  :root {
+    --cfs-blue: #1F4E79;
+    --cfs-accent: #2E75B6;
+    --cfs-soft: #EAF2F8;
+    --text: #262626;
+    --text-soft: #595959;
+    --border: #DCE3EA;
+    --bg: #FFFFFF;
+    --bg-soft: #F7FAFC;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 24px 0 32px;
+    border-bottom: 3px solid var(--cfs-accent);
+    margin-bottom: 32px;
+  }
+  .hero .org {
+    color: var(--text-soft);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+  .hero h1 {
+    color: var(--cfs-blue);
+    font-size: 38px;
+    font-weight: 700;
+    margin: 0 0 6px;
+    line-height: 1.15;
+  }
+  .hero .subtitle {
+    color: var(--cfs-accent);
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 14px;
+  }
+  .hero .tagline {
+    color: var(--text-soft);
+    font-style: italic;
+    font-size: 15px;
+    margin: 0;
+  }
+
+  /* Intro */
+  .intro p {
+    font-size: 16px;
+    margin: 0 0 14px;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--cfs-accent);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin: 32px 0 40px;
+  }
+  .toc h2 {
+    color: var(--cfs-blue);
+    font-size: 20px;
+    margin: 0 0 16px;
+    padding: 0;
+    border: none;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px 32px;
+  }
+  .toc-section h3 {
+    color: var(--cfs-blue);
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .toc-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .toc-section li {
+    margin: 0 0 6px;
+  }
+  .toc-section a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14.5px;
+    border-bottom: 1px dotted transparent;
+  }
+  .toc-section a:hover {
+    color: var(--cfs-accent);
+    border-bottom-color: var(--cfs-accent);
+  }
+
+  /* Section headings */
+  .section {
+    margin: 48px 0 0;
+    padding-top: 8px;
+  }
+  .section > h2 {
+    color: var(--cfs-blue);
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--cfs-accent);
+  }
+
+  /* Q&A */
+  .qa {
+    padding: 20px 0 4px;
+    border-bottom: 1px solid var(--border);
+  }
+  .qa:last-of-type { border-bottom: none; }
+  .qa h3 {
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    line-height: 1.35;
+  }
+  .qa p {
+    margin: 0 0 12px;
+    font-size: 15.5px;
+  }
+  .qa ul {
+    margin: 4px 0 12px;
+    padding-left: 22px;
+  }
+  .qa li {
+    margin: 0 0 6px;
+    font-size: 15.5px;
+  }
+  .qa strong { color: var(--text); }
+
+  /* Callout */
+  .callout {
+    background: var(--cfs-soft);
+    border-left: 5px solid var(--cfs-accent);
+    border-radius: 3px;
+    padding: 14px 18px;
+    margin: 14px 0 18px;
+  }
+  .callout-label {
+    color: var(--cfs-blue);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 4px;
+  }
+  .callout-text { margin: 0; font-size: 15px; }
+
+  /* Back to top */
+  .back-to-top {
+    text-align: right;
+    margin: 18px 0 0;
+    padding: 8px 0;
+  }
+  .back-to-top a {
+    color: var(--cfs-accent);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px dotted var(--cfs-accent);
+  }
+  .back-to-top a:hover { color: var(--cfs-blue); border-bottom-color: var(--cfs-blue); }
+
+  /* Footer */
+  .farewell {
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 3px solid var(--cfs-accent);
+    text-align: center;
+  }
+  .farewell p { margin: 0 0 8px; color: var(--text-soft); font-style: italic; font-size: 15px; }
+  .farewell .signoff {
+    color: var(--cfs-blue);
+    font-weight: 700;
+    font-style: normal;
+    font-size: 16px;
+    margin-top: 14px;
+  }
+  .farewell .attribution {
+    color: var(--text-soft);
+    font-style: normal;
+    font-size: 14px;
+    margin-top: 4px;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .container { padding: 24px 16px 60px; }
+    .hero h1 { font-size: 30px; }
+    .hero .subtitle { font-size: 20px; }
+    .toc { padding: 18px 18px; }
+    .section > h2 { font-size: 22px; }
+    .qa h3 { font-size: 17px; }
+  }
+
+  /* Print */
+  @media print {
+    .toc, .back-to-top { display: none; }
+    .qa { page-break-inside: avoid; }
+    .section { page-break-after: auto; }
+    .container { max-width: 100%; padding: 0; }
+    body { font-size: 11pt; }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <p class="header-sup">The Center for Family Support</p>
-            <h1>Microsoft Teams &amp; Collaboration</h1>
-            <p class="subtitle"><strong>Frequently Asked Questions</strong></p>
-            <p class="subtitle" style="font-size: 14px; margin-top: 8px;">A staff resource compiled from the four-part training series</p>
-        </div>
+<div class="container" id="top">
 
-        <div class="intro">
-            <p>This FAQ was built from the questions you asked during our four Microsoft Teams &amp; Collaboration training sessions held in May and June 2026. If you attended any of the sessions, you may recognize your question here. If you missed a session, this is a great place to start. We have also added some additional questions that come up often at the Help Desk so you have everything in one place.</p>
-            <p style="margin-top: 15px;">If you do not see your question answered here, please reach out to the IT Help Desk. We are continuing to update this page as new questions come in.</p>
-        </div>
+<header class="hero">
+  <p class="org">The Center for Family Support</p>
+  <h1>Microsoft Teams &amp; Collaboration</h1>
+  <p class="subtitle">Frequently Asked Questions</p>
+  <p class="tagline">A staff resource compiled from the four-part training series</p>
+</header>
 
-        <div class="nav-section">
-            <h2>Quick Navigation</h2>
-            <div class="nav-grid three-col">
-                <div class="nav-group">
-                    <h3>Chats</h3>
-                    <ul>
-                        <li><a href="#chats-vs-channels">Chat vs. Channel</a></li>
-                        <li><a href="#start-chat">Start a 1-on-1 Chat</a></li>
-                        <li><a href="#chat-to-call">Upgrade Chat to Video Call</a></li>
-                        <li><a href="#share-files-chat">Share Files in Chat</a></li>
-                    </ul>
-                </div>
-                <div class="nav-group">
-                    <h3>Channels</h3>
-                    <ul>
-                        <li><a href="#find-join-channel">Find or Join a Channel</a></li>
-                        <li><a href="#standard-vs-private">Standard vs. Private Channel</a></li>
-                        <li><a href="#reply-in-thread">Reply in Thread</a></li>
-                        <li><a href="#channel-tabs">Channel Tabs &amp; Files</a></li>
-                    </ul>
-                </div>
-                <div class="nav-group">
-                    <h3>Meetings</h3>
-                    <ul>
-                        <li><a href="#schedule-meeting">Schedule a Meeting</a></li>
-                        <li><a href="#scheduled-vs-channel">Scheduled vs. Channel Meeting</a></li>
-                        <li><a href="#record-meeting">Record a Meeting</a></li>
-                        <li><a href="#join-mobile">Join from Mobile</a></li>
-                        <li><a href="#guests">Add Guests</a></li>
-                    </ul>
-                </div>
-                <div class="nav-group">
-                    <h3>Notifications</h3>
-                    <ul>
-                        <li><a href="#too-many-notifications">Too Many Notifications</a></li>
-                        <li><a href="#mute-channel">Mute a Channel</a></li>
-                    </ul>
-                </div>
-                <div class="nav-group">
-                    <h3>Files &amp; Sharing</h3>
-                    <ul>
-                        <li><a href="#where-store-files">Where to Store Files</a></li>
-                        <li><a href="#coedit">Co-edit Documents</a></li>
-                    </ul>
-                </div>
-                <div class="nav-group">
-                    <h3>Best Practices</h3>
-                    <ul>
-                        <li><a href="#mistakes-avoid">Common Mistakes to Avoid</a></li>
-                        <li><a href="#do-list">Best Practices Checklist</a></li>
-                        <li><a href="#hipaa-info">HIPAA &amp; Sensitive Info</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+<section class="intro">
+  <p>This FAQ was built from the questions you asked during our four Microsoft Teams &amp; Collaboration training sessions held in May and June 2026. If you attended any of the sessions, you may recognize your question here. If you missed a session, this is a great place to start. We have also added some additional questions that come up often at the Help Desk so you have everything in one place.</p>
+  <p>If you do not see your question answered here, please reach out to the IT Help Desk. We are continuing to update this page as new questions come in.</p>
+</section>
 
-        <!-- CHATS SECTION -->
-        <div class="faq-section">
-            <h2>Chats</h2>
-
-            <div class="faq-item">
-                <div class="faq-question" id="chats-vs-channels">What's the difference between a Chat and a Channel?</div>
-                <div class="faq-answer">
-                    <p><strong>Chats</strong> are for quick, time-sensitive conversations with 1-on-1 or small groups (3-5 people). Chats are private and informal.</p>
-                    <p><strong>Channels</strong> are for persistent team collaboration. Everyone in the team can see it, and it has a searchable history that new team members can access.</p>
-                    <p><strong>Rule of Thumb:</strong> If a new team member joined next month, would they need to see this conversation? Yes → Channel. No → Chat.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" id="start-chat">How do I start a 1-on-1 chat?</div>
-                <div class="faq-answer">
-                    <ol>
-                        <li>Click the <strong>Chat</strong> icon in the left rail of Teams</li>
-                        <li>Click <strong>New Chat</strong></li>
-                        <li>Type the person's name</li>
-                        <li>Click their name to open a 1-on-1 chat</li>
-                        <li>Start typing your message</li>
-                    </ol>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" id="chat-to-call">Can I upgrade a 1-on-1 chat to a video or voice call?</div>
-                <div class="faq-answer">
-                    <p>Yes! No scheduling required. Open the chat, look at the top-right corner, and click the <strong>phone icon</strong> (audio) or <strong>camera icon</strong> (video). The other person will see an incoming call notification.</p>
-                    <div class="tip-box">Perfect for: Quick 5-minute questions that are easier to discuss verbally.</div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" id="share-files-chat">Can I share files in a chat? Where do they go?</div>
-                <div class="faq-answer">
-                    <p>Yes! Click the attachment icon at the bottom of the chat, select your file, and send. Files automatically save to your OneDrive and stay with the conversation so they're easy to find later.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- CHANNELS SECTION -->
-        <div class="faq-section">
-            <h2>Channels</h2>
-
-            <div class="faq-item">
-                <div class="faq-question" id="find-join-channel">How do I find or join a team and channel?</div>
-                <div class="faq-answer">
-                    <p><strong>Option 1:</strong> Click <strong>Teams</strong> in the left rail → <strong>Browse teams</strong> → Search for the team → Click <strong>Join</strong></p>
-                    <p><strong>Option 2:</strong> Ask your team lead for the join link and click it</p>
-                    <p><strong>Option 3:</strong> Use the search box at the top and search for the channel name</p>
-                    <div class="tip-box">Once you join a team, star your favorite channels to keep them at the top.</div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" id="standard-vs-private">What's the difference between a Standard Channel and a Private Channel?</div>
-                <div class="faq-answer">
-                    <p><strong>Standard (Public) Channel:</strong> Anyone in the team can see and join. Best for broad team communication.</p>
-                    <p><strong>Private Channel:</strong> Only invited members can access it. Best for sensitive topics, projects, or sub-teams.</p>
-                    <div class="hipaa-box"><strong>CFS Note:</strong> Use private channels for conversations involving sensitive client information or compliance matters.</div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" id="reply-in-thread">How do I reply to a specific post in a channel?</div>
-                <div class="faq-answer">
-                    <p>Hover over a post and click <strong>Reply in thread</strong>. This keeps conversations organized and prevents the channel from becoming too noisy. Other team members can still see and search the thread.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" id="channel-tabs">What are channel tabs and the Files tab?</div>
-                <div class="faq-answer">
-                    <p>Every channel has multiple tabs at the top:</p>
-                    <ul>
-                        <li><strong>Posts</strong> — The main conversation</li>
-                        <li><strong>Files</strong> — All files shared in the channel (connected to SharePoint)</li>
-                        <li><strong>+ icon</strong> — Add other apps like Planner, Wiki, or Power BI</li>
-                    </ul>
-                    <p>New team members joining get instant access to all previous files — no hunting through emails!</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- MEETINGS SECTION -->
-        <div class="faq-section">
-            <h2>Meetings &amp; Calls</h2>
-
-            <div class="faq-item">
-                <div class="faq-question" id="schedule-meeting">How do I schedule a Teams meeting?</div>
-                <div class="faq-answer">
-                    <p>Open <strong>Outlook Calendar</strong>, create a new event, add attendees, and look for <strong>"Add Teams meeting"</strong> button. A Teams link is automatically inserted. That's it!</p>
-                    <div class="tip-box">You don't need to copy-paste anything — the Teams link is added automatically.</div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" id="scheduled-vs-channel">What's the difference between a scheduled meeting and a channel meeting?</div>
-                <div class="faq-answer">
-                    <p><strong>Scheduled Meeting:</strong> Created in Outlook, invite specific people, recording goes to organizer's OneDrive (private). Best for 1-on-1s or closed meetings.</p>
-                    <p><strong>Channel Meeting:</strong> Scheduled in the channel, everyone in the channel sees it, recording goes to the channel's SharePoint (team-accessible). Best for department updates and team standups.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" id="record-meeting">How do I record a Teams meeting and where does the recording go?</div>
-                <div class="faq-answer">
-                    <p>During the meeting, click the three-dot menu and select <strong>Start recording</strong>. You'll see "Recording" in red at the top. To stop, click the menu again and select <strong>Stop recording</strong>.</p>
-                    <p><strong>Where it goes:</strong></p>
-                    <ul>
-                        <li>Channel meetings → Channel's SharePoint (visible to all channel members)</li>
-                        <li>Scheduled meetings → Organizer's OneDrive (only for invitees)</li>
-                    </ul>
-                    <p>You also get an automatic transcript and AI-generated summary.</p>
-                    <div class="tip-box">Always tell attendees you're recording at the start of the meeting (for transparency and respect).</div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" id="join-mobile">Can I join a Teams meeting from my phone?</div>
-                <div class="faq-answer">
-                    <p>Yes! Download the Teams app (iOS or Android), sign in, go to <strong>Calendar</strong>, tap the meeting, and tap <strong>Join now</strong>. Or click the meeting link from your email and select <strong>Join on the web</strong>.</p>
-                    <p>You can also dial in with the phone number from the meeting invite if you want audio-only.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" id="guests">Do guests need a Microsoft account to join a Teams meeting?</div>
-                <div class="faq-answer">
-                    <p><strong>No!</strong> External guests can click the meeting link, enter their name, and join in their browser — no app or account required. Perfect for partners, consultants, or family members.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- NOTIFICATIONS SECTION -->
-        <div class="faq-section">
-            <h2>Notifications</h2>
-
-            <div class="faq-item">
-                <div class="faq-question" id="too-many-notifications">Why am I getting too many notifications?</div>
-                <div class="faq-answer">
-                    <p><strong>Step 1:</strong> Set your status. Click your profile picture and set status to <strong>Busy</strong> or <strong>Do Not Disturb</strong>. Notifications pause while you're busy.</p>
-                    <p><strong>Step 2:</strong> Enable Quiet Hours. Go to <strong>Settings > Notifications</strong> and turn on <strong>Quiet Hours</strong> (e.g., 5 PM–8 AM).</p>
-                    <p><strong>Step 3:</strong> Mute channels. Right-click a channel and select <strong>Mute</strong> — you'll still see it, but won't get notifications.</p>
-                    <p><strong>Step 4:</strong> Only @mention when truly urgent. Never use @channel or @team for routine updates.</p>
-                    <div class="tip-box">The world will not end if you don't respond in 5 minutes. Set your quiet hours and protect your evenings!</div>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" id="mute-channel">How do I control notifications for a specific channel?</div>
-                <div class="faq-answer">
-                    <p>Right-click the channel and choose:</p>
-                    <ul>
-                        <li><strong>Mute</strong> — No notifications, but you can still see posts</li>
-                        <li><strong>Only show unread</strong> — You'll see it in the sidebar only if there are new messages</li>
-                        <li><strong>At mentions</strong> — Notify me only if someone @mentions me</li>
-                        <li><strong>All new posts</strong> — Notify me about everything (default)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- FILES & SHARING SECTION -->
-        <div class="faq-section">
-            <h2>Files &amp; Sharing</h2>
-
-            <div class="faq-item">
-                <div class="faq-question" id="where-store-files">Where should I store team files — chat, channel, or OneDrive?</div>
-                <div class="faq-answer">
-                    <p><strong>Files in CHAT:</strong> Saved to your personal OneDrive. Best for quick shares. Downside: New team members won't see it.</p>
-                    <p><strong>Files in CHANNELS:</strong> Saved to the channel's SharePoint library. Best for project files and team resources. New team members get instant access to all previous files.</p>
-                    <p><strong>Your personal ONEDRIVE:</strong> Your private storage. Best for personal work and drafts. Move to a channel once ready to share.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" id="coedit">Can I co-edit documents with my team in Teams?</div>
-                <div class="faq-answer">
-                    <p><strong>Yes!</strong> Upload a Word, Excel, or PowerPoint file to a channel, click it, click <strong>Edit in browser</strong> (or <strong>Edit in Word/Excel</strong>), and edit together. Changes save automatically — no emailing copies back and forth.</p>
-                    <p>You'll see who else is editing in real-time, with cursor indicators showing where they're typing.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- BEST PRACTICES SECTION -->
-        <div class="faq-section">
-            <h2>Best Practices</h2>
-
-            <div class="faq-item">
-                <div class="faq-question" id="mistakes-avoid">What are common Teams mistakes to avoid?</div>
-                <div class="faq-answer">
-                    <ul>
-                        <li><strong>Don't use group chat for team-wide topics.</strong> New team members can't see the history. Use a channel instead.</li>
-                        <li><strong>Don't @channel or @team for everything.</strong> Notification fatigue is real. Save broad mentions for all-hands announcements.</li>
-                        <li><strong>Don't schedule a meeting without an agenda.</strong> If there's no agenda, send a chat message instead. Save everyone 30 minutes.</li>
-                        <li><strong>Don't keep notifications fully on 24/7.</strong> Burnout starts here. Set quiet hours.</li>
-                        <li><strong>Don't share PHI or sensitive info in chat.</strong> Follow CFS HIPAA policy. Chat is not the right channel.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" id="do-list">What should I DO in Teams?</div>
-                <div class="faq-answer">
-                    <ul>
-                        <li><strong>Use channels for team work.</strong> If more than 3 people care about it, it belongs in a channel.</li>
-                        <li><strong>@mention people deliberately.</strong> Tag specific people when you need attention — don't @everyone.</li>
-                        <li><strong>Set your status &amp; quiet hours.</strong> Mark yourself Busy or Do Not Disturb. Quiet hours protect your evenings.</li>
-                        <li><strong>Pin frequent chats and channels.</strong> Pinned items stay at the top for fast access.</li>
-                        <li><strong>Record important meetings.</strong> So absent team members can catch up without a separate recap.</li>
-                        <li><strong>Use threads for channel replies.</strong> Reply in threads, not the main channel. Keeps conversations organized.</li>
-                        <li><strong>Search before you ask.</strong> Your question might already be answered in channel history.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" id="hipaa-info">Where should I NOT put PHI or sensitive client information?</div>
-                <div class="faq-answer">
-                    <p><strong>NEVER put Protected Health Information (PHI) in:</strong></p>
-                    <ul>
-                        <li>Teams chat (even 1-on-1)</li>
-                        <li>Channel posts</li>
-                        <li>Unencrypted email</li>
-                    </ul>
-                    <p><strong>If you need to discuss sensitive information:</strong></p>
-                    <ul>
-                        <li>Call the person directly — verbal communication is secure and immediate</li>
-                        <li>Use Therap/eVero for client documentation and care coordination</li>
-                        <li>Contact IT if you need encrypted file sharing options</li>
-                    </ul>
-                    <div class="hipaa-box"><strong>Important:</strong> Chat is not the right channel for protected information. Follow CFS HIPAA policy and contact HelpDesk@CFSNY.org if unsure.</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>Last Updated: June 2026 | Microsoft Teams &amp; Collaboration Training — Series 2 of 4</p>
-            <p style="margin-top: 8px;">Questions? Email <strong>HelpDesk@CFSNY.org</strong></p>
-        </div>
+<nav class="toc" aria-label="Table of contents">
+  <h2>Quick Navigation</h2>
+  <div class="toc-grid">
+    <div class="toc-section">
+      <h3>Chats</h3>
+      <ul>
+        <li><a href="#q-chats-vs-channels">Chat vs. Channel</a></li>
+        <li><a href="#q-start-chat">Start a 1-on-1 Chat</a></li>
+        <li><a href="#q-chat-to-call">Upgrade Chat to Video Call</a></li>
+        <li><a href="#q-share-files-chat">Share Files in Chat</a></li>
+      </ul>
     </div>
+    <div class="toc-section">
+      <h3>Channels</h3>
+      <ul>
+        <li><a href="#q-find-join-channel">Find or Join a Channel</a></li>
+        <li><a href="#q-standard-vs-private">Standard vs. Private Channel</a></li>
+        <li><a href="#q-reply-in-thread">Reply in Thread</a></li>
+        <li><a href="#q-channel-tabs">Channel Tabs &amp; Files</a></li>
+      </ul>
+    </div>
+    <div class="toc-section">
+      <h3>Meetings &amp; Calls</h3>
+      <ul>
+        <li><a href="#q-schedule-meeting">Schedule a Meeting</a></li>
+        <li><a href="#q-scheduled-vs-channel">Scheduled vs. Channel Meeting</a></li>
+        <li><a href="#q-record-meeting">Record a Meeting</a></li>
+        <li><a href="#q-join-mobile">Join from Mobile</a></li>
+        <li><a href="#q-guests">Add Guests</a></li>
+      </ul>
+    </div>
+    <div class="toc-section">
+      <h3>Notifications</h3>
+      <ul>
+        <li><a href="#q-too-many-notifications">Too Many Notifications</a></li>
+        <li><a href="#q-mute-channel">Mute a Channel</a></li>
+      </ul>
+    </div>
+    <div class="toc-section">
+      <h3>Files &amp; Sharing</h3>
+      <ul>
+        <li><a href="#q-where-store-files">Where to Store Files</a></li>
+        <li><a href="#q-coedit">Co-edit Documents</a></li>
+      </ul>
+    </div>
+    <div class="toc-section">
+      <h3>Best Practices</h3>
+      <ul>
+        <li><a href="#q-mistakes-avoid">Mistakes to Avoid</a></li>
+        <li><a href="#q-do-list">Best Practices Checklist</a></li>
+        <li><a href="#q-hipaa-info">HIPAA &amp; Sensitive Info</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- CHATS SECTION -->
+<section class="section">
+  <h2>Chats</h2>
+
+  <div class="qa" id="q-chats-vs-channels">
+    <h3>What&rsquo;s the difference between a Chat and a Channel?</h3>
+    <p><strong>Chats</strong> are for quick, time-sensitive conversations with 1-on-1 or small groups (3–5 people). Chats are private and informal.</p>
+    <p><strong>Channels</strong> are for persistent team collaboration. Everyone in the team can see it, and it has a searchable history that new team members can access.</p>
+    <p><strong>Rule of Thumb:</strong> If a new team member joined next month, would they need to see this conversation? Yes &rarr; Channel. No &rarr; Chat.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-start-chat">
+    <h3>How do I start a 1-on-1 chat?</h3>
+    <p>Click the <strong>Chat</strong> icon in the left rail of Teams, click <strong>New Chat</strong>, type the person&rsquo;s name, click their name to open a 1-on-1 chat, and start typing your message.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-chat-to-call">
+    <h3>Can I upgrade a 1-on-1 chat to a video or voice call?</h3>
+    <p>Yes! No scheduling required. Open the chat, look at the top-right corner, and click the <strong>phone icon</strong> (audio) or <strong>camera icon</strong> (video). The other person will see an incoming call notification.</p>
+    <div class="callout">
+      <p class="callout-label">Perfect For</p>
+      <p class="callout-text">Quick 5-minute questions that are easier to discuss verbally.</p>
+    </div>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-share-files-chat">
+    <h3>Can I share files in a chat? Where do they go?</h3>
+    <p>Yes! Click the attachment icon at the bottom of the chat, select your file, and send. Files automatically save to your OneDrive and stay with the conversation so they&rsquo;re easy to find later.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+</section>
+
+<!-- CHANNELS SECTION -->
+<section class="section">
+  <h2>Channels</h2>
+
+  <div class="qa" id="q-find-join-channel">
+    <h3>How do I find or join a team and channel?</h3>
+    <p><strong>Option 1:</strong> Click <strong>Teams</strong> in the left rail → <strong>Browse teams</strong> → Search for the team → Click <strong>Join</strong></p>
+    <p><strong>Option 2:</strong> Ask your team lead for the join link and click it.</p>
+    <p><strong>Option 3:</strong> Use the search box at the top and search for the channel name.</p>
+    <div class="callout">
+      <p class="callout-label">Tip</p>
+      <p class="callout-text">Once you join a team, star your favorite channels to keep them at the top.</p>
+    </div>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-standard-vs-private">
+    <h3>What&rsquo;s the difference between a Standard Channel and a Private Channel?</h3>
+    <p><strong>Standard (Public) Channel:</strong> Anyone in the team can see and join. Best for broad team communication.</p>
+    <p><strong>Private Channel:</strong> Only invited members can access it. Best for sensitive topics, projects, or sub-teams.</p>
+    <div class="callout">
+      <p class="callout-label">CFS Note</p>
+      <p class="callout-text">Use private channels for conversations involving sensitive client information or compliance matters. Follow CFS HIPAA policy.</p>
+    </div>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-reply-in-thread">
+    <h3>How do I reply to a specific post in a channel?</h3>
+    <p>Hover over a post and click <strong>Reply in thread</strong>. This keeps conversations organized and prevents the channel from becoming too noisy. Other team members can still see and search the thread.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-channel-tabs">
+    <h3>What are channel tabs and the Files tab?</h3>
+    <p>Every channel has multiple tabs at the top:</p>
+    <ul>
+      <li><strong>Posts</strong> &mdash; The main conversation</li>
+      <li><strong>Files</strong> &mdash; All files shared in the channel (connected to SharePoint)</li>
+      <li><strong>+ icon</strong> &mdash; Add other apps like Planner, Wiki, or Power BI</li>
+    </ul>
+    <p>New team members joining get instant access to all previous files &mdash; no hunting through emails!</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+</section>
+
+<!-- MEETINGS SECTION -->
+<section class="section">
+  <h2>Meetings &amp; Calls</h2>
+
+  <div class="qa" id="q-schedule-meeting">
+    <h3>How do I schedule a Teams meeting?</h3>
+    <p>Open <strong>Outlook Calendar</strong>, create a new event, add attendees, and look for <strong>&ldquo;Add Teams meeting&rdquo;</strong> button. A Teams link is automatically inserted. That&rsquo;s it!</p>
+    <div class="callout">
+      <p class="callout-label">Tip</p>
+      <p class="callout-text">You don&rsquo;t need to copy-paste anything &mdash; the Teams link is added automatically.</p>
+    </div>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-scheduled-vs-channel">
+    <h3>What&rsquo;s the difference between a scheduled meeting and a channel meeting?</h3>
+    <p><strong>Scheduled Meeting:</strong> Created in Outlook, invite specific people, recording goes to organizer&rsquo;s OneDrive (private). Best for 1-on-1s or closed meetings.</p>
+    <p><strong>Channel Meeting:</strong> Scheduled in the channel, everyone in the channel sees it, recording goes to the channel&rsquo;s SharePoint (team-accessible). Best for department updates and team standups.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-record-meeting">
+    <h3>How do I record a Teams meeting and where does the recording go?</h3>
+    <p>During the meeting, click the three-dot menu and select <strong>Start recording</strong>. You&rsquo;ll see &ldquo;Recording&rdquo; in red at the top. To stop, click the menu again and select <strong>Stop recording</strong>.</p>
+    <p><strong>Where it goes:</strong></p>
+    <ul>
+      <li>Channel meetings &rarr; Channel&rsquo;s SharePoint (visible to all channel members)</li>
+      <li>Scheduled meetings &rarr; Organizer&rsquo;s OneDrive (only for invitees)</li>
+    </ul>
+    <p>You also get an automatic transcript and AI-generated summary.</p>
+    <div class="callout">
+      <p class="callout-label">Best Practice</p>
+      <p class="callout-text">Always tell attendees you&rsquo;re recording at the start of the meeting (for transparency and respect).</p>
+    </div>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-join-mobile">
+    <h3>Can I join a Teams meeting from my phone?</h3>
+    <p>Yes! Download the Teams app (iOS or Android), sign in, go to <strong>Calendar</strong>, tap the meeting, and tap <strong>Join now</strong>. Or click the meeting link from your email and select <strong>Join on the web</strong>.</p>
+    <p>You can also dial in with the phone number from the meeting invite if you want audio-only.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-guests">
+    <h3>Do guests need a Microsoft account to join a Teams meeting?</h3>
+    <p><strong>No!</strong> External guests can click the meeting link, enter their name, and join in their browser &mdash; no app or account required. Perfect for partners, consultants, or family members.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+</section>
+
+<!-- NOTIFICATIONS SECTION -->
+<section class="section">
+  <h2>Notifications</h2>
+
+  <div class="qa" id="q-too-many-notifications">
+    <h3>Why am I getting too many notifications?</h3>
+    <p><strong>Step 1:</strong> Set your status. Click your profile picture and set status to <strong>Busy</strong> or <strong>Do Not Disturb</strong>. Notifications pause while you&rsquo;re busy.</p>
+    <p><strong>Step 2:</strong> Enable Quiet Hours. Go to <strong>Settings &gt; Notifications</strong> and turn on <strong>Quiet Hours</strong> (e.g., 5 PM–8 AM).</p>
+    <p><strong>Step 3:</strong> Mute channels. Right-click a channel and select <strong>Mute</strong> &mdash; you&rsquo;ll still see it, but won&rsquo;t get notifications.</p>
+    <p><strong>Step 4:</strong> Only @mention when truly urgent. Never use @channel or @team for routine updates.</p>
+    <div class="callout">
+      <p class="callout-label">Important</p>
+      <p class="callout-text">The world will not end if you don&rsquo;t respond in 5 minutes. Set your quiet hours and protect your evenings!</p>
+    </div>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-mute-channel">
+    <h3>How do I control notifications for a specific channel?</h3>
+    <p>Right-click the channel and choose:</p>
+    <ul>
+      <li><strong>Mute</strong> &mdash; No notifications, but you can still see posts</li>
+      <li><strong>Only show unread</strong> &mdash; You&rsquo;ll see it in the sidebar only if there are new messages</li>
+      <li><strong>At mentions</strong> &mdash; Notify me only if someone @mentions me</li>
+      <li><strong>All new posts</strong> &mdash; Notify me about everything (default)</li>
+    </ul>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+</section>
+
+<!-- FILES & SHARING SECTION -->
+<section class="section">
+  <h2>Files &amp; Sharing</h2>
+
+  <div class="qa" id="q-where-store-files">
+    <h3>Where should I store team files &mdash; chat, channel, or OneDrive?</h3>
+    <p><strong>Files in CHAT:</strong> Saved to your personal OneDrive. Best for quick shares. Downside: New team members won&rsquo;t see it.</p>
+    <p><strong>Files in CHANNELS:</strong> Saved to the channel&rsquo;s SharePoint library. Best for project files and team resources. New team members get instant access to all previous files.</p>
+    <p><strong>Your personal ONEDRIVE:</strong> Your private storage. Best for personal work and drafts. Move to a channel once ready to share.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-coedit">
+    <h3>Can I co-edit documents with my team in Teams?</h3>
+    <p><strong>Yes!</strong> Upload a Word, Excel, or PowerPoint file to a channel, click it, click <strong>Edit in browser</strong> (or <strong>Edit in Word/Excel</strong>), and edit together. Changes save automatically &mdash; no emailing copies back and forth.</p>
+    <p>You&rsquo;ll see who else is editing in real-time, with cursor indicators showing where they&rsquo;re typing.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+</section>
+
+<!-- BEST PRACTICES SECTION -->
+<section class="section">
+  <h2>Best Practices</h2>
+
+  <div class="qa" id="q-mistakes-avoid">
+    <h3>What are common Teams mistakes to avoid?</h3>
+    <ul>
+      <li><strong>Don&rsquo;t use group chat for team-wide topics.</strong> New team members can&rsquo;t see the history. Use a channel instead.</li>
+      <li><strong>Don&rsquo;t @channel or @team for everything.</strong> Notification fatigue is real. Save broad mentions for all-hands announcements.</li>
+      <li><strong>Don&rsquo;t schedule a meeting without an agenda.</strong> If there&rsquo;s no agenda, send a chat message instead. Save everyone 30 minutes.</li>
+      <li><strong>Don&rsquo;t keep notifications fully on 24/7.</strong> Burnout starts here. Set quiet hours.</li>
+      <li><strong>Don&rsquo;t share PHI or sensitive info in chat.</strong> Follow CFS HIPAA policy. Chat is not the right channel.</li>
+    </ul>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-do-list">
+    <h3>What should I DO in Teams?</h3>
+    <ul>
+      <li><strong>Use channels for team work.</strong> If more than 3 people care about it, it belongs in a channel.</li>
+      <li><strong>@mention people deliberately.</strong> Tag specific people when you need attention &mdash; don&rsquo;t @everyone.</li>
+      <li><strong>Set your status &amp; quiet hours.</strong> Mark yourself Busy or Do Not Disturb. Quiet hours protect your evenings.</li>
+      <li><strong>Pin frequent chats and channels.</strong> Pinned items stay at the top for fast access.</li>
+      <li><strong>Record important meetings.</strong> So absent team members can catch up without a separate recap.</li>
+      <li><strong>Use threads for channel replies.</strong> Reply in threads, not the main channel. Keeps conversations organized.</li>
+      <li><strong>Search before you ask.</strong> Your question might already be answered in channel history.</li>
+    </ul>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-hipaa-info">
+    <h3>Where should I NOT put PHI or sensitive client information?</h3>
+    <p><strong>NEVER put Protected Health Information (PHI) in:</strong></p>
+    <ul>
+      <li>Teams chat (even 1-on-1)</li>
+      <li>Channel posts</li>
+      <li>Unencrypted email</li>
+    </ul>
+    <p><strong>If you need to discuss sensitive information:</strong></p>
+    <ul>
+      <li>Call the person directly &mdash; verbal communication is secure and immediate</li>
+      <li>Use Therap/eVero for client documentation and care coordination</li>
+      <li>Contact IT if you need encrypted file sharing options</li>
+    </ul>
+    <div class="callout">
+      <p class="callout-label">Important</p>
+      <p class="callout-text">Chat is not the right channel for protected information. Follow CFS HIPAA policy and contact HelpDesk@CFSNY.org if unsure.</p>
+    </div>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+</section>
+
+<footer class="farewell">
+  <p>Last Updated: June 2026</p>
+  <p>Microsoft Teams &amp; Collaboration Training &mdash; Series 2 of 4</p>
+  <p class="signoff">Stay safe and be well.</p>
+  <p class="attribution">Jim Noriega and the CFS IT Team</p>
+</footer>
+
+</div>
 </body>
 </html>
