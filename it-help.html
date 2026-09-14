@@ -13,6 +13,7 @@
   CHARLIE & FAQ:
   - https://cfsny.sharepoint.com/SitePages/NewHome.aspx (Charlie - DONE: wired to intranet home where Charlie is embedded)
   - https://jnoriega-cfs.github.io/cfs-intranet-tools/faq.html        URL to the new SharePoint/OneDrive FAQ page
+  - https://jnoriega-cfs.github.io/cfs-intranet-tools/copilot-ai-tools-faq.html   Series 3 Copilot & AI Tools FAQ (live 9/14/2026, updated after each session)
 
   TRAINING SERIES:
   - https://cfsny.sharepoint.com/_layouts/15/stream.aspx?id=%2FSiteAssets%2FIT%2DHelp%2DResources%2FSession%204%20%20SharePoint%20and%20OneDrive%20Trainings%2D20260424%5F110200%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E5774ef34%2D0a2e%2D4ec6%2Db91c%2Db63eece9b351    Session 4 (CEO) recording for Series 1
@@ -492,6 +493,27 @@
     background: var(--cfs-soft);
     color: var(--cfs-blue-dark);
   }
+  /* CTA buttons on light (upcoming / in-progress) cards: the defaults above are white-on-white there */
+  .series-card.is-upcoming .series-cta-btn {
+    background: #fff;
+    border: 1px solid var(--border);
+    color: var(--cfs-blue);
+  }
+  .series-card.is-upcoming .series-cta-btn:hover {
+    background: var(--cfs-soft);
+    border-color: var(--cfs-accent-light);
+    color: var(--cfs-blue-dark);
+  }
+  .series-card.is-upcoming .series-cta-btn.is-primary {
+    background: var(--cfs-blue);
+    border-color: var(--cfs-blue);
+    color: #fff;
+  }
+  .series-card.is-upcoming .series-cta-btn.is-primary:hover {
+    background: var(--cfs-blue-dark);
+    border-color: var(--cfs-blue-dark);
+    color: #fff;
+  }
   .series-placeholder {
     text-align: center;
     color: var(--text-muted);
@@ -878,7 +900,7 @@
       <span class="accent-bar"></span>
       <h2>2026 Training Series</h2>
     </div>
-    <p class="section-sub">Four virtual sessions per series, held via Microsoft Teams. Designed to build your Microsoft 365 confidence, one topic at a time. Sessions are recorded and shared after each training — you can attend any session independently.</p>
+    <p class="section-sub">Four virtual sessions per series, held via Microsoft Teams. Designed to build your Microsoft 365 confidence, one topic at a time. Each series is the same session offered on four dates, so you can attend any one of them. The recording, slide deck, and FAQ are posted here when the series wraps up.</p>
 
     <div class="training-series">
 
@@ -922,19 +944,21 @@
       <div class="series-card is-upcoming">
         <div class="series-header">
           <span class="series-tag">S3</span>
-          <span class="series-status status-upcoming">Starts Sept 10</span>
+          <span class="series-status status-upcoming">In Progress · Next: Sept 22</span>
         </div>
         <h3 class="series-title">Copilot &amp; AI Tools</h3>
         <p class="series-when">September – October 2026 · 11:00 AM</p>
         <p class="series-desc">Getting more done with Microsoft AI. Same session offered on four dates; pick the one that works for you and click to join.</p>
         <div class="series-sessions">
           <!-- Teams meeting links added 9/1/2026. As each session is delivered, add class "is-given" to its link, as the CSS supports. -->
-          <a class="series-session-link" href="https://teams.microsoft.com/meet/227355835727880?p=RbKPEwu5R3H77BIHD1" target="_blank" rel="noopener noreferrer" title="Session 1: Thursday, September 10, 2026 at 11:00 AM on Microsoft Teams">Session 1 · Thu, Sept 10 <span class="series-session-arrow">›</span></a>
+          <a class="series-session-link is-given" href="https://teams.microsoft.com/meet/227355835727880?p=RbKPEwu5R3H77BIHD1" target="_blank" rel="noopener noreferrer" title="Session 1 was held Thursday, September 10, 2026. Recording will be shared when the series wraps up.">Session 1 · Thu, Sept 10 · Held <span class="series-session-arrow">›</span></a>
           <a class="series-session-link" href="https://teams.microsoft.com/meet/273434402962443?p=va1W6sYrtdUA3aTLYA" target="_blank" rel="noopener noreferrer" title="Session 2: Tuesday, September 22, 2026 at 11:00 AM on Microsoft Teams">Session 2 · Tue, Sept 22 <span class="series-session-arrow">›</span></a>
           <a class="series-session-link" href="https://teams.microsoft.com/meet/279196666277886?p=dNofNxA3ohpLxGGHzY" target="_blank" rel="noopener noreferrer" title="Session 3: Tuesday, October 13, 2026 at 11:00 AM on Microsoft Teams">Session 3 · Tue, Oct 13 <span class="series-session-arrow">›</span></a>
           <a class="series-session-link" href="https://teams.microsoft.com/meet/26904509202914?p=LPRzrEDo2ko6bHpb8F" target="_blank" rel="noopener noreferrer" title="Session 4: Friday, October 30, 2026 at 11:00 AM on Microsoft Teams">Session 4 · Fri, Oct 30 <span class="series-session-arrow">›</span></a>
         </div>
         <div class="series-cta-row">
+          <!-- FAQ page is live and updated after each session; add the recording and slide deck buttons here when the series wraps (Oct 30, 2026) -->
+          <a class="series-cta-btn is-primary" href="https://jnoriega-cfs.github.io/cfs-intranet-tools/copilot-ai-tools-faq.html" target="_blank" rel="noopener noreferrer" title="Questions asked during the Copilot &amp; AI Tools sessions, answered by the IT team. Updated after every session.">View the FAQ (updated after each session)</a>
           <a class="series-cta-btn" href="https://www.cfsny.org/wp-content/uploads/2026/09/Copilot_AI_Tools_Quick_Reference_Card_v1.pdf" target="_blank" rel="noopener noreferrer">View the Quick Reference Card</a>
         </div>
       </div>
