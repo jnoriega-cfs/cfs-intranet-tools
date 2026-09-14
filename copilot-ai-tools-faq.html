@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copilot &amp; AI Tools FAQ — The Center for Family Support</title>
+<style>
+  :root {
+    --cfs-blue: #1F4E79;
+    --cfs-accent: #2E75B6;
+    --cfs-soft: #EAF2F8;
+    --text: #262626;
+    --text-soft: #595959;
+    --border: #DCE3EA;
+    --bg: #FFFFFF;
+    --bg-soft: #F7FAFC;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 24px 0 32px;
+    border-bottom: 3px solid var(--cfs-accent);
+    margin-bottom: 32px;
+  }
+  .hero .org {
+    color: var(--text-soft);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+  .hero h1 {
+    color: var(--cfs-blue);
+    font-size: 38px;
+    font-weight: 700;
+    margin: 0 0 6px;
+    line-height: 1.15;
+  }
+  .hero .subtitle {
+    color: var(--cfs-accent);
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 14px;
+  }
+  .hero .tagline {
+    color: var(--text-soft);
+    font-style: italic;
+    font-size: 15px;
+    margin: 0;
+  }
+
+  /* Intro */
+  .intro p {
+    font-size: 16px;
+    margin: 0 0 14px;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--cfs-accent);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin: 32px 0 40px;
+  }
+  .toc h2 {
+    color: var(--cfs-blue);
+    font-size: 20px;
+    margin: 0 0 16px;
+    padding: 0;
+    border: none;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px 32px;
+  }
+  .toc-section h3 {
+    color: var(--cfs-blue);
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .toc-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .toc-section li {
+    margin: 0 0 6px;
+  }
+  .toc-section a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14.5px;
+    border-bottom: 1px dotted transparent;
+  }
+  .toc-section a:hover {
+    color: var(--cfs-accent);
+    border-bottom-color: var(--cfs-accent);
+  }
+
+  /* Section headings */
+  .section {
+    margin: 48px 0 0;
+    padding-top: 8px;
+  }
+  .section > h2 {
+    color: var(--cfs-blue);
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--cfs-accent);
+  }
+
+  /* Q&A */
+  .qa {
+    padding: 20px 0 4px;
+    border-bottom: 1px solid var(--border);
+  }
+  .qa:last-of-type { border-bottom: none; }
+  .qa h3 {
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    line-height: 1.35;
+  }
+  .qa p {
+    margin: 0 0 12px;
+    font-size: 15.5px;
+  }
+  .qa ul {
+    margin: 4px 0 12px;
+    padding-left: 22px;
+  }
+  .qa li {
+    margin: 0 0 6px;
+    font-size: 15.5px;
+  }
+  .qa strong { color: var(--text); }
+
+  /* Callout */
+  .callout {
+    background: var(--cfs-soft);
+    border-left: 5px solid var(--cfs-accent);
+    border-radius: 3px;
+    padding: 14px 18px;
+    margin: 14px 0 18px;
+  }
+  .callout-label {
+    color: var(--cfs-blue);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 4px;
+  }
+  .callout-text { margin: 0; font-size: 15px; }
+
+  /* Back to top */
+  .back-to-top {
+    text-align: right;
+    margin: 18px 0 0;
+    padding: 8px 0;
+  }
+  .back-to-top a {
+    color: var(--cfs-accent);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px dotted var(--cfs-accent);
+  }
+  .back-to-top a:hover { color: var(--cfs-blue); border-bottom-color: var(--cfs-blue); }
+
+  /* Footer */
+  .farewell {
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 3px solid var(--cfs-accent);
+    text-align: center;
+  }
+  .farewell p { margin: 0 0 8px; color: var(--text-soft); font-style: italic; font-size: 15px; }
+  .farewell .signoff {
+    color: var(--cfs-blue);
+    font-weight: 700;
+    font-style: normal;
+    font-size: 16px;
+    margin-top: 14px;
+  }
+  .farewell .attribution {
+    color: var(--text-soft);
+    font-style: normal;
+    font-size: 14px;
+    margin-top: 4px;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .container { padding: 24px 16px 60px; }
+    .hero h1 { font-size: 30px; }
+    .hero .subtitle { font-size: 20px; }
+    .toc { padding: 18px 18px; }
+    .section > h2 { font-size: 22px; }
+    .qa h3 { font-size: 17px; }
+  }
+
+  /* Print */
+  @media print {
+    .toc, .back-to-top { display: none; }
+    .qa { page-break-inside: avoid; }
+    .section { page-break-after: auto; }
+    .container { max-width: 100%; padding: 0; }
+    body { font-size: 11pt; }
+  }
+</style>
+</head>
+<body>
+<div class="container" id="top">
+
+<header class="hero">
+  <p class="org">The Center for Family Support</p>
+  <h1>Microsoft Copilot &amp; AI Tools</h1>
+  <p class="subtitle">Frequently Asked Questions</p>
+  <p class="tagline">A staff resource compiled from the four-part training series</p>
+</header>
+
+<section class="intro">
+  <p>This FAQ was built from the questions you asked during our Microsoft Copilot &amp; AI Tools training sessions held in September and October 2026. If you attended any of the sessions, you may recognize your question here. If you missed a session, this is a great place to start. We have also added some questions that come up often at the Help Desk so you have everything in one place.</p>
+  <p>If you do not see your question answered here, please reach out to the IT Help Desk. This page is updated after every session, so the questions your colleagues ask on September 22, October 13, and October 30 will appear here too.</p>
+</section>
+
+<nav class="toc" aria-label="Table of contents">
+  <h2>Quick Navigation</h2>
+  <div class="toc-grid">
+    <div class="toc-section">
+      <h3>Getting Started</h3>
+      <ul>
+        <li><a href="#q-through-teams">Do I Have to Use Teams?</a></li>
+        <li><a href="#q-which-copilot">Which Copilot Do I Have?</a></li>
+        <li><a href="#q-hands-on">The Hands On Exercise, Step by Step</a></li>
+        <li><a href="#q-good-prompt">What Makes a Good Prompt</a></li>
+        <li><a href="#q-polite">Being Polite to Copilot</a></li>
+      </ul>
+    </div>
+    <div class="toc-section">
+      <h3>Data Protection &amp; Where the Line Is</h3>
+      <ul>
+        <li><a href="#q-referral-packet">Referral Packets with Medical Info</a></li>
+        <li><a href="#q-work-vs-web">Work Tab vs. Web Tab</a></li>
+        <li><a href="#q-green-shield">The Green Shield</a></li>
+        <li><a href="#q-public-ai">ChatGPT and Other AI Tools</a></li>
+        <li><a href="#q-incident-report">Drafting an Incident Report</a></li>
+        <li><a href="#q-when-not">When Not to Use AI</a></li>
+      </ul>
+    </div>
+    <div class="toc-section">
+      <h3>Getting Good Results</h3>
+      <ul>
+        <li><a href="#q-argue">When Copilot Gets It Wrong</a></li>
+        <li><a href="#q-trust">How Much to Trust It</a></li>
+        <li><a href="#q-scanned">Scanned Documents</a></li>
+      </ul>
+    </div>
+    <div class="toc-section">
+      <h3>Email, Meetings &amp; Files</h3>
+      <ul>
+        <li><a href="#q-morning-briefing">The Morning Briefing in Outlook</a></li>
+        <li><a href="#q-catch-up">Catching Up After Time Away</a></li>
+        <li><a href="#q-recordings">Who Gets Meeting Recordings</a></li>
+        <li><a href="#q-meeting-recap">Meeting Recap (Licensed)</a></li>
+        <li><a href="#q-licensed-features">Which Features Need a License</a></li>
+      </ul>
+    </div>
+    <div class="toc-section">
+      <h3>Charlie &amp; Agents</h3>
+      <ul>
+        <li><a href="#q-charlie-vs-copilot">Charlie vs. Copilot</a></li>
+        <li><a href="#q-charlie-gaps">When Charlie Doesn&rsquo;t Know</a></li>
+        <li><a href="#q-build-agent">Building Your Own Agent</a></li>
+      </ul>
+    </div>
+    <div class="toc-section">
+      <h3>About the Series</h3>
+      <ul>
+        <li><a href="#q-dates">Remaining Sessions</a></li>
+        <li><a href="#q-materials">Recording and Materials</a></li>
+        <li><a href="#q-private-question">Asking Privately</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- GETTING STARTED SECTION -->
+<section class="section">
+  <h2>Getting Started</h2>
+
+  <div class="qa" id="q-through-teams">
+    <h3>Do I have to open Copilot through Teams, or can I get to it another way?</h3>
+    <p>Nothing breaks if you don&rsquo;t start in Teams. We recommend Teams because it is a one stop shop: Chat, Calendar, OneDrive, and the <strong>Copilot</strong> icon all sit on the left rail, so one habit gets you to everything. If you prefer to open Copilot from Outlook, from the Microsoft 365 app, or from Edge with your CFS account, the same protections apply as long as you see the green shield (see Data Protection below).</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-which-copilot">
+    <h3>Which Copilot do I have? I keep hearing about different versions.</h3>
+    <p>Think of it as three keys. Every CFS staff member has at least two of them.</p>
+    <ul>
+      <li><strong>Copilot Chat.</strong> Everyone has this. Open it from the Copilot icon in Teams. It answers questions, drafts and rewrites text, summarizes documents you upload, and in Work mode it can look at your own email, calendar, and files.</li>
+      <li><strong>Microsoft 365 Copilot (the full license).</strong> A smaller group of staff have this. It puts Copilot inside Word, Excel, PowerPoint, Outlook, and Teams meetings, so it can build a presentation from a Word document, add a calculated column in Excel, or give you a meeting recap.</li>
+      <li><strong>Charlie.</strong> Everyone has this too. Charlie is the CFS agent on the intranet home page. It only knows our policies, procedures, guides, and training materials, and it cites them when it answers.</li>
+    </ul>
+    <p>The Quick Reference Card on the IT Help &amp; Resources page shows which features belong to which key.</p>
+    <div class="callout">
+      <p class="callout-label">Want a Full License?</p>
+      <p class="callout-text">Full licenses are limited and assigned through the Copilot Committee. If your role would benefit, talk with your supervisor and email the Help Desk.</p>
+    </div>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-hands-on">
+    <h3>I got lost during the hands on exercise. What exactly were we supposed to do?</h3>
+    <p>Here it is step by step, and you can do it right now.</p>
+    <ul>
+      <li>Open Teams and click the <strong>Copilot</strong> icon on the left rail (it sits with Chat, Calendar, and OneDrive).</li>
+      <li>Type <strong>Copilot, turn these notes into an agenda.</strong> Then paste the block of meeting notes from the session chat underneath it and press Enter. Copilot builds what it thinks an agenda is.</li>
+      <li>Start a new prompt with the <strong>same notes</strong>, but change only the instruction: <strong>Turn these notes into a 30 minute agenda. Put the items in a sensible order and give each one a time allocation.</strong></li>
+    </ul>
+    <p>Compare the two results. The notes never changed; only the way you asked changed, and you got a completely different answer. That is the one skill the whole series is built on. Everything else we showed is that skill pointed at your inbox, your meetings, and your files.</p>
+    <div class="callout">
+      <p class="callout-label">Want a Hand?</p>
+      <p class="callout-text">Email the Help Desk and Anthony will walk through it with you one on one.</p>
+    </div>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-good-prompt">
+    <h3>What makes a good prompt? Mine came out nothing like Anthony&rsquo;s.</h3>
+    <p>A prompt has four parts: <strong>Goal</strong> (what you want), <strong>Context</strong> (who it is for and why), <strong>Source</strong> (what Copilot should work from), and <strong>Format</strong> (bullets, a table, a 30 minute agenda, a short email). &ldquo;Write an email about the Copilot training&rdquo; is missing three of the four, so Copilot has to guess. Give it the same detail you would give a new coworker on their first day.</p>
+    <p>You do not have to write prompts from scratch. The Copilot Prompt Library on the IT Help &amp; Resources page has ready made prompts organized by department, and you can ask the library in plain English to build one for you when nothing fits.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-polite">
+    <h3>Does it help to be polite to Copilot?</h3>
+    <p>It does not hurt, and it tends to produce warmer, more natural drafts. Jim starts most prompts with &ldquo;Good morning&rdquo; out of habit. What matters more than manners is being specific about what you want and what it should look like.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+</section>
+
+<!-- DATA PROTECTION & WHERE THE LINE IS SECTION -->
+<section class="section">
+  <h2>Data Protection &amp; Where the Line Is</h2>
+
+  <div class="qa" id="q-referral-packet">
+    <h3>We get long referral packets with dates of birth, medical and behavioral information. Can I put one into Copilot to summarize it?</h3>
+    <p>Yes, with two conditions: you are in <strong>Work mode</strong> and you see the <strong>green shield</strong> that says your data is protected by CFS. Under those conditions your Copilot is your assistant sitting across the desk from you. It can only see what your CFS account already sees, your prompts and uploads stay inside our Microsoft 365 environment, and they are not used to train Microsoft&rsquo;s models. Uploading a 30 page packet and asking for the five things you need is exactly what it is for.</p>
+    <p>A good habit from the session: if you feel yourself hesitate before pasting something, that hesitation is the answer. Stop, take five seconds, confirm you are in Work mode with the shield showing, and then proceed.</p>
+    <div class="callout">
+      <p class="callout-label">The Rule Is About the Door, Not the Document</p>
+      <p class="callout-text">The same packet must never go into the Web tab of Copilot, into ChatGPT, Gemini, Grok, or any other public AI tool. Once it leaves our walls, CFS can no longer protect it.</p>
+    </div>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-work-vs-web">
+    <h3>What is the difference between the Work tab and the Web tab in Copilot Chat?</h3>
+    <p><strong>Work</strong> looks inside the agency: your OneDrive and SharePoint files, your Outlook mail and calendar, your Teams meetings. <strong>Web</strong> searches the public internet, outside our protected environment. Use Work for anything involving CFS information. If you switch to Web for a general question, do not upload or paste organizational content while you are there.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-green-shield">
+    <h3>How do I know I am in the protected version and not a public one?</h3>
+    <p>Look for the green shield near the top of the Copilot window. That shield means you are signed in with your CFS account and enterprise data protection is on. If you do not see it, stop and do not upload anything. Sign out of any personal Microsoft account, sign back in with your @cfsny.org account, and check again. If it still does not appear, email the Help Desk.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-public-ai">
+    <h3>Can I use ChatGPT, Gemini, or another AI tool for CFS work?</h3>
+    <p>No. For CFS work, use only Copilot inside our Microsoft 365 environment, or Charlie on the intranet. This is CFS policy (IT-AI-001, AI Acceptable Use), and the reason is simple: those tools run outside our protective boundaries, so once agency or resident information goes in, we cannot get it back or control where it goes.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-incident-report">
+    <h3>I need to draft an incident report. What should I keep out of the prompt?</h3>
+    <p>Stay in Work mode, and when the real identity is not necessary for the task, swap identifying details before you paste: initials or a fictional name instead of the person&rsquo;s name, and leave out anything the draft does not need. Copilot writes just as well about &ldquo;J.R.&rdquo; as it does about a full name, and you can put the real details back in your own document afterward.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-when-not">
+    <h3>When should I not use AI at all?</h3>
+    <p>Any conversation that requires your judgment and your own voice. A hard conversation with a family, a board member, an employee, or a colleague deserves your words, not a draft you reviewed. Those moments call for dialogue, listening, and your presence. Copilot is for the work around those moments: the summary, the follow up notes, the agenda, the first draft of a routine update.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+</section>
+
+<!-- GETTING GOOD RESULTS SECTION -->
+<section class="section">
+  <h2>Getting Good Results</h2>
+
+  <div class="qa" id="q-argue">
+    <h3>Have you ever had to argue with Copilot when it gives you the wrong thing?</h3>
+    <p>All the time, and that is not a sign you are doing it wrong. Think of it as a very smart new assistant who does not know you yet. When the result is not right, tell it plainly what is wrong and how you want it instead: &ldquo;That&rsquo;s not it. I want three bullets, no introduction, and use the template from last month.&rdquo; Keep refining. If a conversation goes sideways, start a fresh one. Jim has used Copilot daily for over a year and still corrects it regularly; that back and forth is you teaching it how you communicate.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-trust">
+    <h3>How much should I trust what Copilot gives me?</h3>
+    <p>Treat it as a first draft, never a final decision. Copilot can produce something polished that contains a mistake, for example a policy number that does not exist. The term for that is a hallucination. Before anything goes out under your name, spend 30 seconds reading it, check any fact or figure that matters against the source, and fix what is off.</p>
+    <div class="callout">
+      <p class="callout-label">Remember</p>
+      <p class="callout-text">You are responsible for what you send. Copilot just saved you the typing.</p>
+    </div>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-scanned">
+    <h3>Can Copilot work with a document I scanned on the copier?</h3>
+    <p>Yes. A scanned document becomes a PDF, and Copilot can read PDFs and Word documents alike. Upload it, or point Copilot at it in OneDrive by typing a forward slash and picking the file, then ask for what you need: &ldquo;Read these 30 pages and give me the five most important points.&rdquo; Two things to remember: be specific about what you want pulled out, or you will get five bullets about the wrong thing, and check the highlights against the original before you rely on them.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+</section>
+
+<!-- EMAIL, MEETINGS & FILES SECTION -->
+<section class="section">
+  <h2>Email, Meetings &amp; Files</h2>
+
+  <div class="qa" id="q-morning-briefing">
+    <h3>What is the morning briefing in Outlook, and do I need a license for it?</h3>
+    <p>New Outlook opens with a Copilot card at the top of your inbox that summarizes what came in overnight, what is waiting on a reply from you, and what is on your calendar today. No license is needed; it works for everyone with Copilot Chat. It is a conversation, so try &ldquo;What needs a decision from me today?&rdquo; or &ldquo;Draft a reply to the most urgent one and keep it warm and short,&rdquo; then read and adjust before you send.</p>
+    <p>The card appears the first time you open Outlook each day and can disappear after a couple of hours of use; it comes back the next morning. If you do not see it, make sure you are on new Outlook (or outlook.office.com) and let the Help Desk know.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-catch-up">
+    <h3>I was out for a week. Can Copilot catch me up?</h3>
+    <p>Yes. In Copilot Chat (Work mode) ask something like &ldquo;Summarize what I missed since September 3, flag anything that needs my action, and tell me who is waiting on a reply from me.&rdquo; It will pull from your mail and Teams. Then read the messages it flags yourself. Copilot points; you decide.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-recordings">
+    <h3>Does everyone who attends a Teams meeting get the recording and notes?</h3>
+    <p>It depends on how the meeting was set up. If the meeting was scheduled inside a Teams channel, everyone in that channel gets a post with the recording, transcript, and notes automatically. If it was a regular meeting (invitees who are not in a shared channel, or people outside the agency), the organizer decides after the meeting whether to share the recording with everyone, with certain people, or with no one. Recordings and transcripts are stored in the channel&rsquo;s SharePoint site or the organizer&rsquo;s OneDrive.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-meeting-recap">
+    <h3>What can licensed users do in Teams meetings?</h3>
+    <p>With a full license, meeting recap generates notes, decisions, and action items within minutes of a meeting ending, and you can ask questions of it: &ldquo;What was decided about the October schedule?&rdquo; or &ldquo;What was assigned to me?&rdquo; If you joined late, you can catch up on the part you missed.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-licensed-features">
+    <h3>Which features need the full Microsoft 365 Copilot license?</h3>
+    <p>Anything inside a Microsoft 365 app: Copilot in Word (draft a one page program update), Excel (add a calculated column, find which unit had the most overtime), PowerPoint (build a deck from a Word document), Outlook&rsquo;s inbox prioritization (importance scores and one line summaries, turned on under Settings &gt; Copilot), and meeting recap in Teams. Copilot Chat, the morning briefing, and Charlie are available to everyone.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+</section>
+
+<!-- CHARLIE & AGENTS SECTION -->
+<section class="section">
+  <h2>Charlie &amp; Agents</h2>
+
+  <div class="qa" id="q-charlie-vs-copilot">
+    <h3>What is the difference between Charlie and Copilot?</h3>
+    <p>An agent is a Copilot with a job description and a restricted knowledge base. Charlie is CFS&rsquo;s agent: it only knows the policies, procedures, guides, and training materials we have given it, and it cites those documents when it answers. That makes it the right place for &ldquo;How do I share a SharePoint file with specific people?&rdquo; or &ldquo;What is the policy on printing?&rdquo; because you get the CFS answer with the policy name attached. Copilot is a general assistant that works with <strong>your</strong> content and learns how you work.</p>
+    <p>You will find Charlie in the Meet Charlie panel on the intranet home page.</p>
+    <div class="callout">
+      <p class="callout-label">Rule of Thumb</p>
+      <p class="callout-text">Charlie is the front desk. Copilot is your desk.</p>
+    </div>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-charlie-gaps">
+    <h3>Why does Charlie sometimes not know something?</h3>
+    <p>Because it was not given the document. If a new handbook or procedure has not been added to Charlie&rsquo;s knowledge base, Charlie cannot use it. If you ask Charlie something it should know and it comes up empty, email the Help Desk; adding a document is quick.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-build-agent">
+    <h3>I have an idea for an agent that could automate a repetitive task. Can I build one?</h3>
+    <p>Please bring the idea to the Help Desk rather than building it yourself. The Help Desk routes agent ideas to the AI Center of Excellence, which is how we keep every agent governed, supported, and secure. The ideas most worth bringing are the tasks you repeat every week and wish you did not have to.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+</section>
+
+<!-- ABOUT THE SERIES SECTION -->
+<section class="section">
+  <h2>About the Series</h2>
+
+  <div class="qa" id="q-dates">
+    <h3>When are the remaining sessions, and do I have to attend all of them?</h3>
+    <p>The same session is offered on four dates so you can pick the one that works: Thursday, September 10; Tuesday, September 22; Tuesday, October 13; and Friday, October 30, all at 11:00 AM on Teams. Attend one. Join links are on the Series 3 card on the IT Help &amp; Resources page.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-materials">
+    <h3>Where are the recording and the materials?</h3>
+    <p>The Quick Reference Card and this FAQ are on the IT Help &amp; Resources page now, and the FAQ grows after every session, so check back. The slide deck and a recording will be posted there when the series wraps up at the end of October, the same way Series 1 and 2 were.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-private-question">
+    <h3>I have a question I did not want to ask in front of the group.</h3>
+    <p>Email the IT Help Desk. The IT team is glad to work with you one on one, walk through any of the demos again, or sit with you while you run your first prompt.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+</section>
+
+<footer class="farewell">
+  <p>Last Updated: September 2026 (after Session 1)</p>
+  <p>Microsoft Copilot &amp; AI Tools Training &mdash; Series 3 of 4</p>
+  <p class="signoff">Stay safe and be well.</p>
+  <p class="attribution">Jim Noriega and the CFS IT Team</p>
+</footer>
+
+</div>
+</body>
+</html>
