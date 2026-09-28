@@ -207,15 +207,23 @@ function generate(){
     method:"POST",
     headers:{"Content-Type":"application/json"},
     body:JSON.stringify({
-      model:"claude-sonnet-4-20250514",max_tokens:1000,
+      model:"claude-sonnet-4-6",max_tokens:1000,
       system:"You are an expert Microsoft Copilot prompt engineer for CFS, a nonprofit serving individuals with intellectual and developmental disabilities in NY and NJ. Write a single ready-to-use Copilot prompt from the user's situation. Use imperative form. Return only the prompt, no preamble or quotes.",
       messages:[{role:"user",content:"Situation: "+input+"\n\nWrite the Copilot prompt."}]
     })
-  }).then(function(r){return r.json();}).then(function(d){
-    var text=d.content.filter(function(b){return b.type==="text";}).map(function(b){return b.text;}).join("");
+  }).then(function(r){
+    return r.json().then(function(d){return {ok:r.ok,status:r.status,d:d};});
+  }).then(function(res){
+    if(!res.ok||!res.d||!res.d.content){
+      var msg=(res.d&&res.d.error&&res.d.error.message)||("HTTP "+res.status);
+      console.error("Generator error:",res.d);
+      throw new Error(msg);
+    }
+    var text=res.d.content.filter(function(b){return b.type==="text";}).map(function(b){return b.text;}).join("");
     out.textContent=text;generatedPrompt=text;actions.style.display="flex";
-  }).catch(function(){
-    out.textContent="Unable to generate. Please check your internet connection or contact IT.";
+  }).catch(function(err){
+    console.error(err);
+    out.textContent="Unable to generate right now. Please contact IT. ("+(err&&err.message?err.message:"unknown error")+")";
   }).finally(function(){btn.disabled=false;btn.textContent="Generate";});
 }
 
