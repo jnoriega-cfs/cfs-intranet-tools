@@ -42,6 +42,8 @@
   .role-it{background:#e3f2fd;color:#0277bd}
   .role-comms{background:#fce4ec;color:#ad1457}
   .role-custom{background:#f1f3f4;color:#3c4043}
+  .role-everyday{background:#e0f2f1;color:#00695c}
+  .header-tips{font-size:12px;color:#555;margin-top:12px;line-height:1.6}
   .card-prompt{font-size:13px;color:#2a2a2a;line-height:1.65;flex:1}
   .card-footer{display:flex;justify-content:flex-end}
   .copy-btn{font-size:12px;padding:6px 14px;border:1px solid #d0d3da;border-radius:7px;cursor:pointer;background:#fff;color:#555;transition:all 0.15s;display:flex;align-items:center;gap:5px}
@@ -74,12 +76,14 @@
       </div>
       <div>
         <h1>CFS Microsoft Copilot Prompt Library</h1>
-        <p>Role-based prompts for CFS leadership &middot; Microsoft 365 Copilot Committee</p>
+        <p>Ready-to-use prompts for all CFS staff &middot; Microsoft 365 Copilot Committee</p>
       </div>
     </div>
     <div class="meta-row">
-      <span class="meta-pill">Copilot Committee Edition</span>
+      <span class="meta-pill">All Staff Edition</span>
+      <span class="meta-pill">New to Copilot? Start with Everyday</span>
     </div>
+    <p class="header-tips"><strong>Tip:</strong> Give Copilot a role (&ldquo;Act as an HR coordinator&hellip;&rdquo;), then fill in anything in [brackets]. Never paste client names or details into any AI tool. Not sure? Ask Charlie first.</p>
   </div>
   <div class="controls">
     <div class="search-wrap">
@@ -108,16 +112,29 @@
 </div>
 <script>
 var PROMPTS=[
+  {role:"Everyday",cat:"Meeting support",text:"Turn these notes into a 15 minute agenda for a program team meeting. Put the items in a sensible order, give each one a time, and add one sentence describing what we need to decide. Finish with a short list of who should come prepared with what. Notes:"},
+  {role:"Everyday",cat:"Email",text:"Summarize what I missed since Thursday and flag anything that needs action."},
+  {role:"Everyday",cat:"Email",text:"Summarize this thread. Who is waiting on me?"},
+  {role:"Everyday",cat:"Email",text:"Draft a reply saying yes, propose Wednesday morning, keep it warm and short."},
+  {role:"Everyday",cat:"Morning briefing",text:"What needs a decision from me today?"},
+  {role:"Everyday",cat:"Morning briefing",text:"Draft a reply to the most urgent one. Keep it warm and short."},
+  {role:"Everyday",cat:"Meeting support",text:"What was decided in this meeting, and what is assigned to me?"},
+  {role:"Everyday",cat:"Meeting support",text:"Catch me up on the last 15 minutes."},
+  {role:"Everyday",cat:"Scheduling",text:"Find 30 minutes next week with [name], [name], and [name], and draft the meeting invite."},
+  {role:"Everyday",cat:"Files",text:"Summarize this document in five bullets, and list anything that needs action from me."},
+  {role:"Everyday",cat:"Writing",text:"Rewrite this paragraph so a family member with no background can follow it in one read."},
+  {role:"Everyday",cat:"Writing",text:"Act as an HR coordinator. Draft a friendly, four sentence reminder to my team about [topic], due [date]. End with who to contact with questions."},
+  {role:"Everyday",cat:"Excel",text:"Explain what this sheet is showing, then tell me the three things that stand out most."},
   {role:"Executive",cat:"Communication",text:"Draft a board update summarizing our Q1 program outcomes, staffing highlights, and technology initiatives in language appropriate for a nonprofit board audience."},
   {role:"Executive",cat:"Analysis",text:"Review these meeting notes and identify the top three strategic priorities that require executive attention this week, with a brief rationale for each."},
   {role:"Executive",cat:"Meeting support",text:"Prepare talking points for a funder conversation about CFS's Home Enabling Supports program and our smart home assistive technology pilot in group homes."},
-  {role:"Finance",cat:"Analysis",text:"Summarize this budget variance report and highlight any line items exceeding 10% over or under budget, with plausible explanations for each variance."},
+  {role:"Finance",cat:"Analysis",text:"Summarize this budget variance report and highlight any line items more than 10% over or under budget. For each one, list possible causes I should verify with the budget owner. Do not state a cause as fact."},
   {role:"Finance",cat:"Communication",text:"Draft a financial narrative for our annual report that conveys fiscal stewardship while emphasizing our investment in direct support and technology infrastructure."},
   {role:"Finance",cat:"Meeting support",text:"Generate a list of targeted questions to prepare for an upcoming vendor contract negotiation, focused on cost, SLA commitments, and exit provisions."},
   {role:"HR",cat:"Communication",text:"Draft a clear and compassionate all-staff message announcing the upcoming transition from UKG to Paycom, emphasizing employee benefits and key dates."},
   {role:"HR",cat:"Analysis",text:"Analyze these employee survey responses and identify the top three themes related to staff satisfaction, retention risk, and areas for leadership action."},
-  {role:"HR",cat:"Drafting",text:"Create an outline for a performance improvement plan for a staff member with recurring documentation delays, including measurable goals and a 30/60/90-day check-in structure."},
-  {role:"Programs",cat:"Drafting",text:"Review this incident report narrative and suggest edits to ensure it is objective, factually complete, and suitable for submission to a regulatory reviewer."},
+  {role:"HR",cat:"Drafting",text:"Create a blank performance improvement plan template with sections for measurable goals, support provided, and a 30/60/90-day check-in structure. Use placeholders only. I will add the details myself."},
+  {role:"Programs",cat:"Drafting",text:"What makes an incident report clear, objective, and complete? Give me a checklist I can use to review my own draft before I submit it. Do not ask me for any details about the individual or the incident."},
   {role:"Programs",cat:"Communication",text:"Draft talking points for a family information session introducing our new smart home assistive technology in group homes, focusing on safety, dignity, and independence."},
   {role:"Programs",cat:"Reporting",text:"Write a program outcome summary for a grant report that highlights measurable impact of our residential services on the independence of individuals with IDD."},
   {role:"Operations",cat:"Reporting",text:"Create a reusable weekly project status update template for tracking multiple concurrent initiatives, with fields for status, blockers, next steps, and owner."},
@@ -131,7 +148,7 @@ var PROMPTS=[
   {role:"Communications",cat:"Communication",text:"Summarize these donor relationship notes and suggest personalized follow-up messaging for our top three prospects ahead of the spring cultivation event."}
 ];
 
-var ROLE_CLASSES={"Executive":"role-exec","Finance":"role-finance","HR":"role-hr","Programs":"role-programs","Operations":"role-ops","IT/Technology":"role-it","Communications":"role-comms","Custom":"role-custom"};
+var ROLE_CLASSES={"Everyday":"role-everyday","Executive":"role-exec","Finance":"role-finance","HR":"role-hr","Programs":"role-programs","Operations":"role-ops","IT/Technology":"role-it","Communications":"role-comms","Custom":"role-custom"};
 var ROLES=["All"];
 PROMPTS.forEach(function(p){if(ROLES.indexOf(p.role)===-1)ROLES.push(p.role);});
 var activeRole="All";
@@ -181,7 +198,7 @@ function render(){
         btn.innerHTML='<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8l4 4 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg> Copied!';
         btn.classList.add("copied");
         setTimeout(function(){
-          btn.innerHTML='<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M11 5V3a1 1 0 00-1-1H3a1 1 0 001 1h2"/></svg> Copy';
+          btn.innerHTML='<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M11 5V3a1 1 0 00-1-1H3a1 1 0 00-1 1v7a1 1 0 001 1h2"/></svg> Copy';
           btn.classList.remove("copied");
         },2000);
       }).catch(function(){btn.textContent="Error — try again";});
