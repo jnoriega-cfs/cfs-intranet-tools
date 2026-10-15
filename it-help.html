@@ -212,16 +212,15 @@
   /* ===== Meet Charlie (added 10/15/2026): charlie.html embedded from the same repo, top of the sidebar ===== */
   .charlie-section {
     background: var(--bg);
-    border: 1px solid var(--cfs-accent-light);
     border-radius: 12px;
     box-shadow: var(--shadow-md);
-    padding: 6px;
-    margin-bottom: 16px;
+    padding: 10px;
+    margin: 32px 0;
   }
   .charlie-section iframe {
     display: block;
     width: 100%;
-    height: 900px; /* fallback; charlie.html reports its real height */
+    height: 640px; /* fallback; charlie.html reports its real height */
     border: 0;
     border-radius: 10px;
     background: transparent;
@@ -599,6 +598,8 @@
 
   /* ===== Right sidebar (sticky) ===== */
   .sidebar {
+    position: sticky;
+    top: 24px;
     align-self: start;
     height: fit-content;
   }
@@ -1000,6 +1001,23 @@
 
     </div>
 
+    <!-- ============= Meet Charlie (greeter), between the Training Series and Browse by App ============= -->
+    <!-- Charlie's animated face and spoken welcome. Source: charlie.html in this repo (same folder as this page).
+         To move Charlie elsewhere later (intranet home page, lobby kiosk), point an Embed web part or a browser at
+         https://jnoriega-cfs.github.io/cfs-intranet-tools/charlie.html (add #kiosk for the full screen kiosk view). -->
+    <section class="charlie-section" id="meet-charlie" aria-label="Meet Charlie, the CFS AI assistant">
+      <iframe id="charlie-frame" src="charlie.html" title="Meet Charlie, the CFS AI assistant" loading="lazy" allow="autoplay"></iframe>
+    </section>
+    <script>
+      /* charlie.html reports its height; size the frame to match so there is no inner scrollbar */
+      window.addEventListener('message', function (e) {
+        if (e.data && e.data.charlieHeight) {
+          document.getElementById('charlie-frame').style.height = (e.data.charlieHeight + 4) + 'px';
+        }
+      });
+    </script>
+
+
     <!-- ============= Browse by App ============= -->
     <div class="section-heading" id="apps">
       <span class="accent-bar"></span>
@@ -1128,23 +1146,6 @@
 
   <!-- ============= Sidebar ============= -->
   <aside class="sidebar" id="help">
-
-    <!-- ============= Meet Charlie (greeter), top of the sidebar ============= -->
-    <!-- Charlie's animated face and spoken welcome. Source: charlie.html in this repo (same folder as this page).
-         To move Charlie elsewhere later (intranet home page, lobby kiosk), point an Embed web part or a browser at
-         https://jnoriega-cfs.github.io/cfs-intranet-tools/charlie.html (add #kiosk for the full screen kiosk view). -->
-    <section class="charlie-section" id="meet-charlie" aria-label="Meet Charlie, the CFS AI assistant">
-      <iframe id="charlie-frame" src="charlie.html" title="Meet Charlie, the CFS AI assistant" loading="lazy" allow="autoplay"></iframe>
-    </section>
-    <script>
-      /* charlie.html reports its height; size the frame to match so there is no inner scrollbar */
-      window.addEventListener('message', function (e) {
-        if (e.data && e.data.charlieHeight) {
-          document.getElementById('charlie-frame').style.height = (e.data.charlieHeight + 4) + 'px';
-        }
-      });
-    </script>
-
 
     <div class="help-panel">
       <h3>Get Help</h3>
