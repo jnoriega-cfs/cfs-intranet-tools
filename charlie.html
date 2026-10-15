@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meet Charlie</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: a greeter card. Charlie's face on the left (or top on phones), greeting and quick actions on the right. Kiosk mode (#kiosk) fills the screen and scales the face up. */
+:root{
+  --bg:#F3F6FA; --card:#FFFFFF; --fg:#1B2A41; --muted:#5B6B82;
+  --navy:#1F3864; --blue:#2E75B6; --sky:#BDD7EE; --mint:#3FB49A;
+  --skin:#F2D5C0; --skin2:#E3BFA6; --line:#D9E2EE;
+  --display:"Nunito",ui-rounded,"Segoe UI",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1A2B; --card:#172539; --fg:#EEF3F9; --muted:#A9B8CC; --navy:#C9DCF4; --blue:#6EA8E3; --sky:#2A4A73; --line:#2B3E5A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1A2B; --card:#172539; --fg:#EEF3F9; --muted:#A9B8CC; --navy:#C9DCF4; --blue:#6EA8E3; --sky:#2A4A73; --line:#2B3E5A; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:14px;min-height:100%}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;display:grid;grid-template-columns:minmax(260px,380px) 1fr;gap:28px;padding:28px;align-items:center;box-shadow:0 10px 40px rgba(31,56,100,.08)}
+.stage{position:relative;aspect-ratio:1;max-width:100%;display:grid;place-items:center;background:radial-gradient(circle at 50% 42%,var(--sky) 0%,transparent 68%);border-radius:50%}
+svg{width:92%;height:auto;overflow:visible}
+.greet{min-width:0;display:flex;flex-direction:column;gap:14px}
+.eyebrow{font-family:var(--display);font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:8px}
+.eyebrow .dot{width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(63,180,154,.18)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(28px,4vw,40px);line-height:1.1;margin:0;color:var(--navy);text-wrap:balance}
+.bubble{position:relative;background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:14px 16px;font-size:18px;min-height:3.2em}
+.bubble:before{content:"";position:absolute;left:-9px;top:22px;width:16px;height:16px;background:var(--bg);border-left:1px solid var(--line);border-bottom:1px solid var(--line);transform:rotate(45deg)}
+.bubble .word{opacity:.35;transition:opacity .15s}
+.bubble .word.on,.bubble.done .word{opacity:1}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+button,.btn{font-family:var(--display);font-weight:800;font-size:15px;border-radius:999px;padding:11px 18px;border:2px solid var(--blue);background:var(--blue);color:#fff;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;line-height:1}
+button.ghost,.btn.ghost{background:transparent;color:var(--blue)}
+button:focus-visible,.btn:focus-visible,.chip:focus-visible{outline:3px solid var(--mint);outline-offset:2px}
+button[disabled]{opacity:.5;cursor:default}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:600 14px var(--body);border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:999px;padding:7px 12px;cursor:pointer;text-align:left}
+.chip:hover{border-color:var(--blue);color:var(--blue)}
+.note{font-size:13.5px;color:var(--muted);margin:0}
+.foot{display:flex;flex-wrap:wrap;gap:10px 18px;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);padding:0 8px}
+.foot a{color:var(--blue);text-decoration:none;font-weight:600}
+.toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--navy);color:var(--bg);padding:10px 16px;border-radius:999px;font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:opacity .25s}
+.toast.show{opacity:1}
+/* kiosk */
+:root[data-kiosk] body{padding-block:10px}
+:root[data-kiosk] .card{grid-template-columns:minmax(300px,46%) 1fr;min-height:calc(100vh - 80px);padding:40px}
+:root[data-kiosk] h1{font-size:clamp(34px,5vw,56px)}
+:root[data-kiosk] .bubble{font-size:22px}
+:root[data-kiosk] .chip{font-size:17px;padding:10px 16px}
+@media (max-width:720px){.card{grid-template-columns:1fr;padding:20px}.stage{max-width:260px;margin:0 auto}:root[data-kiosk] .card{grid-template-columns:1fr}}
+/* face animation */
+.bob{animation:bob 4.2s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(-1.2deg)}}
+.eye{transform-origin:center;transform-box:fill-box;transition:transform .09s}
+.blink .eye{transform:scaleY(.08)}
+.mouth{transition:d .12s}
+.brow{transform-box:fill-box;transform-origin:center;transition:transform .25s}
+.happy .brow{transform:translateY(-3px)}
+@media (prefers-reduced-motion:reduce){.bob{animation:none}}
+/* embedded in another page (iframe): tighter padding, no footer links */
+:root[data-embedded] body{padding-block:6px}
+:root[data-embedded] .foot{display:none}
+:root[data-embedded] .card{box-shadow:none}
+</style>
+<script>if(window.self!==window.top){document.documentElement.setAttribute("data-embedded","");}</script>
+</head>
+<body>
+<div class="wrap">
+  <section class="card" aria-label="Charlie, the CFS AI assistant">
+    <div class="stage" id="stage">
+      <svg viewBox="0 0 320 320" role="img" aria-label="Charlie, an illustrated assistant with a headset, smiling">
+        <defs>
+          <linearGradient id="shirt" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2E75B6"/><stop offset="1" stop-color="#1F3864"/></linearGradient>
+          <clipPath id="stageClip"><circle cx="160" cy="160" r="150"/></clipPath>
+        </defs>
+        <circle cx="160" cy="160" r="150" fill="#DCE9F7" opacity=".55"/>
+        <g clip-path="url(#stageClip)">
+          <!-- shoulders / shirt -->
+          <path d="M40 330 C40 262 95 236 160 236 C225 236 280 262 280 330 Z" fill="url(#shirt)"/>
+          <path d="M136 236 L160 262 L184 236" fill="none" stroke="#FFFFFF" stroke-width="3" opacity=".85"/>
+          <!-- CFS badge -->
+          <rect x="196" y="258" width="46" height="18" rx="4" fill="#FFFFFF" opacity=".92"/>
+          <text x="219" y="271" font-family="Nunito, Arial, sans-serif" font-weight="800" font-size="10.5" fill="#1F3864" text-anchor="middle">CFS</text>
+        </g>
+        <!-- head group -->
+        <g class="bob" id="face">
+          <!-- neck -->
+          <rect x="140" y="208" width="40" height="34" rx="10" fill="#E3BFA6"/>
+          <!-- hair back -->
+          <path d="M84 150 C78 90 118 58 160 58 C202 58 242 90 236 150 L236 128 C230 92 200 76 160 76 C120 76 90 92 84 128 Z" fill="#3B2A22"/>
+          <!-- face -->
+          <path d="M92 122 C92 84 122 66 160 66 C198 66 228 84 228 122 L226 168 C224 206 196 226 160 226 C124 226 96 206 94 168 Z" fill="#F2D5C0"/>
+          <!-- ears -->
+          <ellipse cx="90" cy="156" rx="11" ry="15" fill="#EFCDB6"/>
+          <ellipse cx="230" cy="156" rx="11" ry="15" fill="#EFCDB6"/>
+          <!-- hair front -->
+          <path d="M92 124 C96 86 128 64 160 64 C196 64 226 86 228 124 C214 104 196 96 176 100 C168 90 150 88 140 98 C120 94 104 104 92 124 Z" fill="#3B2A22"/>
+          <!-- headset band -->
+          <path d="M88 138 C88 92 120 70 160 70 C200 70 232 92 232 138" fill="none" stroke="#1F3864" stroke-width="7" stroke-linecap="round"/>
+          <rect x="78" y="134" width="18" height="34" rx="7" fill="#1F3864"/>
+          <rect x="224" y="134" width="18" height="34" rx="7" fill="#1F3864"/>
+          <path d="M224 168 C214 196 200 206 188 208" fill="none" stroke="#1F3864" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="186" cy="209" r="5" fill="#2E75B6"/>
+          <!-- brows -->
+          <path class="brow" d="M118 128 C128 120 144 120 154 126" fill="none" stroke="#3B2A22" stroke-width="5" stroke-linecap="round"/>
+          <path class="brow" d="M166 126 C176 120 192 120 202 128" fill="none" stroke="#3B2A22" stroke-width="5" stroke-linecap="round"/>
+          <!-- eyes -->
+          <g class="eye"><ellipse cx="136" cy="150" rx="12" ry="13" fill="#FFFFFF"/><circle cx="138" cy="151" r="7" fill="#1F3864"/><circle cx="140.5" cy="148" r="2.4" fill="#FFFFFF"/></g>
+          <g class="eye"><ellipse cx="184" cy="150" rx="12" ry="13" fill="#FFFFFF"/><circle cx="186" cy="151" r="7" fill="#1F3864"/><circle cx="188.5" cy="148" r="2.4" fill="#FFFFFF"/></g>
+          <!-- cheeks -->
+          <ellipse cx="120" cy="176" rx="11" ry="6" fill="#F0A9A0" opacity=".45"/>
+          <ellipse cx="200" cy="176" rx="11" ry="6" fill="#F0A9A0" opacity=".45"/>
+          <!-- nose -->
+          <path d="M160 160 C156 170 156 176 162 178" fill="none" stroke="#D9A98F" stroke-width="3" stroke-linecap="round"/>
+          <!-- mouth -->
+          <path class="mouth" id="mouth" d="M138 192 C148 204 172 204 182 192" fill="#9C3B3B" stroke="#8A2F2F" stroke-width="2" stroke-linejoin="round"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="greet">
+      <div class="eyebrow"><span class="dot" aria-hidden="true"></span> Charlie · CFS AI assistant · online</div>
+      <h1 id="headline">Good afternoon! I'm Charlie.</h1>
+      <div class="bubble" id="bubble" aria-live="polite"></div>
+      <div class="row">
+        <button id="hello" type="button">🔊 Hear Charlie</button>
+        <a class="btn ghost" id="ask" href="https://cfsny.sharepoint.com/SitePages/NewHome.aspx">Ask Charlie a question</a>
+        <button class="ghost" id="mute" type="button" aria-pressed="false">Voice on</button>
+      </div>
+      <p class="note">Things staff ask me most. Tap one to copy it, then paste it in the Meet Charlie panel on the intranet home page.</p>
+      <div class="chips" id="chips">
+        <button class="chip" type="button">How do I release a print job on the new Sharp printers?</button>
+        <button class="chip" type="button">How do I reset my own password?</button>
+        <button class="chip" type="button">What is the difference between you and Copilot?</button>
+        <button class="chip" type="button">What are this year's agency holidays?</button>
+        <button class="chip" type="button">How do I share a SharePoint file with specific people?</button>
+      </div>
+      <p class="note">Charlie is an AI assistant built by CFS Information Technology. Please keep names and personal health information of the people we support out of your questions.</p>
+    </div>
+  </section>
+
+  <div class="foot">
+    <span>Quick links: <a href="https://cfsny.sharepoint.com/SitePages/NewHome.aspx">Intranet home</a> · <a href="https://cfsny.sharepoint.com/IT%20Policies/Forms/AllItems.aspx">IT Security Policies</a> · HelpDesk@cfsny.org</span>
+    <span><a href="#kiosk" id="kioskLink">Kiosk view</a></span>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+  var face=document.getElementById('face'), mouth=document.getElementById('mouth'), stage=document.getElementById('stage');
+  var bubble=document.getElementById('bubble'), headline=document.getElementById('headline');
+  var helloBtn=document.getElementById('hello'), muteBtn=document.getElementById('mute'), toast=document.getElementById('toast');
+  var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* greeting by time of day */
+  var h=new Date().getHours();
+  var part=h<12?'morning':h<17?'afternoon':'evening';
+  headline.textContent='Good '+part+"! I'm Charlie.";
+  var lines=[
+    "Welcome to The Center for Family Support. I'm Charlie, the CFS AI assistant.",
+    "I can help you find CFS policies, procedures, and how to guides, and I always show you the document my answer came from.",
+    "Ask me anything you'd normally look up on the intranet. If I can't help, the IT Help Desk is one email away."
+  ];
+  var script=lines.join(' ');
+
+  /* render words so they light up as Charlie speaks */
+  var words=script.split(' ');
+  bubble.innerHTML=words.map(function(w){return '<span class="word">'+w.replace(/</g,'&lt;')+'</span>';}).join(' ');
+  var spans=bubble.querySelectorAll('.word');
+  function lightAll(){bubble.classList.add('done');}
+  lightAll(); /* complete at rest; speaking re-runs the highlight */
+
+  /* mouth shapes */
+  var shapes={
+    rest:'M138 192 C148 204 172 204 182 192',
+    smile:'M134 190 C146 210 174 210 186 190 L182 194 C170 202 150 202 138 194 Z',
+    a:'M142 186 C150 184 170 184 178 186 C178 202 170 212 160 212 C150 212 142 202 142 186 Z',
+    o:'M148 188 C152 182 168 182 172 188 C174 200 168 208 160 208 C152 208 146 200 148 188 Z',
+    e:'M138 190 C150 194 170 194 182 190 C180 199 170 203 160 203 C150 203 140 199 138 190 Z',
+    m:'M140 194 C150 196 170 196 180 194'
+  };
+  function setMouth(k){mouth.setAttribute('d',shapes[k]);}
+  setMouth('smile');
+
+  /* blinking */
+  function blink(){
+    if(reduced) return;
+    face.classList.add('blink');
+    setTimeout(function(){face.classList.remove('blink');},110);
+    setTimeout(blink,2600+Math.random()*3200);
+  }
+  setTimeout(blink,1800);
+
+  /* lip sync while speaking */
+  var talking=null;
+  function startTalking(){
+    face.classList.add('happy');
+    var cycle=['a','e','o','m','a','e','rest'];var i=0;
+    talking=setInterval(function(){setMouth(cycle[i++%cycle.length]);},reduced?250:115);
+  }
+  function stopTalking(){
+    if(talking){clearInterval(talking);talking=null;}
+    face.classList.remove('happy'); setMouth('smile'); lightAll(); helloBtn.disabled=false;
+  }
+
+  /* voice (browser built in, no cost) */
+  var synth=window.speechSynthesis, muted=false, voice=null;
+  function pickVoice(){
+    if(!synth) return;
+    var vs=synth.getVoices();
+    var prefer=['Microsoft Guy Online','Microsoft Christopher Online','Microsoft Eric Online','Google US English','Microsoft David','Alex','Daniel'];
+    for(var p=0;p<prefer.length;p++){for(var j=0;j<vs.length;j++){if(vs[j].name.indexOf(prefer[p])===0){voice=vs[j];return;}}}
+    for(var k=0;k<vs.length;k++){if(/^en[-_]US/i.test(vs[k].lang)){voice=vs[k];return;}}
+    voice=vs[0]||null;
+  }
+  if(synth){pickVoice(); synth.onvoiceschanged=pickVoice;}
+
+  function speak(){
+    if(!synth){showToast('This browser has no built in voice. Charlie will keep smiling quietly.');return;}
+    if(muted){showToast('Voice is off. Turn it on to hear Charlie.');return;}
+    synth.cancel();
+    bubble.classList.remove('done'); spans.forEach(function(s){s.classList.remove('on');});
+    var u=new SpeechSynthesisUtterance(script);
+    if(voice) u.voice=voice; u.rate=0.98; u.pitch=1.0;
+    var wi=0;
+    u.onboundary=function(e){ if(e.name==='word'||e.charLength){ while(wi<spans.length){spans[wi].classList.add('on');var done=++wi;var upto=0;for(var q=0;q<done;q++){upto+=words[q].length+1;} if(upto>e.charIndex) break;} } };
+    u.onstart=function(){helloBtn.disabled=true;startTalking();};
+    u.onend=stopTalking; u.onerror=stopTalking;
+    synth.speak(u);
+  }
+  helloBtn.addEventListener('click',speak);
+  muteBtn.addEventListener('click',function(){
+    muted=!muted; muteBtn.textContent=muted?'Voice off':'Voice on'; muteBtn.setAttribute('aria-pressed',String(muted));
+    if(muted&&synth){synth.cancel();stopTalking();}
+  });
+
+  /* chips copy the question */
+  document.getElementById('chips').addEventListener('click',function(e){
+    var b=e.target.closest('.chip'); if(!b) return;
+    var t=b.textContent.trim();
+    function fallback(){var r=document.createRange();r.selectNodeContents(b);var s=getSelection();s.removeAllRanges();s.addRange(r);showToast('Select and copy the question, then paste it to Charlie.');}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){showToast('Copied. Paste it in the Meet Charlie panel.');},fallback);}else{fallback();}
+  });
+
+  var toastTimer;
+  function showToast(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(function(){toast.classList.remove('show');},2600);}
+
+  /* kiosk mode via #kiosk */
+  function kiosk(){
+    var on=location.hash==='#kiosk';
+    if(on) document.documentElement.setAttribute('data-kiosk','');else document.documentElement.removeAttribute('data-kiosk');
+    document.getElementById('kioskLink').textContent=on?'Exit kiosk view':'Kiosk view';
+    document.getElementById('kioskLink').setAttribute('href',on?'#':'#kiosk');
+  }
+  kiosk(); addEventListener('hashchange',kiosk);
+
+  /* in kiosk mode, Charlie looks toward the pointer */
+  stage.addEventListener('pointermove',function(e){
+    if(reduced) return;
+    var r=stage.getBoundingClientRect();var dx=(e.clientX-(r.left+r.width/2))/r.width;var dy=(e.clientY-(r.top+r.height/2))/r.height;
+    stage.querySelector('svg').style.transform='translate('+(dx*6)+'px,'+(dy*4)+'px)';
+  });
+  stage.addEventListener('pointerleave',function(){stage.querySelector('svg').style.transform='';});
+})();
+</script>
+</body>
+</html>
