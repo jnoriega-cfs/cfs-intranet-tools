@@ -131,7 +131,7 @@ button[disabled]{opacity:.5;cursor:default}
       <div class="bubble" id="bubble" aria-live="polite"></div>
       <div class="row">
         <button id="hello" type="button">🔊 Hear Charlie</button>
-        <a class="btn ghost" id="ask" href="https://cfsny.sharepoint.com/SitePages/NewHome.aspx">Ask Charlie a question</a>
+        <a class="btn ghost" id="ask" href="https://cfsny.sharepoint.com/SitePages/NewHome.aspx" target="_blank" rel="noopener noreferrer">Ask Charlie a question</a>
         <button class="ghost" id="mute" type="button" aria-pressed="false">Voice on</button>
       </div>
       <p class="note">Things staff ask me most. Tap one to copy it, then paste it in the Meet Charlie panel on the intranet home page.</p>
@@ -147,7 +147,7 @@ button[disabled]{opacity:.5;cursor:default}
   </section>
 
   <div class="foot">
-    <span>Quick links: <a href="https://cfsny.sharepoint.com/SitePages/NewHome.aspx">Intranet home</a> · <a href="https://cfsny.sharepoint.com/IT%20Policies/Forms/AllItems.aspx">IT Security Policies</a> · HelpDesk@cfsny.org</span>
+    <span>Quick links: <a href="https://cfsny.sharepoint.com/SitePages/NewHome.aspx" target="_blank" rel="noopener noreferrer">Intranet home</a> · <a href="https://cfsny.sharepoint.com/IT%20Policies/Forms/AllItems.aspx" target="_blank" rel="noopener noreferrer">IT Security Policies</a> · HelpDesk@cfsny.org</span>
     <span><a href="#kiosk" id="kioskLink">Kiosk view</a></span>
   </div>
 </div>
@@ -269,6 +269,10 @@ button[disabled]{opacity:.5;cursor:default}
     stage.querySelector('svg').style.transform='translate('+(dx*6)+'px,'+(dy*4)+'px)';
   });
   stage.addEventListener('pointerleave',function(){stage.querySelector('svg').style.transform='';});
+  /* tell a parent page (it-help.html) how tall Charlie is so the frame can fit him */
+  function reportHeight(){ if(window.self!==window.top){ try{ parent.postMessage({charlieHeight: document.documentElement.scrollHeight}, '*'); }catch(e){} } }
+  reportHeight(); addEventListener('load',reportHeight); addEventListener('resize',reportHeight);
+  if(window.ResizeObserver){ new ResizeObserver(reportHeight).observe(document.body); }
 })();
 </script>
 </body>
