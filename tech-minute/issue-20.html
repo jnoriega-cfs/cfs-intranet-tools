@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CFS Tech Minute | Issue #20: Confidential email outside CFS, done right</title>
+<style>
+  body { margin: 0; background: #F5F5F5; font-family: Garamond, 'Times New Roman', serif; color: #333333; }
+  .page { max-width: 680px; margin: 0 auto; padding: 24px 12px 48px 12px; }
+  .leadin { font-size: 17px; line-height: 1.55; padding: 0 4px 16px 4px; }
+  .leadin a { color: #2E75B6; }
+  .card { background: #FFFFFF; border: 1px solid #CCCCCC; }
+  .bar { height: 8px; background: #1F3864; }
+  .header { display: flex; justify-content: space-between; align-items: baseline; padding: 18px 26px 8px 26px; }
+  .wordmark { font-size: 27px; font-weight: bold; color: #1F3864; }
+  .wordmark span { color: #2E75B6; }
+  .issue { font-size: 14px; color: #666666; }
+  .label { font-size: 13px; font-weight: bold; letter-spacing: 2px; color: #2E75B6; padding: 16px 26px 4px 26px; }
+  .body-copy { font-size: 16.5px; line-height: 1.55; padding: 6px 26px 10px 26px; }
+  .body-copy a { color: #2E75B6; }
+  .illustration { text-align: center; padding: 10px 26px; }
+  .illustration img { width: 100%; max-width: 560px; height: auto; }
+  ol.steps { margin: 10px 0 10px 0; padding-left: 22px; }
+  ol.steps li { margin-bottom: 6px; }
+  .protip { display: flex; margin: 10px 26px 14px 26px; }
+  .protip .edge { width: 6px; background: #BF9000; flex-shrink: 0; }
+  .protip .inner { background: #FFF2CC; padding: 12px 16px; font-size: 15.5px; line-height: 1.5; }
+  .aibox { display: flex; margin: 0 26px 18px 26px; }
+  .aibox .edge { width: 6px; background: #2E75B6; flex-shrink: 0; }
+  .aibox .inner { background: #D9E2F3; padding: 12px 16px; font-size: 15.5px; line-height: 1.5; color: #1F3864; }
+  .footer { font-size: 14.5px; color: #666666; line-height: 1.55; padding: 16px 6px 0 6px; }
+  .footer a { color: #2E75B6; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="leadin">
+    Good morning CFS Family,<br><br>
+    A heartfelt thank you to everyone who joined our training sessions this year, and especially to those who made it to the final Copilot &amp; AI Tools session this past Friday. Your questions made every session better. Everything from the series, including the quick reference cards, the FAQ and the prompt library, is posted on the <a href="https://jnoriega-cfs.github.io/cfs-intranet-tools/it-help.html">IT Help and Resources</a> page, so you can go back to any of it whenever you need. In about two weeks we will send a short poll asking what you would like us to cover in 2027, and we would love your ideas.<br><br>This week is a practical one. Most of what we handle stays inside the agency, and our mail system now helps keep it that way. But sometimes confidential material does need to reach someone outside CFS, such as a family member, a regulator or an attorney. Last week we added a new sensitivity label built for exactly that, and this issue walks you through using it. About a minute, and it will save you a bounced email.
+  </div>
+
+  <div class="card">
+    <div class="bar"></div>
+
+    <div class="header">
+      <div class="wordmark">CFS <span>TECH MINUTE</span></div>
+      <div class="issue">Issue #20 | November 3, 2026</div>
+    </div>
+
+    <div class="label">WHEN CONFIDENTIAL MAIL MAY LEAVE CFS</div>
+    <div class="body-copy">
+      Every email and file at CFS can carry a sensitivity label. <b>Internal - Confidential</b> means what it says: for people inside CFS. If an email, or any file attached to it, carries that label and is addressed to someone outside cfsny.org, our data protection rule stops it before it leaves, and Outlook shows you a notice. Nothing is lost, and nobody is in trouble. The system did its job.
+      <br><br>
+      Sometimes, though, confidential material legitimately needs to go outside. That is fine when three things are true: the person is authorized to receive it, you send only what they need, and the message is protected on its way. Our Secure Email Policy (IT-SEC-002) spells this out. If you are not sure whether something should leave CFS at all, ask the Help Desk at <a href="mailto:HelpDesk@cfsny.org">HelpDesk@cfsny.org</a> before you send. That question is always welcome.
+    </div>
+
+    <div class="illustration">
+      <img src="issue-20-illustration.png" alt="Confidential email outside CFS, done right. A mockup of a new Outlook message with four numbered callouts: 1, the Sensitivity button on the ribbon. 2, the Sensitivity list showing Internal - Confidential (stays inside CFS) and Confidential - External (encrypted, may leave). 3, a yellow bar above the To line saying the message will be blocked because an attachment is labeled Internal - Confidential. 4, an attachment with the label removed and ready to go. Key: click Sensitivity on a new email, choose Confidential - External, a yellow bar means a file still has the label, fix the file and the bar goes away.">
+    </div>
+
+    <div class="label">FIVE STEPS THAT GET IT THERE SAFELY</div>
+    <div class="body-copy">
+      When you do need to send confidential material to someone outside CFS, here is the routine:
+      <ol class="steps">
+        <li><b>Start a new email.</b> Not a reply and not a forward. A reply keeps the label of the message it answers, so a new message is the clean way to begin. Copy over any text you need.</li>
+        <li><b>Clear the label on each attachment.</b> Open each file in Word, Excel or PowerPoint, click <b>Sensitivity</b> on the ribbon, remove the Internal - Confidential label, type a short reason when it asks, then save and close. If a file is a PDF or you cannot change its label, stop there and contact the Help Desk. We will take care of that file for you.</li>
+        <li><b>Label the email Confidential - External.</b> On the new message, click <b>Sensitivity</b> and choose <b>Confidential - External</b>. If you do not see it in your list, use <b>Options</b>, <b>Encrypt</b>, <b>Encrypt-Only</b> instead. Both do the same thing: the message is encrypted so only the person you address can open it.</li>
+        <li><b>Look above the To line.</b> No yellow bar means you are clear. A yellow bar means one of the attachments still carries the Internal - Confidential label. Go back to step 2 for that file.</li>
+        <li><b>Send, and give the recipient a heads up.</b> They will receive a secure message and open it by signing in or with a one time passcode emailed to them. That is normal for encrypted mail, and a quick note from you keeps it from being mistaken for spam.</li>
+      </ol>
+      One more thing worth saying plainly: the label is there to protect the people we support, not to slow you down. If you ever get the notice and are not sure what to do, call the Help Desk. A two minute call beats a bounced email every time.
+    </div>
+
+    <div class="protip">
+      <div class="edge"></div>
+      <div class="inner">
+        <b>Pro tip:</b> Attachments carry their own label, and Outlook copies the highest one onto your email automatically. That is why a message can say Confidential - External and still be stopped: a file inside it still says Internal - Confidential. Check the files first, then the email, and the yellow bar will not appear.
+      </div>
+    </div>
+
+    <div class="aibox">
+      <div class="edge"></div>
+      <div class="inner">
+        <b>Try this with Charlie:</b> Ask, &ldquo;How do I send a confidential email to someone outside CFS?&rdquo; and keep the answer handy for the next time a family member or outside agency needs something from you.
+      </div>
+    </div>
+
+    <div class="bar"></div>
+  </div>
+
+  <div class="footer">
+    Questions? Visit the <a href="https://jnoriega-cfs.github.io/cfs-intranet-tools/it-help.html">IT Help and Resources</a> intranet or email <a href="mailto:HelpDesk@cfsny.org">HelpDesk@cfsny.org</a>.<br><br>
+    Stay safe and be well,<br>
+    <b>Jim Noriega and the CFS IT Team</b>
+  </div>
+
+</div>
+</body>
+</html>
