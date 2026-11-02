@@ -252,8 +252,8 @@
 </header>
 
 <section class="intro">
-  <p>This FAQ was built from the questions you asked during our Microsoft Copilot &amp; AI Tools training sessions on September 10, September 22, and October 13, 2026. If you attended any of the sessions, you may recognize your question here. If you missed a session, this is a great place to start. We have also added some questions that come up often at the Help Desk so you have everything in one place.</p>
-  <p>If you do not see your question answered here, please reach out to the IT Help Desk. This page is updated after every session, so the questions your colleagues ask at the final session on Friday, October 30 will appear here too.</p>
+  <p>This FAQ was built from the questions you asked during our Microsoft Copilot &amp; AI Tools training sessions on September 10, September 22, October 13, and October 30, 2026. If you attended any of the sessions, you may recognize your question here. If you missed a session, this is a great place to start. We have also added some questions that come up often at the Help Desk so you have everything in one place.</p>
+  <p>The series wrapped up on October 30. The <a href="https://cfsny.sharepoint.com/_layouts/15/stream.aspx?id=%2FSiteAssets%2FIT%2DHelp%2DResources%2FSession%204%20Microsoft%20Copilot%20%5F%20AI%20Tools%20Training%20Session%2D20261030%5F110234%2DMeeting%20Recording%2Emp4" target="_blank" rel="noopener noreferrer">recording</a>, the <a href="https://cfsny.sharepoint.com/SiteAssets/IT-Help-Resources/Copilot_AI_Tools_Training.pptx" target="_blank" rel="noopener noreferrer">slide deck</a>, and the <a href="https://www.cfsny.org/wp-content/uploads/2026/09/Copilot_AI_Tools_Quick_Reference_Card_v1.pdf" target="_blank" rel="noopener noreferrer">Quick Reference Card</a> are posted on the IT Help &amp; Resources page alongside this FAQ. If you do not see your question answered here, please reach out to the IT Help Desk; questions that come in by email get added to this page too.</p>
 </section>
 
 <nav class="toc" aria-label="Table of contents">
@@ -266,7 +266,10 @@
         <li><a href="#q-no-work-web">I Don&rsquo;t See Work and Web</a></li>
         <li><a href="#q-through-teams">Do I Have to Use Teams?</a></li>
         <li><a href="#q-which-copilot">Which Copilot Do I Have?</a></li>
+        <li><a href="#q-license-check">How Do I Know If I Have a License?</a></li>
         <li><a href="#q-license-process">How to Request a Full License</a></li>
+        <li><a href="#q-teams-personal-account">Teams Is Signed In With My Personal Account</a></li>
+        <li><a href="#q-teams-view">I Only See the Gallery, Not the Slides</a></li>
         <li><a href="#q-hands-on">The Hands On Exercise, Step by Step</a></li>
         <li><a href="#q-good-prompt">What Makes a Good Prompt</a></li>
         <li><a href="#q-learns-you">Does Copilot Learn How I Work?</a></li>
@@ -282,6 +285,7 @@
         <li><a href="#q-green-shield">The Green Shield</a></li>
         <li><a href="#q-public-ai">ChatGPT and Other AI Tools</a></li>
         <li><a href="#q-incident-report">Drafting an Incident Report</a></li>
+        <li><a href="#q-incident-database">Pulling From the Incident Database</a></li>
         <li><a href="#q-when-not">When Not to Use AI</a></li>
       </ul>
     </div>
@@ -293,6 +297,19 @@
         <li><a href="#q-slow">Is Copilot Supposed to Be This Slow?</a></li>
         <li><a href="#q-export-word">Getting the Result as a Word Document</a></li>
         <li><a href="#q-scanned">Scanned Documents</a></li>
+        <li><a href="#q-priority">What Still Needs a Response?</a></li>
+        <li><a href="#q-spanish">Spanish and Other Languages</a></li>
+        <li><a href="#q-undo">Is There an Undo Button?</a></li>
+      </ul>
+    </div>
+    <div class="toc-section">
+      <h3>Time Savers</h3>
+      <ul>
+        <li><a href="#q-scheduled-prompts">Putting Copilot on a Schedule</a></li>
+        <li><a href="#q-four-prompts">Four Scheduled Prompts to Copy</a></li>
+        <li><a href="#q-scheduled-no-license">Scheduled Prompts Without a License</a></li>
+        <li><a href="#q-outlook-rules">Outlook Rules, Folders, and Quick Steps</a></li>
+        <li><a href="#q-copilot-writes-steps">Let Copilot Write the Steps</a></li>
       </ul>
     </div>
     <div class="toc-section">
@@ -315,15 +332,19 @@
         <li><a href="#q-charlie-vs-copilot">Charlie vs. Copilot</a></li>
         <li><a href="#q-hr-bot">Can My Team Build an HR Bot?</a></li>
         <li><a href="#q-charlie-gaps">When Charlie Doesn&rsquo;t Know</a></li>
+        <li><a href="#q-what-is-agent">What Is an Agent?</a></li>
         <li><a href="#q-build-agent">Building Your Own Agent</a></li>
+        <li><a href="#q-agent-steps">Building One in Five Minutes, Step by Step</a></li>
+        <li><a href="#q-agent-sharing">Sharing an Agent With Others</a></li>
       </ul>
     </div>
     <div class="toc-section">
       <h3>About the Series</h3>
       <ul>
-        <li><a href="#q-dates">The Final Session</a></li>
-        <li><a href="#q-challenge">This Week&rsquo;s Challenge</a></li>
+        <li><a href="#q-dates">Is the Series Over?</a></li>
+        <li><a href="#q-challenge">Four Things to Try This Week</a></li>
         <li><a href="#q-materials">Recording and Materials</a></li>
+        <li><a href="#q-whats-next">What Comes Next</a></li>
         <li><a href="#q-private-question">Asking Privately</a></li>
       </ul>
     </div>
@@ -379,15 +400,40 @@
     <div class="back-to-top"><a href="#top">Back to top</a></div>
   </div>
 
+  <div class="qa" id="q-license-check">
+    <h3>How do I know if I have a license? Is there a logo or a checkmark to look for?</h3>
+    <p>There is no badge on your account, but there is a thirty second test. Open <strong>Word</strong>. If you see a <strong>Copilot</strong> button on the Home tab of the ribbon, you have the full Microsoft 365 Copilot license. If you do not, you have Copilot Chat, which is the version everyone at CFS has, and most of this FAQ still applies to you.</p>
+    <p>A second tell: licensed users see Copilot inside Outlook, Excel, PowerPoint, and in the Recap tab of Teams meetings, and they can schedule prompts (see <a href="#q-scheduled-prompts">Time Savers</a> below). Copilot Chat users see the Copilot icon in Teams and in the browser, with the green shield, but not inside the Office apps. Still not sure? Email the Help Desk and we will tell you in one line.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
   <div class="qa" id="q-license-process">
     <h3>How do I get a full Microsoft 365 Copilot license?</h3>
     <p>Start by using Copilot Chat for a while. It is free with your Microsoft 365 account, it does more than most people expect, and it will teach you how to ask well, which is the skill that matters most. If after that you find your role would benefit from Copilot inside Word, Excel, PowerPoint, Outlook, and meetings, here is the path:</p>
     <ul>
-      <li>Talk with your <strong>supervisor</strong> first. Licenses are assigned by role and need, and your supervisor makes the request.</li>
-      <li>Your supervisor contacts the <strong>Help Desk</strong>, and the request goes to the Copilot Committee.</li>
-      <li>If approved, you receive a welcome email from Jim with your license details and a short guide to getting started.</li>
+      <li>Talk with your <strong>supervisor</strong> first. Licenses are assigned by role and need, and your supervisor is the one who nominates you.</li>
+      <li>Your supervisor submits the nomination through the <strong>Copilot Committee</strong> (the Help Desk can point them to the form). The Committee reviews nominations and license availability each quarter.</li>
+      <li>You will hear back either way. If approved, you receive a welcome email from Jim with your license details and a short guide to getting started.</li>
     </ul>
-    <p>Licenses are limited right now, and Jim would hand one to everyone if it were feasible. Two things are moving in your favor: the agency is adding licenses in batches, and Microsoft keeps adding features to the free Copilot Chat that used to need a license, the morning briefing being the best example.</p>
+    <p>Licenses are limited right now, and Jim would hand one to everyone if it were feasible. What persuades the Committee is a good case, and here is what one looks like: a specific, recurring task rather than &ldquo;I want to try it&rdquo;; an honest estimate of the time it takes you today; what you would do with that time instead; and, as a bonus, one prompt you already use in Copilot Chat. &ldquo;The Monday report takes me ninety minutes, here is the prompt I already use, and I would schedule it to run Sunday night&rdquo; moves a nomination. Two things are also working in your favor: the agency adds licenses in batches, and Microsoft keeps moving features into the free Copilot Chat that used to need a license.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-teams-personal-account">
+    <h3>Teams is signed in with my personal email and it will not let me add my CFS account. What do I do?</h3>
+    <p>This came up at the October 30 session, and it is a sign in issue, not a Copilot issue. If Teams opened under a personal Microsoft account, the CFS tenant will refuse it with a message like &ldquo;you don&rsquo;t have the required permissions to access this org.&rdquo; The fix is to get the personal account out of the way rather than to add a second one on top of it.</p>
+    <ul>
+      <li>In Teams, click your profile picture (top right) and <strong>sign out</strong> completely. Close Teams.</li>
+      <li>Reopen Teams and sign in with your <strong>@cfsny.org</strong> address and your CFS password, approving the Authenticator prompt if asked.</li>
+      <li>Once you are in, open Copilot from the left rail and confirm the <strong>green shield</strong> at the top right.</li>
+    </ul>
+    <p>If the personal account keeps coming back, or you are on a shared or personal computer where you cannot sign out, use the browser instead: go to <strong>m365.cloud.microsoft/chat</strong> in a private or InPrivate window and sign in with your CFS account. And if none of that works, email the Help Desk; Anthony can sort it out on a quick screen share.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-teams-view">
+    <h3>During the training I only saw the gallery of faces, not the slides. How do I see what is being shared?</h3>
+    <p>Teams let you pick what is on screen during a meeting. If someone is sharing slides and you see only the camera gallery, click <strong>View</strong> at the top of the meeting window and choose <strong>Speaker</strong> or <strong>Focus on content</strong>. The shared screen comes to the front and the faces move to the side. This is also the setting to check if a presenter&rsquo;s screen looks tiny: Focus on content gives it the whole window.</p>
     <div class="back-to-top"><a href="#top">Back to top</a></div>
   </div>
 
@@ -397,9 +443,9 @@
     <ul>
       <li>Open Teams and click the <strong>Copilot</strong> icon on the left rail (it sits with Chat, Calendar, and OneDrive).</li>
       <li>Type <strong>Turn these notes into an agenda.</strong> Then paste the block of meeting notes from the session chat underneath it and press Enter. Copilot builds what it thinks an agenda is.</li>
-      <li>Start a new prompt with the <strong>same notes</strong>, but change only the instruction: <strong>Turn these notes into a 30 minute agenda. Put the items in a sensible order and give each one a time allocation.</strong> Try 15 minutes too and watch it tighten up.</li>
+      <li>Start a new prompt with the <strong>same notes</strong>, but change only the instruction. Use the first card under <strong>Everyday</strong> in the Prompt Library: <strong>Turn these notes into a 15 minute agenda for a program team meeting. Put the items in a sensible order, give each one a time, and add one sentence describing what we need to decide. Finish with a short list of who should come prepared with what.</strong> Try 30 minutes too and watch it stretch.</li>
     </ul>
-    <p>Compare the results. The notes never changed; only the way you asked changed, and you got a completely different answer. That is the one skill the whole series is built on. Everything else we showed is that skill pointed at your inbox, your meetings, and your files.</p>
+    <p>Compare the results. The notes never changed; only the way you asked changed, and you got a completely different answer. That is the one skill the whole series is built on. Everything else we showed is that skill pointed at your inbox, your meetings, and your files. At the October 30 session seven people pasted their agendas into the chat within two minutes, and no two were alike, even from the same prompt. That is normal.</p>
     <p>Two things people noticed during the exercise. First, the order does not matter: Anthony likes to give the instruction first and the notes second, Jim does it the other way around, and both work. Second, your result will not match your neighbor&rsquo;s even with identical notes and an identical prompt. Copilot words things a little differently every time. That is normal, not a mistake.</p>
     <div class="callout">
       <p class="callout-label">Want a Hand?</p>
@@ -492,6 +538,13 @@
     <div class="back-to-top"><a href="#top">Back to top</a></div>
   </div>
 
+  <div class="qa" id="q-incident-database">
+    <h3>Can I ask Copilot to pull information from our incident database, for example every incident closed before a certain date?</h3>
+    <p>Not directly. Copilot can only see what lives in Microsoft 365: your Outlook mail and calendar, your Teams meetings and chats, and your OneDrive and SharePoint files. It has no connection to the incident system, to Therap, to eVero, or to any of our other line of business applications, so a question like &ldquo;list every incident with a closure date before October 1&rdquo; comes back empty or, worse, with something plausible that Copilot made up to fill the gap.</p>
+    <p>What works is a two step approach. Run the report inside the incident system the way you do today, export it to Excel, and save it in your OneDrive. Then Copilot can work on the file: licensed users open it in Excel and ask Copilot directly (&ldquo;which program had the most incidents closed in September?&rdquo;), and Copilot Chat users can point to the file with the forward slash picker in Teams. Before you do either, apply the rule from <a href="#q-pii-list">What Must Stay Out</a>: an incident export names clients and describes what happened to them, which is exactly the information that stays out of AI tools unless CFS policy specifically allows it. In practice that means stripping the names and identifying details, or working from a count or summary report rather than the case level detail. If you are unsure whether a particular report is allowed, ask Charlie first, and if Charlie cannot answer, email the Help Desk and we will work it out with you.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
   <div class="qa" id="q-when-not">
     <h3>When should I not use AI at all?</h3>
     <p>Any conversation that requires your judgment and your own voice. A hard conversation with a family, a board member, an employee, or a colleague deserves your words, not a draft you reviewed. If Jim has something serious to say to Peter, he wants Peter to know it came from him, from the heart, not from an AI. Those moments call for dialogue, listening, and your presence.</p>
@@ -543,6 +596,78 @@
   <div class="qa" id="q-scanned">
     <h3>Can Copilot work with a document I scanned on the copier?</h3>
     <p>Yes. A scanned document becomes a PDF, and Copilot can read PDFs and Word documents alike. Upload it, or point Copilot at it in OneDrive by typing a forward slash and picking the file, then ask for what you need: &ldquo;Read these 30 pages and give me the five most important points.&rdquo; Two things to remember: be specific about what you want pulled out, or you will get five bullets about the wrong thing, and check the highlights against the original before you rely on them.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-priority">
+    <h3>Can Copilot tell me what in a long message still needs a response from me?</h3>
+    <p>Yes, and one colleague discovered this during the October 30 session while the demo was still running. She pasted a message into Copilot and asked it to review it and tell her what still needed completion. Copilot came back with a high, medium, and low priority list of what needed a response. Try the same thing on your longest unanswered email: paste it in (Work mode, green shield showing, nothing that names a client) and ask &ldquo;What in this message still needs an answer from me, in priority order?&rdquo; Then read the original once to confirm the list before you act on it.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-spanish">
+    <h3>Can I use Copilot with the Spanish speaking families I work with?</h3>
+    <p>Yes. Ask Copilot to draft in Spanish, or to translate something you wrote, and it will. Give it the same four parts as any other prompt (goal, context, source, format) and add the audience: &ldquo;Draft this in plain, warm Spanish for a family member with no background in the program.&rdquo; Licensed users can also speak to Copilot in Spanish instead of typing (see the Tech Minute issue on talking to Copilot). Two rules do not change: read it before it goes out, ideally with a Spanish speaking colleague the first few times, and keep the client&rsquo;s name and details out of the prompt. Copilot translates just as well for &ldquo;the family&rdquo; as for a named person.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-undo">
+    <h3>Is there an undo button?</h3>
+    <p>Not in the chat, and you do not need one, because Copilot never changes anything on its own. A draft in Copilot Chat is just text in the chat window until you copy it somewhere; your email, your document, and your files are untouched until you decide otherwise. If a result is wrong, tell it what to change or start a new chat. Inside Word, Excel, or PowerPoint, Copilot&rsquo;s edits go through the normal <strong>Undo</strong> (Ctrl+Z), and the file&rsquo;s version history in OneDrive is there as a backstop. The things you build, a scheduled prompt, an Outlook rule, or an agent, can all be turned off, edited, or deleted from the same place you created them, with nothing lost in between.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+</section>
+
+<!-- TIME SAVERS SECTION (added after the October 30 session) -->
+<section class="section">
+  <h2>Time Savers</h2>
+
+  <div class="qa" id="q-scheduled-prompts">
+    <h3>What is a scheduled prompt, and how do I set one up?</h3>
+    <p>A scheduled prompt is a prompt you write once that Copilot runs for you on the days and times you choose, even overnight, and emails you when the answer is ready. It is Jim&rsquo;s favorite thing in the license and the reason the final session replaced the scenarios from earlier sessions with this section. It needs the full Microsoft 365 Copilot license; Copilot Chat users, see <a href="#q-scheduled-no-license">below</a>.</p>
+    <ul>
+      <li><strong>Write it once, run it once.</strong> Send the prompt in Copilot Chat and make sure you like the answer before you schedule it.</li>
+      <li><strong>Hover the prompt and click Schedule this prompt.</strong> A small clock icon appears on any prompt you have already sent.</li>
+      <li><strong>Pick when, and ask for the email.</strong> Choose the time, the frequency (daily, weekly, monthly), how many times it should run, and check the box that says email me when it is ready. Click Schedule.</li>
+    </ul>
+    <p>To manage them later, click the three dots at the top of Copilot, then <strong>Scheduled prompts</strong>. From that panel you can run one right now, edit the schedule, turn it off, or delete it. You can have up to ten per person. Results land in bold in your Chats list, and in your inbox if you asked for the email.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-four-prompts">
+    <h3>What were the four scheduled prompts from the session?</h3>
+    <p>Four prompts, four moments in the week. Copy them as they are, run each one once, then schedule it.</p>
+    <ul>
+      <li><strong>Monday, 7:30 AM, priority meetings:</strong> &ldquo;List my meetings this week in order of priority. For each one, tell me who is attending, what I need to prepare, and flag any that overlap or have no agenda.&rdquo;</li>
+      <li><strong>Friday, 4:00 PM, week wrap up:</strong> &ldquo;Summarize what I accomplished this week from my sent email, meetings, and the files I edited. List anything I promised someone and have not delivered, then draft a short status update I can send my supervisor.&rdquo;</li>
+      <li><strong>First of the month, monthly time review:</strong> &ldquo;Add up my meeting hours last month by type (recurring, one on one, external, agency wide). Tell me which three recurring meetings took the most hours and whether any ran over their scheduled time, then draft a short month end recap I could send my supervisor.&rdquo;</li>
+      <li><strong>Wednesday, 9:00 AM, waiting on a reply:</strong> &ldquo;List emails I sent 10 or more days ago that never got a reply, with the person&rsquo;s name and what I asked for. Draft a two sentence follow up for each.&rdquo;</li>
+    </ul>
+    <p>The monthly time review is the eye opener. Most of us have never seen where our meeting hours went; this hands you that number every month without anyone having to ask. All four are also in the <a href="https://jnoriega-cfs.github.io/cfs-intranet-tools/index.html" target="_blank" rel="noopener noreferrer">Prompt Library</a>.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-scheduled-no-license">
+    <h3>I do not have a license. Can I still use those prompts?</h3>
+    <p>Yes. Scheduling is the licensed part; the prompts themselves work in Copilot Chat. Paste the same prompt in on the day, in Work mode with the green shield showing, and press Enter yourself. Same answer, you just press the button. The one difference is reach: Copilot Chat can reason over your Outlook mail and calendar, but the prompts that look at the files you edited will have less to work with without the license.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-outlook-rules">
+    <h3>Jim said rules and folders are not AI. Why were they in the training?</h3>
+    <p>Because they are the five minutes that make every other prompt faster. &ldquo;Catch me up on my inbox&rdquo; works far better when the automatic mail is already out of the way. No license needed for any of this.</p>
+    <ul>
+      <li><strong>Rules.</strong> Right click a message, then <strong>Rules</strong>, then <strong>Create rule</strong>. Send newsletters, system notifications, and automated reports to their own folder before they hit your inbox. Review that folder once a day, not sixty times.</li>
+      <li><strong>Folders.</strong> One per project or recurring task, not one per person. Once mail is organized that way, &ldquo;summarize this folder&rdquo; and &ldquo;what is still open in here?&rdquo; are real questions Copilot can answer. Keep the inbox for things that need you.</li>
+      <li><strong>Quick Steps.</strong> On the Home tab in Outlook, <strong>Quick Steps</strong>, then <strong>New</strong>. One click moves a message to a folder, marks it read, and flags it for Friday. Build one for your three busiest folders.</li>
+    </ul>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-copilot-writes-steps">
+    <h3>I am not sure how to build a rule or a Quick Step. Can Copilot help?</h3>
+    <p>Ask it to write the instructions. For example: &ldquo;Give me step by step instructions to create an Outlook rule that moves every email from HelpDesk@CFSNY.org into a folder called IT.&rdquo; Copilot hands back numbered steps for your version of Outlook, and you follow them. That is Copilot teaching you Outlook, and it works for almost any &ldquo;how do I&rdquo; question about Word, Excel, Teams, or OneDrive too. For CFS specific questions (what our policy says, who to contact), ask Charlie instead.</p>
     <div class="back-to-top"><a href="#top">Back to top</a></div>
   </div>
 
@@ -647,9 +772,33 @@
     <div class="back-to-top"><a href="#top">Back to top</a></div>
   </div>
 
+  <div class="qa" id="q-what-is-agent">
+    <h3>What is an agent? I keep hearing the word.</h3>
+    <p>An agent is Copilot with a job description and its own knowledge. That is the whole definition. You have been using one for months: Charlie&rsquo;s job description is CFS, its knowledge is our policies and guides, and that is why it cites the actual documents instead of giving you a generic answer. Facilitator (the one that takes live notes in Teams meetings) and Researcher are two more, already working behind the scenes here.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
   <div class="qa" id="q-build-agent">
     <h3>I have an idea for an agent that could automate a repetitive task. Can I build one?</h3>
-    <p>Please bring the idea to the Help Desk rather than building it yourself. Send a brief description of the repetitive task, and we will get back to you and work with you on it. The Help Desk routes agent ideas to the AI Center of Excellence, which is how we keep every agent governed, supported, and secure. Once your agent is working the way you want, it is yours, and if it would help others we can share it across the agency the way we did with Charlie. The ideas most worth bringing are the tasks you repeat every week and wish you did not have to.</p>
+    <p>Yes, if you have the full Microsoft 365 Copilot license, and Jim built one live at the October 30 session in about five minutes from one paragraph of plain English (the steps are in the <a href="#q-agent-steps">next question</a>). If you do not have a license, bring the idea to the Help Desk with a brief description of the repetitive task and we will work on it with you.</p>
+    <p>Either way, the rule is the same: <strong>you build it, you share it with the people you name, and IT publishes it agency wide.</strong> Anything meant for the whole agency goes through IT and the AI Center of Excellence, which is how every agent stays accurate, governed, and supported (policy IT-AI-001). The ideas most worth building are the tasks you repeat every week and wish you did not have to, and before you build an HR bot, read <a href="#q-hr-bot">the question above</a>: Charlie already does that job with the real policy cited.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-agent-steps">
+    <h3>How do I build an agent in five minutes?</h3>
+    <p>Three steps, all inside Teams. Describe the job in one paragraph; Copilot writes the name, the description, and the instructions; you test it, then click Create.</p>
+    <ul>
+      <li><strong>Describe it.</strong> In Teams: Copilot, then <strong>Agents</strong>, then <strong>New agent</strong>. Type one paragraph: what it does, who it is for, and what it must never do. For us that last part is always the same: no client names, no personal information. Jim&rsquo;s example was a &ldquo;Plain Language Helper&rdquo; that rewrites workplace writing so a family member or a Direct Support Professional with no background in the topic can follow it on one read, and that refuses to rewrite anything naming a client.</li>
+      <li><strong>Give it only what the job needs.</strong> Under <strong>Knowledge</strong>, turn off Cloud files, Outlook, Teams, and Web search unless the job needs them. A rewriting helper does not need your mailbox. This is the privacy habit from Where the Line Is, applied to agents, and it is also the difference between what you build and Charlie: Charlie is this same screen with our policies added.</li>
+      <li><strong>Preview, then Create.</strong> Test it on real writing, and test it on a fake client name to confirm it refuses. Create keeps it private; only you can see it.</li>
+    </ul>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-agent-sharing">
+    <h3>Can I share the agent I built with my team?</h3>
+    <p>Yes. An agent is private by default. From the Agents list you can share it with named colleagues, and they use it from their own Copilot. Publishing it to the whole agency is different: that goes through IT and the AI Center of Excellence, so that someone checks the instructions, the knowledge it reaches, and who supports it when a policy changes. Email the Help Desk when you have one that is working well and would help others; sharing it across the agency the way we did with Charlie is exactly what the Center of Excellence is for.</p>
     <div class="back-to-top"><a href="#top">Back to top</a></div>
   </div>
 
@@ -660,26 +809,40 @@
   <h2>About the Series</h2>
 
   <div class="qa" id="q-dates">
-    <h3>When is the last session, and do I have to attend if I already came to one?</h3>
-    <p>The final offering of this session is <strong>Friday, October 30 at 11:00 AM</strong> on Teams. The same session was offered on September 10, September 22, and October 13, so if you attended one of those you have seen it. You are welcome to come again; several people have, and the questions are different every time. The join link is on the Series 3 card on the IT Help &amp; Resources page.</p>
+    <h3>Is the series over? I missed all four dates.</h3>
+    <p>The Copilot &amp; AI Tools series wrapped up with its final session on <strong>Friday, October 30, 2026</strong>. The same session was offered on September 10, September 22, October 13, and October 30. If you missed all four, you have not missed the content: the <a href="https://cfsny.sharepoint.com/_layouts/15/stream.aspx?id=%2FSiteAssets%2FIT%2DHelp%2DResources%2FSession%204%20Microsoft%20Copilot%20%5F%20AI%20Tools%20Training%20Session%2D20261030%5F110234%2DMeeting%20Recording%2Emp4" target="_blank" rel="noopener noreferrer">recording of the October 30 session</a> is posted, along with the slide deck and the Quick Reference Card, and this FAQ collects the questions from all four dates. Watch the recording with Teams open and do the hands on exercise along with it.</p>
     <div class="back-to-top"><a href="#top">Back to top</a></div>
   </div>
 
   <div class="qa" id="q-challenge">
     <h3>What was the challenge Jim gave us at the end?</h3>
-    <p>Three things, before the end of the week:</p>
+    <p>Four things, and the assignment is to pick <strong>one</strong> and actually do it before Friday, not to try all four. If you only pick one, make it the first.</p>
     <ul>
-      <li><strong>Everyone:</strong> tomorrow morning, before you answer a single email, open Outlook on your computer, click the morning briefing, and ask it one follow up question. See whether it is useful to you. If it is not, no hard feelings; tell the Help Desk what did not work.</li>
-      <li><strong>Everyone:</strong> take one email you have been avoiding and draft it with Copilot. Give it the tone, the audience, and the length you want, go back and forth until it sounds like you, and then send it in your own words.</li>
-      <li><strong>Licensed users:</strong> use Copilot in an application you have not tried yet. Comfortable in Word? Ask it to summarize or rewrite a document in Excel or PowerPoint. The original is untouched, so there is nothing to lose.</li>
+      <li><strong>Everyone:</strong> tomorrow morning, before you open a single email, ask Copilot: &ldquo;Catch me up on my inbox.&rdquo;</li>
+      <li><strong>Everyone:</strong> take one email you have been avoiding. Draft the reply with Copilot, edit it until it sounds like you, and send it.</li>
+      <li><strong>Everyone:</strong> create one Outlook rule that moves something automatic out of your inbox for good (see <a href="#q-outlook-rules">Time Savers</a>).</li>
+      <li><strong>Licensed users:</strong> schedule one prompt: the Friday wrap up, 4:00 PM, email me when it is ready (see <a href="#q-four-prompts">the four prompts</a>).</li>
     </ul>
-    <p>Then tell us what you found. Jim is collecting &ldquo;aha moments&rdquo; to share in the CFS Tech Minute, so if Copilot saved you an hour, we would love to hear about it.</p>
+    <p>Earlier sessions had a slightly different list (the morning briefing, and trying Copilot in an app you had not used yet); those still count. Then tell us what you found. Jim is collecting &ldquo;aha moments&rdquo; to share in the CFS Tech Minute, so if Copilot saved you an hour, we would love to hear about it.</p>
     <div class="back-to-top"><a href="#top">Back to top</a></div>
   </div>
 
   <div class="qa" id="q-materials">
     <h3>Where are the recording and the materials?</h3>
-    <p>The Quick Reference Card and this FAQ are on the IT Help &amp; Resources page now, and the FAQ grows after every session, so check back. The slide deck and a recording will be posted there when the series wraps up after October 30, the same way Series 1 and 2 were. The same page also has the Prompt Library, the CFS Tech Minute, the IT security policies, and short Microsoft videos on Word, Excel, PowerPoint, Teams, and OneDrive.</p>
+    <p>Everything is on the Series 3 card of the <a href="https://jnoriega-cfs.github.io/cfs-intranet-tools/it-help.html" target="_blank" rel="noopener noreferrer">IT Help &amp; Resources page</a>, the same way Series 1 and 2 are posted:</p>
+    <ul>
+      <li><a href="https://cfsny.sharepoint.com/_layouts/15/stream.aspx?id=%2FSiteAssets%2FIT%2DHelp%2DResources%2FSession%204%20Microsoft%20Copilot%20%5F%20AI%20Tools%20Training%20Session%2D20261030%5F110234%2DMeeting%20Recording%2Emp4" target="_blank" rel="noopener noreferrer">The recording</a> of the final session (October 30, 2026), which includes the live demo, the agent build, and the scheduled prompt</li>
+      <li><a href="https://cfsny.sharepoint.com/SiteAssets/IT-Help-Resources/Copilot_AI_Tools_Training.pptx" target="_blank" rel="noopener noreferrer">The slide deck</a></li>
+      <li><a href="https://www.cfsny.org/wp-content/uploads/2026/09/Copilot_AI_Tools_Quick_Reference_Card_v1.pdf" target="_blank" rel="noopener noreferrer">The Quick Reference Card</a>, which AI tool do I use, with the scheduled prompt row</li>
+      <li>This FAQ, and the <a href="https://jnoriega-cfs.github.io/cfs-intranet-tools/index.html" target="_blank" rel="noopener noreferrer">Prompt Library</a> with the four scheduled prompts under Everyday</li>
+    </ul>
+    <p>The same page also has the CFS Tech Minute, the IT security policies, and short Microsoft videos on Word, Excel, PowerPoint, Teams, and OneDrive.</p>
+    <div class="back-to-top"><a href="#top">Back to top</a></div>
+  </div>
+
+  <div class="qa" id="q-whats-next">
+    <h3>What comes next? The road map showed a Series 4 in November.</h3>
+    <p>Series 4 (Security &amp; Best Practices) will not run in November as originally shown on the road map slide. Instead, IT would like to hear from you first: what you thought of the 2026 series, which of the three you would want repeated, and what you would like to see in 2027. Watch for a short poll from IT. Security never stops being a topic, so the weekly CFS Tech Minute will keep carrying the practical security tips in the meantime, and Charlie and the Help Desk are always there for the rest.</p>
     <div class="back-to-top"><a href="#top">Back to top</a></div>
   </div>
 
@@ -692,8 +855,8 @@
 </section>
 
 <footer class="farewell">
-  <p>Last Updated: October 2026 (after Session 3)</p>
-  <p>Microsoft Copilot &amp; AI Tools Training &mdash; Series 3 of 4</p>
+  <p>Last Updated: October 30, 2026 (series complete)</p>
+  <p>Microsoft Copilot &amp; AI Tools Training &mdash; Series 3, 2026 Training Series</p>
   <p class="signoff">Stay safe and be well.</p>
   <p class="attribution">Jim Noriega and the CFS IT Team</p>
 </footer>
