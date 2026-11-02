@@ -791,12 +791,14 @@
           <p class="tile-desc">Browse the OneDrive &amp; SharePoint FAQ — 32 answers from our recent training series.</p>
         </a>
 
-        <a class="tile" href="https://jnoriega-cfs.github.io/cfs-intranet-tools/CFS-Email-Flyer-DSP.pdf" target="_blank" rel="noopener noreferrer">
+        <!-- Reset Your Password tile (added 11/2/2026, replaced the duplicate "Check Your CFS Email" tile, which remains as a Featured card below).
+             Self Service Password Reset has been live agency wide since July 2026; see Tech Minute Issue #09. -->
+        <a class="tile" href="https://aka.ms/sspr" target="_blank" rel="noopener noreferrer">
           <div class="tile-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
           </div>
-          <h3 class="tile-title">Check Your CFS Email</h3>
-          <p class="tile-desc">Why your agency email matters — and how to check it on your phone in minutes.</p>
+          <h3 class="tile-title">Reset Your Password</h3>
+          <p class="tile-desc">Forgot your CFS password? Reset it yourself in about two minutes from any browser or phone, any hour of the day. First time? Set up at aka.ms/ssprsetup.</p>
         </a>
 
         <!-- IT Policies tile (replaced "Watch a Tutorial"). IMPORTANT: replace the href below with the URL of the
@@ -967,10 +969,11 @@
 
     </div>
 
-    <!-- ============= Meet Charlie (greeter), between the Training Series and Browse by App ============= -->
-    <!-- Charlie's animated face and spoken welcome. Source: charlie.html in this repo (same folder as this page).
-         To move Charlie elsewhere later (intranet home page, lobby kiosk), point an Embed web part or a browser at
-         https://jnoriega-cfs.github.io/cfs-intranet-tools/charlie.html (add #kiosk for the full screen kiosk view). -->
+    <!-- ============= Meet Charlie (greeter) HIDDEN 11/2/2026 =============
+         The animated Charlie greeter (charlie.html in this repo) is turned off until Charlie answers reliably.
+         The Ask Charlie links in the hero tiles and the Get Help sidebar stay live.
+         TO RESTORE: delete this comment wrapper (the opening line above and the closing line below) and the
+         section and script inside will render again. charlie.html itself is untouched. The .charlie-section CSS is still in the head.
     <section class="charlie-section" id="meet-charlie" aria-label="Meet Charlie, the CFS AI assistant">
       <iframe id="charlie-frame" src="charlie.html" title="Meet Charlie, the CFS AI assistant" loading="lazy" allow="autoplay"></iframe>
     </section>
@@ -982,6 +985,7 @@
         }
       });
     </script>
+    ============= end hidden Meet Charlie greeter ============= -->
 
 
     <!-- ============= Browse by App ============= -->
