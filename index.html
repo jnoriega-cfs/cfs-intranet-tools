@@ -95,18 +95,9 @@
   <div class="results-count" id="count"></div>
   <div class="cards" id="cards"></div>
   <div class="gen-section">
-    <h2>Generate a custom prompt</h2>
-    <p>Describe your situation and the AI will write a ready-to-use Microsoft Copilot prompt tailored for CFS.</p>
-    <div class="gen-row">
-      <input type="text" id="gen-input" placeholder="e.g. I need to prepare for a grant renewal meeting with funders&hellip;">
-      <button class="gen-btn" id="gen-btn" onclick="generate()">Generate</button>
-    </div>
-    <p class="gen-note">Tip: Include who the audience is and what you want the result to look like. Always review the prompt before using it in Copilot.</p>
-    <div class="gen-output" id="gen-output"></div>
-    <div class="gen-actions" id="gen-actions">
-      <button class="gen-copy-btn" id="gen-copy-btn" onclick="copyGenerated()">Copy prompt</button>
-      <button class="gen-add-btn" onclick="addGenerated()">+ Add to library</button>
-    </div>
+    <h2>Need a custom prompt?</h2>
+    <p>The prompt generator on this page has been retired. Copilot can write a custom prompt for you: open Microsoft 365 Copilot and type <strong>&ldquo;Help me write a prompt for&hellip;&rdquo;</strong> followed by your situation.</p>
+    <p class="gen-note">Tip: Include who the audience is and what you want the result to look like. Always review the prompt before using it. Questions? Contact the IT Helpdesk.</p>
   </div>
   <div class="footer">Center for Family Support &middot; IT Department &middot; Microsoft 365 Copilot Committee &middot; 2026</div>
 </div>
@@ -209,40 +200,6 @@ function render(){
   });
 }
 
-document.getElementById("gen-input").addEventListener("keydown",function(e){if(e.key==="Enter")generate();});
-
-function generate(){
-  var input=document.getElementById("gen-input").value.trim();
-  if(!input)return;
-  var btn=document.getElementById("gen-btn");
-  var out=document.getElementById("gen-output");
-  var actions=document.getElementById("gen-actions");
-  btn.disabled=true;btn.textContent="Generating\u2026";
-  out.style.display="block";out.textContent="Writing your prompt\u2026";
-  actions.style.display="none";generatedPrompt=null;
-  fetch("https://cfs-ai-proxy.jnoriega.workers.dev",{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({
-      model:"claude-sonnet-4-6",max_tokens:1000,
-      system:"You are an expert Microsoft Copilot prompt engineer for CFS, a nonprofit serving individuals with intellectual and developmental disabilities in NY and NJ. Write a single ready-to-use Copilot prompt from the user's situation. Use imperative form. Return only the prompt, no preamble or quotes.",
-      messages:[{role:"user",content:"Situation: "+input+"\n\nWrite the Copilot prompt."}]
-    })
-  }).then(function(r){
-    return r.json().then(function(d){return {ok:r.ok,status:r.status,d:d};});
-  }).then(function(res){
-    if(!res.ok||!res.d||!res.d.content){
-      var msg=(res.d&&res.d.error&&res.d.error.message)||("HTTP "+res.status);
-      console.error("Generator error:",res.d);
-      throw new Error(msg);
-    }
-    var text=res.d.content.filter(function(b){return b.type==="text";}).map(function(b){return b.text;}).join("");
-    out.textContent=text;generatedPrompt=text;actions.style.display="flex";
-  }).catch(function(err){
-    console.error(err);
-    out.textContent="Unable to generate right now. Please contact IT. ("+(err&&err.message?err.message:"unknown error")+")";
-  }).finally(function(){btn.disabled=false;btn.textContent="Generate";});
-}
 
 function copyGenerated(){
   if(!generatedPrompt)return;
